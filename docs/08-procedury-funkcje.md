@@ -93,7 +93,7 @@ Użycie modyfikatora `REGISTER` spowoduje że trzy pierwsze parametry formalne *
     // b = ecx
     // c = eax
 
-#### register
+#### interrupt
 
 **Procedury/Funkcje** oznaczone przez `INTERRUPT` kompilator będzie kończył rozkazem `RTI` (standardowo `RTS`). Niezależnie czy w programie wystąpi wywołanie takiej **procedury/funkcji** kompilator zawsze wygeneruje dla niej kod. Zaleca się używanie bloku `ASM` w przypadku takich **procedur/funkcji**, w innym przypadku stos programowy Mad Pascala zostanie zniszczony, co może doprowadzić do niestabilnego działania programu, łącznie z zawieszeniem się komputera. Na wejściu **procedury/funkcji** oznaczonej przez `INTERRUPT` programista musi zadbać o zachowanie rejestrów **CPU** `A` `X` `Y`, na wyjściu o przywrócenie stanu takich rejestrów, kompilator ogranicza się tylko do wstawienia końcowego rozkazu `RTI`.
 
