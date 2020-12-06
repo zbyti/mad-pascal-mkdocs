@@ -4,7 +4,7 @@
 
 **MP** pozwala na przekazanie do procedury maksymalnie `8` parametrów. Są dostępne trzy sposoby przekazywania parametrów - przez wartość, stałą `CONST` i zmienną `VAR`. Możliwe jest użycie modyfikatora `OVERLOAD` w celu przeciążenia procedur.
 
-Dostępne modyfikatory procedur: `OVERLOAD`, `ASSEMBLER`, `FORWARD`, `REGISTER`, `INTERRUPT`.
+Dostępne modyfikatory procedur: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`.
 
 Możliwa jest rekurencja procedur, pod warunkiem że parametry procedury będą przekazywane przez wartość, będą typu prostego - porządkowego. Typ rekordowy, wskaźnikowy nie będzie właściwie alokowany w pamięci.
 
@@ -24,7 +24,7 @@ begin
 end;
 ```
 
-Dostępne modyfikatory funkcji: `OVERLOAD`, `ASSEMBLER`, `FORWARD`, `REGISTER`, `INTERRUPT` (nie zalecane dla funkcji).
+Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT` (nie zalecane dla funkcji).
 
 Możliwa jest rekurencja funkcji, pod warunkiem że parametry funkcji będą przekazywane przez wartość, będą typu prostego - porządkowego. Typ rekordowy, wskaźnikowy nie będzie właściwie alokowany w pamięci.
 
