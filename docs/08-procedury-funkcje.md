@@ -24,7 +24,7 @@ begin
 end;
 ```
 
-Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`.  `INTERRUPT` nie jest zalecane dla funkcji.
+Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`. `INTERRUPT` nie jest zalecane dla funkcji.
 
 Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą przekazywane przez wartość, będą typu prostego - porządkowego. Typ rekordowy, wskaźnikowy nie będzie właściwie alokowany w pamięci.
 
@@ -86,7 +86,7 @@ end;
 
 #### register
 
-Użycie modyfikatora `REGISTER` spowoduje że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX`, `ECX`, `EAX`.
+Użycie modyfikatora `REGISTER` spowoduje że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX` `ECX` `EAX`.
 
     procedure nazwa (a,b,c: cardinal); register;
     // a = edx
