@@ -25,14 +25,14 @@ inc(a); // to jest komentarz
 #### rozkazy
 
 ```pascal
-absolute                and                 array              asm                 begin
-case                    const               div                do                  downto
-else                    end                 file               for                 function
-if                      implementation      interface          main                mod
-not                     of                  or                 procedure           program
-record                  repeat              shl                shr                 stack
-string                  then                to                 type                unit
-until                   uses                var                while               xor
+absolute           and                 array              asm               begin
+case               const               div                do                downto
+else               end                 file               for               function
+if                 implementation      interface          main              mod
+not                of                  or                 procedure         program
+record             repeat              shl                shr               stack
+string             then                to                 type              unit
+until              uses                var                while             xor
 ```
 
 #### stałe
