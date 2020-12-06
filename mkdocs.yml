@@ -1,4 +1,4 @@
-site_name: Mad Pascal
+site_name: Mad-Pascal
 theme: readthedocs
 nav:
     - Wprowadzenie: 01-wprowadzenie.md
