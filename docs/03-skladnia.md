@@ -217,7 +217,7 @@ Dyrektywa dołączenia pliku z zasobami. Plik zasobów jest plikiem tekstowym, k
 * `RMT` plik modułu Raster Music Tracker-a, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
 * `MPT` plik modułu Music ProTracker-a, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
 * `CMC` plik modułu **Chaos Music Composer-a**, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
-* `RMTPLAY` player dla modułu **RMT**, jako `RCFILE` podajemy plik `*.FEAT` oraz dodatkowo `PAR0` tryb `playera 0..3`
+* `RMTPLAY` player dla modułu **RMT**, jako `RCFILE` podajemy plik `*.FEAT` oraz dodatkowo `PAR0` tryb playera `0..3`
 
 ```
     0 => compile RMTplayer for 4 tracks mono
