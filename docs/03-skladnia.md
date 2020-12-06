@@ -167,3 +167,74 @@ end;
 ```
 
 W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, po zakończeniu kompilacji takiego bloku przywracana jest wartość `IOCHECK` która została określona poza takim blokiem.
+
+#### [INCLUDE](https://www.freepascal.org/docs-html/prog/progsu41.html)
+
+* `{$INCLUDE %DATE%}` dyrektywa dołączenia tekstu z aktualnym czasem kompilacji.
+
+* `{$I filename}`, `{$INCLUDE filename}` dyrektywa dołączenia tekstu zawartego w pliku.
+
+#### [LIBRARY PATH](https://www.freepascal.org/docs-html/prog/progsu99.html)
+
+```
+{$LIBRARYPATH path1;path2;...}
+```
+
+Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek (unit).
+
+#### [INFO](https://www.freepascal.org/docs-html/prog/progsu35.html#x42-410001.2.35)
+
+```
+{$INFO user_defined}
+```
+
+#### [WARNING](https://www.freepascal.org/docs-html/prog/progsu81.html#x88-870001.2.81)
+
+```
+{$WARNING user_defined}
+```
+
+#### [ERROR](https://www.freepascal.org/docs-html/prog/progsu17.html#x24-230001.2.17)
+
+```
+{$ERROR user_defined}
+```
+
+#### [RESOURCE](https://www.freepascal.org/docs-html/prog/progsu67.html#x74-730001.2.67)
+
+```
+{$R filename}, {$RESOURCE filename}
+
+RCLABEL RCTYPE RCFILE [PAR0 PAR1 PAR2 PAR3 PAR4 PAR5 PAR6 PAR7]
+```
+
+Dyrektywa dołączenia pliku z zasobami. Plik zasobów jest plikiem tekstowym, każdy jego kolejny wiersz powinien składać się z trzech pól rozdzielonych "białym znakiem": etykieta `RCLABEL` (jej deklaracja musi znaleźć się także w programie), typ zasobów `RCTYPE`, lokalizacja pliku `RCFILE`. Aktualnie w pliku B`ASE\RES6502.ASM` znajdują się makra do obsługi 10 typów zasobów `RCTYPE`:
+
+* `RCDATA` dowolny typ danych
+* `RCASM` plik w assemlerze, który zostanie dołączony i zasemblowany
+* `DOSFILE` plik z nagłówkiem **Atari DOS**, adres ładowania takiego pliku powiniem być identyczny jak `RCLABEL`
+* `RELOC` plik relokowalny w formacie **MadAssemblera**, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
+* `RMT` plik modułu Raster Music Tracker-a, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
+* `MPT` plik modułu Music ProTracker-a, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
+* `CMC` plik modułu **Chaos Music Composer-a**, plik zostanie poddany relokacji pod wskazany adres `RCLABEL`
+* `RMTPLAY` player dla modułu **RMT**, jako `RCFILE` podajemy plik `*.FEAT` oraz dodatkowo `PAR0` tryb `playera 0..3`
+
+```
+    0 => compile RMTplayer for 4 tracks mono
+    1 => compile RMTplayer for 8 tracks stereo
+    2 => compile RMTplayer for 4 tracks stereo L1 R2 R3 L4
+    3 => compile RMTplayer for 4 tracks stereo L1 L2 R3 R4
+```
+
+* `MPTPLAY` player dla modułu **MPT**
+* `CMCPLAY` player dla modułu **CMC**
+* `XBMP`  plik **Windows Bitmap** (8 BitsPerPixel) ładowany do pamięci **VBXE** pod wskazany adres `RCLABEL` od indeksu koloru `PAR0` w palecie kolorów **VBXE nr 1**
+
+Przykład:
+
+```
+bmp1  RCDATA   'pic.mic'
+msx   MPT      'porazka.mpt'
+play  RMTPLAY  'modul.feat' 1
+bmp   XBMP     'pic.bmp' 80
+```
