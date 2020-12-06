@@ -138,7 +138,7 @@ CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label},
 {$f $70}  // fastmul at $7000
 ```
 
-Alternatywne procedury szybkiego mnożenia dla typu `BYTE`, `SHORTINT`, `WORD`, `SMALLINT`, `SHORTREAL`. Procedury zajmują **2KB** i są umieszczane od adresu __PAGE*256__.
+Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SMALLINT` `SHORTREAL`. Procedury zajmują **2KB** i są umieszczane od adresu __PAGE*256__.
 
 #### [IOCHECK](https://www.freepascal.org/docs-html/prog/progsu38.html#x45-440001.2.38)
 
