@@ -106,3 +106,68 @@ Niezaincjowany wskaźnik najczęściej będzie miał adres `$0000`, należy zadb
 Jeśli tego nie zrobimy to w przypadku uruchomienia takiego programu na **PC** spowodujemy błąd ochrony pamięci **Access Violation**.
 
 Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje. Zmniejszenie wskaźnika przez `DEC` zmniejszy go o rozmiar typu na jaki wskazuje. Jeśli typ jest nieokreślony, wówczas domyślną wartością zwiększania/zmniejszanie będzie 1.
+
+## [tablice](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
+
+Tablice w **MP** są tylko statyczne, jednowymiarowe lub dwuwymiarowe z początkowym indeksem równym `0`, np.:
+
+```pascal
+var tb: array [0..100] of word;
+var tb2: array [0..15, 0..31] of Boolean;
+```
+
+W przypadku początkowego indeksu innego niż zero zostanie wygenerowany błąd **Error: Array lower bound is not zero**.
+
+W pamięci tablica reprezentowana jest przez wskaźnik `POINTER`, wskaźnik jest adresem tablicy w pamięci `WORD`. Najszybszą metodą odwołania się do tablicy z poziomu assemblera jest zastosowanie przedrostka `ADR.`, np.:
+
+    asm
+    { lda adr.tb,y   ; bezpośrednie odwołanie do tablicy TB
+      lda tb         ; odwołanie do wskaźnika tablicy TB
+    };
+
+Kompilator generuje kod dla tablic zależnie od ich deklaracji:
+
+* gdy nie przekracza 256 bajtów
+```pascal
+array [0..255] of byte
+array [0..127] of word
+array [0..63] of cardinal
+```
+
+Gdy liczba bajtów zajmowanych przez tablicę nie przekracza 256 bajtów generowany jest najszybszy kod odwołujący się bezpośrednio do adresu tablicy (przedrostek `ADR.`) z pominięciem wskaźnika. Dla takiej tablicy nie ma możliwości zmiany adresu.
+
+    ldy #118
+    lda adr.tb,y
+
+* gdy liczba elementów tablicy wynosi `1`
+```pascal
+array [0..0] of type
+```
+
+Gdy liczba elementów tablicy wynosi `1` jest ona traktowana specjalnie. Generowany kod odwołuje się do tablicy poprzez wzkaźnik. Istnieje możliwość ustalenia nowego adresu takiej tablicy.
+
+    lda TB
+    add I
+    tay
+    lda TB+1
+    adc #$00
+    sta bp+1
+    lda (bp),y
+
+* gdy przekracza 256 bajtów
+```pascal
+array [0..255+1] of byte
+array [0..127+1] of word
+array [0..63+1] of cardinal
+```
+
+Gdy liczba bajtów zajmowanych przez tablicę przekracza 256 bajtów generowany kod odwołuje się do tablicy poprzez wskaźnik. Istnieje możliwość ustalenia nowego adresu takiej tablicy.
+
+    lda TB
+    add I
+    tay
+    lda TB+1
+    adc #$00
+    sta bp+1
+    lda (bp),y
+
