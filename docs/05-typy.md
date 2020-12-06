@@ -19,7 +19,7 @@
 
 |Type    |Ord(True)                |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
-|BYTE    |0 .. 255                 |1            |
+|BYTE    |1                        |1            |
 
 ## [wyliczeniowy](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-280003.1.1)
 
