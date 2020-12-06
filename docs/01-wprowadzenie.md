@@ -48,7 +48,7 @@ Uruchamiamy instalator, wybieramy katalog w którym zostanie zainstalowany FP. W
 ## Biblioteki
 
 * [LIB](http://mads.atari8.info/library/doc/index.html)
-* [BLIBS](http://mads.atari8.info/blibs/doc/index.html)
+* [BLIBS](https://bocianu.atari.pl/blog/blibs)
 
 ## Linki
 
