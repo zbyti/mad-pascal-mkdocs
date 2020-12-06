@@ -6,7 +6,7 @@ W katalogu `LIB` **Mad-Pascala** znajdują się potrzebne do kompilacji podstawo
 
 Moduł `SYSTEM` jest domyślnie dopisywany do listy `USES` i kompilowany jako pierwszy.
 
-## SYSTEM
+## [SYSTEM](http://mads.atari8.info/library/doc/system.html)
 
 **Constants**
 
