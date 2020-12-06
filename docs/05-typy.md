@@ -1,6 +1,6 @@
 # Typy
 
-## [porządkowy](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
+## [porządkowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 
 |Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
@@ -15,13 +15,13 @@
 |INTEGER |-2147483648 .. 2147483647|4            |
 |LONGINT |-2147483648 .. 2147483647|4            |
 
-## [logiczny](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
+## [logiczne](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 
 |Type    |Ord(True)                |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
 |BYTE    |1                        |1            |
 
-## [wyliczeniowy](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-280003.1.1)
+## [wyliczeniowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-280003.1.1)
 
 Typ wyliczeniowy w **MP** został zaimplementowany w podstawowej postaci, tzn.:
 
@@ -53,7 +53,7 @@ var
 
 Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla operacji `IF ELSE`.
 
-## [rzeczywisty](https://www.freepascal.org/docs-html/ref/refsu5.html#x27-300003.1.2)
+## [rzeczywiste](https://www.freepascal.org/docs-html/ref/refsu5.html#x27-300003.1.2)
 
 |Type             |Range                   |Size in bytes|
 |:----------------|:----------------------:|:-----------:|
@@ -64,7 +64,7 @@ Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla 
 
 Konwersja typu `FLOAT` / `SINGLE` do liczby całkowitej dostępna jest tylko w zakresie `INTEGER`. Typ `INTEGER` nie pozwoli zaprezentować maksymalnej wartości `3.4E38` typu `FLOAT` / `SINGLE`.
 
-## [znakowy](https://www.freepascal.org/docs-html/ref/refsu6.html#x29-320003.2.1)
+## [znakowe](https://www.freepascal.org/docs-html/ref/refsu6.html#x29-320003.2.1)
 
 |Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
@@ -170,4 +170,75 @@ Gdy liczba bajtów zajmowanych przez tablicę przekracza 256 bajtów generowany 
     adc #$00
     sta bp+1
     lda (bp),y
+
+## [rekordy](https://www.freepascal.org/docs-html/ref/refsu15.html#x39-550003.3.2)
+
+W pamięci rekord reprezentowany jest przez wskaźnik `POINTER`.
+
+    type
+        TPoint = record x,y: byte end;
+    var px: TPoint;
+
+Domyślnie rekordy w **MP** są typu `PACKED`.
+Jeśli zależy nam na zachowania kompatybilności z **FPC** należy dodatkowo poprzedzić słowo `record` słowem `packed`.
+Bez tego rozmiar pamięci jaki zajmuje rekord będzie mógł się różnić, będzie mniej zajmował pamięci na **Atari XE/XL**, potencjalnie więcej o kilka bajtów na **PC**.
+
+type
+    TPoint = packed record x,y: byte end;
+
+    var px: TPoint;
+
+Dostęp do pól rekordu z poziomu asm:
+
+    mwa px bp2
+    ldy #px.x-DATAORIGIN
+    lda (bp2),y
+
+## [obiekty](https://www.freepascal.org/docs-html/ref/refse28.html#x60-780005.1)
+
+Obiekty to rekordy z dodatkowymi metodami. W pamięci obiekt reprezentowany jest przez wskaźnik `POINTER`.
+
+```pascal
+type
+    TRMT = Object
+
+    player: pointer;
+    modul: pointer;
+
+    procedure Init(a: byte); assembler;
+    procedure Play; assembler;
+    procedure Stop; assembler;
+
+    end;
+```
+
+## [pliki](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
+
+Typ `FILE` reprezentuje uchwyt do pliku oraz definiuje rozmiar rekordu.
+
+```pascal
+type
+  ftype = array [0..63] of cardinal;
+
+var
+  f: file;               // rekord domyślny =128 bajtów
+  f: file of byte;       // rekord 1 bajt
+  f: file of ftype;      // rekord 256 bajtów (ftype = 64 * 4)
+```
+
+W pamięci **XE/XL** uchwyt `FILE `reprezentowany jest przez wskaźnik `POINTER` do tablicy o strukturze (rozmiar 12 bajtów):
+
+```
+.struct s@file
+pfname   .word      ; pointer to string with filename
+record   .word      ; record size
+chanel   .byte      ; channel *$10
+eof      .byte      ; EOF status
+buffer   .word      ; load/write buffer
+nrecord  .word      ; number of records for load/write
+numread  .word      ; pointer to variable, length of loaded data
+.ends
+```
+
+Do procedur, funkcji typ `FILE` może być przekazywany tylko jako zmienna.
 
