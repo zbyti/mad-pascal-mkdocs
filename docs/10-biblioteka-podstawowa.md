@@ -556,7 +556,7 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
     function Sqr(x: integer): integer;
 ```
 
-* `Sqrt` funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. *Square root*).
+* `Sqrt` funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. **Square root**).
 
 ```
     function Sqrt(x: real): real;
