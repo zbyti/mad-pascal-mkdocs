@@ -5,21 +5,23 @@
 ```bash
 Syntax: mp source [switches]
 
--d:address      tryb diagnostyczny
+-diag           tryb diagnostyczny
 -define:symbol  definiowanie symbolu
 -ipath:<x>      dodatkowa ścieżka poszukiwań
--code:$address  adres uruchomienia programu
--data:$address  adres pamięci dla zmiennych, tablic
--stack:$address adres pamięci dla stosu programowego (64 bajty)
--zpage:$address adres na stronie zerowej dla zmiennych (24 bajty)
+-target:<x>     docelowy system: a8 (domyślnie), c64
+-code:address   adres uruchomienia programu
+-data:address   adres pamięci dla zmiennych, tablic
+-stack:address  adres pamięci dla stosu programowego (64 bajty)
+-zpage:address  adres na stronie zerowej dla zmiennych (24 bajty)
 ```
 
-Użycie przełącznika `-d` powoduje wygenerowanie dodatkowego pliku z informacją o wszystkich użytych zmiennych, procedurach, funkcjach.
-Domyślnym rozszerzeniem pliku wynikowego jest `*.A65`, plik taki assemblujemy z użyciem **Mad-Assemblera** (dodatkowo ustawiamy ścieżkę poszukiwań na `-i:base`), np.:
+Użycie przełącznika `-diag` powoduje wygenerowanie dodatkowego pliku z informacją o wszystkich użytych zmiennych, procedurach, funkcjach.
+
+Domyślnym rozszerzeniem pliku wynikowego jest `*.A65`, plik taki assemblujemy z użyciem **Mad-Assemblera** (dodatkowo ustawiamy `-i:base` na odpowiednią ścieżkę poszukiwań), np.:
 
     mads source.a65 -x -i:base
 
-Przełącznik `-x` (Exclude unreferenced procedures) pozwoli wygenerować najkrótszy kod wynikowy dla 6502.
+Przełącznik `-x` **Exclude unreferenced procedures** pozwoli wygenerować najkrótszy kod wynikowy dla 6502.
 
 ## Kody wyjścia
 
