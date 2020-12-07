@@ -378,7 +378,7 @@ Zwraca część ułamkową liczby `x` w postaci rzeczywistej.
     procedure GetIntVec(intno: byte; var vector: pointer);
 ```
 
-Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI` - przerwanie DLI i `iVBL` - przerwanie VBL.
+Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI` przerwanie DLI, `iVBL` przerwanie VBL.
 
 ---
 
