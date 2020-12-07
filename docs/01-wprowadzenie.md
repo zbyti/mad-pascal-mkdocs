@@ -53,7 +53,7 @@ Uruchamiamy instalator, wybieramy katalog w którym zostanie zainstalowany FP. W
 ## Linki
 
 1. [Free Pascal Reference Guide](http://www.freepascal.org/docs-html/ref/ref.html#refch14.html)
-1. [MadPascal AtariArea forum (PL)](http://www.atari.org.pl/forum/viewtopic.php?id=13373)
-1. [MadPascal AtariAge forum (ENG)](http://atariage.com/forums/topic/240919-mad-pascal/)
-1. [MadPascal examples](http://atariage.com/forums/topic/243658-mad-pascal-examples/)
-1. [Atari XE/XL Pascal Compilers](https://atariwiki.org/wiki/Wiki.jsp?page=Pascal)
+2. [MadPascal AtariArea forum (PL)](http://www.atari.org.pl/forum/viewtopic.php?id=13373)
+3. [MadPascal AtariAge forum (ENG)](http://atariage.com/forums/topic/240919-mad-pascal/)
+4. [MadPascal examples](http://atariage.com/forums/topic/243658-mad-pascal-examples/)
+5. [Atari XE/XL Pascal Compilers](https://atariwiki.org/wiki/Wiki.jsp?page=Pascal)
