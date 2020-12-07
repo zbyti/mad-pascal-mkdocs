@@ -9,18 +9,18 @@ Program który zadziała na Atari może mieć problem na PC jeśli np. nie zainc
 Alokacja zmiennych jest statyczna, nie ma dynamicznego zarządzania pamięcią. Parametry przekazywane do funkcji i procedur są przez wartość, zmienną lub stałą.
 Dostępne są:
 
-* `If`, `Case`, `For`, `While`, `Repeat` statements.
+* `If` `Case` `For` `While` `Repeat` statements.
 * Compound statements.
-* `Label`, `Goto` statements.
+* `Label` `Goto` statements.
 * Arithmetic and boolean operators.
 * Procedures and functions with up to 8 parameters. Returned value of a function is assigned to a predefined `RESULT` variable.
 * Static local variables.
 * Primitive data types (all types except the `ShortReal/Real` type are compatible. Pointers are dereferenced as pointers to `Word`):
-    * `Cardinal`, `Word`, `Byte`, `Boolean`
-    * `Char`, `String`, `PChar`
-    * `Integer`, `SmallInt`, `ShortInt`
-    * `Pointer`, `File`
-    * `ShortRea`l, `Real` (fixed-point)
+    * `Cardinal` `Word` `Byte` `Boolean`
+    * `Char` `String` `PChar`
+    * `Integer` `SmallInt` `ShortInt`
+    * `Pointer` `File`
+    * `ShortReal` `Real` (fixed-point)
     * `Single` (IEEE-754) [Float]
 * One-dimensional and Two-dimensional arrays (with zero lower bound) of any primitive type. Arrays are treated as pointers to their origins (like in C) and can be passed to subroutines as parameters.
 * Predefined type string `[N]` which is equivalent to `array [0..N] of Char`.
