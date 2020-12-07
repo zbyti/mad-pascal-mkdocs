@@ -1,6 +1,6 @@
 # Moduły
 
-Moduły (UNIT) w **MP** składają się z sekcji `INTERFACE` **wymagany**, `IMPLEMENTATION` **wymagany**, `INITIALIZATION` *opcjonalny*.
+Moduły `UNIT` w **MP** składają się z sekcji `INTERFACE` **wymagana**, `IMPLEMENTATION` **wymagana**, `INITIALIZATION` *opcjonalna*.
 
 ```pascal
 unit test;
