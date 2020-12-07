@@ -1,4 +1,4 @@
-# Sposób użycia
+#
 
 ## Przełączniki kompilatora
 

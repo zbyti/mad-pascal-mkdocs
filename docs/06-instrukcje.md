@@ -1,4 +1,4 @@
-# Instrukcje warunkowe
+#
 
 ## warunkowe
 

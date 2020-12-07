@@ -1,4 +1,4 @@
-# Składnia
+#
 
 ## [Komentarze](http://www.freepascal.org/docs-html/ref/refse2.html)
 

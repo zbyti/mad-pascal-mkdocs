@@ -1,4 +1,4 @@
-# Typy
+#
 
 ## [porządkowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 

@@ -1,4 +1,4 @@
-# Procedury, funkcje, modyfikatory
+#
 
 ## Procedury
 

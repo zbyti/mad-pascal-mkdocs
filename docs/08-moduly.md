@@ -1,4 +1,4 @@
-# Moduły
+#
 
 Moduły `UNIT` w **MP** składają się z sekcji `INTERFACE` **wymagana**, `IMPLEMENTATION` **wymagana**, `INITIALIZATION` *opcjonalna*.
 

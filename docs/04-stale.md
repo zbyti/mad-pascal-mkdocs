@@ -1,4 +1,4 @@
-# Stałe
+#
 
 ## [Ordinary](https://www.freepascal.org/docs-html/ref/refse9.html)
 
