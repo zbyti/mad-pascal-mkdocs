@@ -990,7 +990,7 @@ Procedura włącza kursor.
     procedure Delay(MS: Word);
 ```
 
-Procedura czeka zadaną ilość milisekund **MS**. W przybliżeniu `Delay(1000)` generuje opóźnienie jednej sekundy.
+Procedura czeka zadaną ilość milisekund `MS`. W przybliżeniu `Delay(1000)` generuje opóźnienie jednej sekundy.
 
 ---
 
