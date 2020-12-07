@@ -24,7 +24,7 @@ begin
 end;
 ```
 
-Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`. *INTERRUPT* nie jest zalecane dla funkcji.
+Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`, *interrupt* nie jest zalecane dla funkcji.
 
 Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą przekazywane przez wartość, będą typu prostego - porządkowego. Typ rekordowy, wskaźnikowy nie będzie właściwie alokowany w pamięci.
 
