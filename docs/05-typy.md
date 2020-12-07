@@ -15,11 +15,15 @@
 |INTEGER |-2147483648 .. 2147483647|4            |
 |LONGINT |-2147483648 .. 2147483647|4            |
 
+---
+
 ## [logiczne](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 
 |Type    |Ord(True)                |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
 |BYTE    |1                        |1            |
+
+---
 
 ## [wyliczeniowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-280003.1.1)
 
@@ -53,6 +57,8 @@ var
 
 Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla operacji `IF ELSE`.
 
+---
+
 ## [rzeczywiste](https://www.freepascal.org/docs-html/ref/refsu5.html#x27-300003.1.2)
 
 |Type             |Range                   |Size in bytes|
@@ -63,6 +69,8 @@ Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla 
 |FLOAT (IEEE-754) |1.5E-45 .. 3.4E38       |4            |
 
 Konwersja typu `FLOAT` `SINGLE` do liczby całkowitej dostępna jest tylko w zakresie `INTEGER`. Typ `INTEGER` nie pozwoli zaprezentować maksymalnej wartości `3.4E38` typu `FLOAT` `SINGLE`.
+
+---
 
 ## [znakowe](https://www.freepascal.org/docs-html/ref/refsu6.html#x29-320003.2.1)
 
@@ -86,6 +94,8 @@ b: string = 'Spectrum'~;      // ciąg znaków w kodach ANTIC-a
 c: char = 'X'~*;              // znak w inwersie, kodach ANTIC-a
 ```
 
+---
+
 ## [wskaźniki](https://www.freepascal.org/docs-html/ref/refse15.html)
 
 |Type    |Ord(True)                |Size in bytes|
@@ -106,6 +116,8 @@ Niezaincjowany wskaźnik najczęściej będzie miał adres `$0000`, należy zadb
 Jeśli tego nie zrobimy to w przypadku uruchomienia takiego programu na **PC** spowodujemy błąd ochrony pamięci **Access Violation**.
 
 Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje. Zmniejszenie wskaźnika przez `DEC` zmniejszy go o rozmiar typu na jaki wskazuje. Jeśli typ jest nieokreślony, wówczas domyślną wartością zwiększania/zmniejszanie będzie `1`.
+
+---
 
 ## [tablice](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
 
@@ -171,6 +183,8 @@ Gdy liczba bajtów zajmowanych przez tablicę przekracza 256 bajtów generowany 
     sta bp+1
     lda (bp),y
 
+---
+
 ## [rekordy](https://www.freepascal.org/docs-html/ref/refsu15.html#x39-550003.3.2)
 
 W pamięci rekord reprezentowany jest przez wskaźnik `POINTER`.
@@ -194,6 +208,8 @@ Dostęp do pól rekordu z poziomu asm:
     ldy #px.x-DATAORIGIN
     lda (bp2),y
 
+---
+
 ## [obiekty](https://www.freepascal.org/docs-html/ref/refse28.html#x60-780005.1)
 
 Obiekty to rekordy z dodatkowymi metodami. W pamięci obiekt reprezentowany jest przez wskaźnik `POINTER`.
@@ -211,6 +227,8 @@ type
 
     end;
 ```
+
+---
 
 ## [pliki](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
 
