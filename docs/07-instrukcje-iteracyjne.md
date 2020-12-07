@@ -19,7 +19,7 @@ Konstrukcja ta służy do organizacji obliczeń, które będą wykonywane tak d�
 
     while BlitterBusy do;   // oczekiwanie na zakończenie działania blittera VBXE
 
-Ograniczenia dla instrukcji WHILE:
+Ograniczenia dla instrukcji `WHILE`:
 
     while i<=255 do inc(i); // pętla bez końca gdy zmienna I typu BYTE
 
@@ -29,7 +29,7 @@ Ograniczenia dla instrukcji WHILE:
       { instrukcje do wykonania }
     until { warunek zakończenia }
 
-Instrukcja ta wykonuje cyklicznie inne instrukcje zawarte pomiędzy słowami `REPEAT` i `UNTIL` do momentu gdy wyrażenie znajdujące się za słowem `UNTIL` nie przyjmie wartości **PRAWDA** (czyli `TRUE`).
+Instrukcja ta wykonuje cyklicznie inne instrukcje zawarte pomiędzy słowami `REPEAT` i `UNTIL` do momentu gdy wyrażenie znajdujące się za słowem `UNTIL` nie przyjmie wartości **PRAWDA** `TRUE`.
 
 Efekt zastosowania pętli `REPEAT` jest bardzo podobny do działania pętli `WHILE`. Pętla ta także może być wykonywana ogromną liczbę razy. Jedyna różnica polega na tym, że w pętli `REPEAT` warunek zakończenia sprawdzany jest dopiero po wykonaniu instrukcji. Oznacza to, że pętla `REPEAT` zawsze będzie wykonana co najmniej raz. Dopiero po tej iteracji program sprawdzi, czy można zakończyć działanie pętli. W przypadku pętli `WHILE` warunek jest sprawdzany bezpośrednio przed jej wykonaniem, co w rezultacie może spowodować, że taka pętla nigdy niezostanie wykonana.
 
