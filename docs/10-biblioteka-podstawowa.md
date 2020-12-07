@@ -756,7 +756,7 @@ Procedura ustawia długość ciągu `S` na `LEN`.
     procedure SetIntVec(intno: Byte; vector: pointer);
 ```
 
-Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` oraz `iVBL - przerwanie VBL`.
+Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI` przerwanie DLI, `iVBL` przerwanie VBL.
 
 ---
 
