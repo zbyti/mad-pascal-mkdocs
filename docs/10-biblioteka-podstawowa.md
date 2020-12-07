@@ -1,6 +1,6 @@
 # Biblioteka podstawowa
 
-W katalogu `LIB` **Mad-Pascala** znajdują się potrzebne do kompilacji podstawowe moduły `unit`, takie jak `SYSTEM` `CRT` `GRAPH` `SYSUTILS` `MATH` `DOS`. W programie wybierane są przez instrukcję `USES`, np.:
+W katalogu `LIB` **Mad-Pascala** znajdują się potrzebne do kompilacji podstawowe moduły `UNIT`, takie jak `SYSTEM` `CRT` `GRAPH` `SYSUTILS` `MATH` `DOS`. W programie wybierane są przez instrukcję `USES`, np.:
 
     uses crt, sysutils;
 
@@ -161,7 +161,7 @@ Funkcja obliczająca wartość bezwzględną podanej liczby (ang. **Absolute val
     function ArcTan(x: real): real;
 ```
 
-Funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi x.
+Funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi `x`.
 
 ---
 
@@ -198,7 +198,7 @@ Funkcja łączy dwa ciągi tekstowe w nowy ciąg znakowy.
 
 ---
 
-#### ` Blockread`
+#### `Blockread`
 
 ```
     procedure BlockRead(var f: file; var Buf; Count: word; var Result: word);
@@ -239,7 +239,7 @@ Funkcja zwraca znak `Char` o odpowiadającym kodzie **ATASCII** podanym w parame
     function Cos(x: real): real;
 ```
 
-Cosinus kąta (x w radianach).
+Cosinus kąta, `x` w radianach.
 
 ---
 
@@ -284,7 +284,7 @@ Funkcja pozwala skasować plik z dysku o nazwie `FileName`, zwraca `TRUE` kiedy 
     function DPeek(a: word): word;
 ```
 
-Funkcja zwraca słowo spod adresu `A`.
+Funkcja zwraca słowo spod adresu `a`.
 
 ---
 
@@ -294,7 +294,7 @@ Funkcja zwraca słowo spod adresu `A`.
     procedure DPoke(a: word; value: word);
 ```
 
-Procedura zapisuje słowo `Value` pod adresem `A`.
+Procedura zapisuje słowo `value` pod adresem `a`.
 
 ---
 
@@ -320,7 +320,7 @@ Wywołanie procedury `Exit` powoduje natychmiastowe opuszczenie bloku programu, 
     function Exp(x: real): real;
 ```
 
-Funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument.
+Funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument `x`.
 
 ---
 
@@ -347,10 +347,10 @@ Funkcja zwraca długość pliku w bajtach (**Sparta DOS X**). Plik nie może by�
 #### `FillChar`
 
 ```
-    procedure FillChar(a: pointer; count: word; value: char);
+    procedure FillChar(x: pointer; count: word; value: char);
 ```
 
-Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub bajtami. Parametr `Value` musi określać dane, natomiast `Count` - ilość danych jakie zostaną przypisane do bufora.
+Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub bajtami. Parametr `value` musi określać dane, natomiast `count` - ilość danych jakie zostaną przypisane do bufora.
 
 ```
     var
@@ -368,14 +368,14 @@ Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub b
     function Frac(x: real): real;
 ```
 
-Zwraca część ułamkową liczby x w postaci rzeczywistej.
+Zwraca część ułamkową liczby `x` w postaci rzeczywistej.
 
 ---
 
 #### `GetIntVec`
 
 ```
-    procedure GetIntVec(intno: Byte; var vector: pointer);
+    procedure GetIntVec(intno: byte; var vector: pointer);
 ```
 
 Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` i `iVBL - przerwanie VBL`.
@@ -399,7 +399,7 @@ Wywołanie powoduje natychmiastowe wyjście z programu. Można (opcjonalnie) pod
     function Hi(x): byte
 ```
 
-Funkcja zwracająca starszy bajt parametru `X`.
+Funkcja zwracająca starszy bajt parametru `x`.
 
 ---
 
@@ -561,7 +561,7 @@ Procedura zatrzymuje działanie programu na `N * 1.50` sek.
     function Peek(a: word): byte;
 ```
 
-Funkcja zwraca bajt spod adresu `A`.
+Funkcja zwraca bajt spod adresu `a`.
 
 ---
 
@@ -591,7 +591,7 @@ Funkcja sprawdza czy wartości współrzędnych określone w parametrach `P1` or
     procedure Poke(a: word; value: byte);
 ```
 
-Procedura zapisuje bajt `Value` pod adresem `A`.
+Procedura zapisuje bajt `value` pod adresem `a`.
 
 ---
 
@@ -633,7 +633,7 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
     function ReadConfig(devnum: byte): cardinal;
 ```
 
-Odczyt statusu stacji `DEVNUM`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)`.
+Odczyt statusu stacji `devnum`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)`.
 
 ```
     Byte 0 ($02ea):
@@ -671,7 +671,7 @@ Odczyt statusu stacji `DEVNUM`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)
     procedure ReadSector(devnum: byte; sector: word; var buf);
 ```
 
-Procedura odczytuje sektora `SECTOR` dyskietki w stacji dysków `DEVNUM` i zapisanie go w buforze `BUF`.
+Procedura odczytuje sektora `sector` dyskietki w stacji dysków `devnum` i zapisanie go w buforze `buf`.
 
 ---
 
@@ -716,7 +716,7 @@ Procedura otwiera istniejący plik z nazwą przekazaną do `F` poleceniem `Assig
     procedure Rewrite(var f: file; l: Word);
 ```
 
-Procedura tworzy i otwiera nowy plik. `F` jest nazwą przekazaną za pomocą polecenia `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
+Procedura tworzy i otwiera nowy plik. `f` jest nazwą przekazaną za pomocą polecenia `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `l`, domyślnie jest to wartość 128.
 
 ---
 
@@ -766,7 +766,7 @@ Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczal
     function Sin(x: real): real;
 ```
 
-Sinus kąta (x w radianach).
+Sinus kąta. `x` w radianach.
 
 ---
 
@@ -786,7 +786,7 @@ Następnik elementu `X`.
     function Space(Len: Byte): ^char;
 ```
 
-Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami spacji.
+Funkcja generuje nowy ciąg znakowy o długości `Len` wypełniony znakami spacji.
 
 ---
 
@@ -816,7 +816,7 @@ Procedura zamienia liczbę `X` na łańcuch znaków `S`.
     procedure StringOfChar(ch: Char; len: byte): ^char;
 ```
 
-Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami `CH`.
+Funkcja generuje nowy ciąg znakowy o długości `len` wypełniony znakami `ch`.
 
 ---
 
@@ -879,7 +879,7 @@ Procedura przekształca ciąg znaków `S` na liczbę `V`. Code przyjmie wartoś�
     procedure WriteSector(devnum: byte; sector: word; var buf);
 ```
 
-Procedura zapisuje sektora `SECTOR` dyskietki w stacji `DEVNUM` na podstawie bufora `BUF`.
+Procedura zapisuje sektora `sector` dyskietki w stacji `devnum` na podstawie bufora `buf`.
 
 ## [CRT](http://mads.atari8.info/library/doc/crt.html)
 
@@ -887,13 +887,13 @@ Procedura zapisuje sektora `SECTOR` dyskietki w stacji `DEVNUM` na podstawie buf
 
 ```
 CN_START_SELECT_OPTION  = 0;
-CN_SELECT_OPTION    = 1;
-CN_START_OPTION     = 2;
-CN_OPTION       = 3;
-CN_START_SELECT     = 4;
-CN_SELECT       = 5;
-CN_START        = 6;
-CN_NONE         = 7;
+CN_SELECT_OPTION        = 1;
+CN_START_OPTION         = 2;
+CN_OPTION               = 3;
+CN_START_SELECT         = 4;
+CN_SELECT               = 5;
+CN_START                = 6;
+CN_NONE                 = 7;
 ```
 
 ### Variables
@@ -1070,7 +1070,7 @@ Procedura odtwarza dźwięk na kanale **POKEY-a** `CHAN (0..3, 4..7)`, o często
     procedure TextBackground(a: byte);
 ```
 
-Procedura ustawia nowy kolor tła znaków (działa najlepiej z włączonym VBXE).
+Procedura ustawia nowy kolor tła znaków (działa najlepiej z włączonym **VBXE**).
 
 ---
 
@@ -1080,4 +1080,4 @@ Procedura ustawia nowy kolor tła znaków (działa najlepiej z włączonym VBXE)
     procedure TextColor(a: byte);
 ```
 
-Procedura ustawia nowy kolor znaków (działa najlepiej z włączonym VBXE).
+Procedura ustawia nowy kolor znaków (działa najlepiej z włączonym **VBXE**).
