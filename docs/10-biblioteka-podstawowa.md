@@ -11,7 +11,6 @@ Moduł `SYSTEM` jest domyślnie dopisywany do listy `USES` i kompilowany jako pi
 ### Constants
 
 ```
-PI               = 3.1406     // write(pi)
 M_PI_2           = 6.283285;  // pi * 2
 D_PI_2           = 1.570796;  // pi / 2
 D_PI_180         = 0.017453;  // pi / 180

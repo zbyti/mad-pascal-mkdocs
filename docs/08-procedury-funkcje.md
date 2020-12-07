@@ -2,7 +2,7 @@
 
 ## Procedury
 
-**MP** pozwala na przekazanie do procedury maksymalnie `8` parametrów. Są dostępne trzy sposoby przekazywania parametrów - przez wartość, stałą `CONST` i zmienną `VAR`. Możliwe jest użycie modyfikatora `OVERLOAD` w celu przeciążenia procedur.
+**MP** pozwala na przekazanie do procedury maksymalnie **8** parametrów. Są dostępne trzy sposoby przekazywania parametrów: przez wartość, stałą `CONST` i zmienną `VAR`. Możliwe jest użycie modyfikatora `OVERLOAD` w celu przeciążenia procedur.
 
 Dostępne modyfikatory procedur: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`.
 
