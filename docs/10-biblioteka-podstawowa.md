@@ -916,10 +916,6 @@ Zmienna zwraca kod naciśniętego klawisza/klawiszy konsoli.
 
 Zmienna przechowuje wartość jaka jest dodawana do każdego wyświetlanego znaku, np. `TextAttr = $80` spowoduje że znaki będą wyświetlane w inwersie.
 
-```
-    ScreenHeight: word = 24;
-```
-
 ---
 
 #### `WhereX`
@@ -938,7 +934,7 @@ Zmienna przechowuje aktualną poziomą pozycję kursora.
     WhereY: byte absolute $55;
 ```
 
-Zmienna 'WhereY' przechowuje aktualną pionową pozycję kursora.
+Zmienna przechowuje aktualną pionową pozycję kursora.
 
 ### Procedures and functions
 
