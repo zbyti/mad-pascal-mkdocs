@@ -10,7 +10,7 @@ Możliwa jest rekurencja procedur, pod warunkiem że parametry procedury będą 
 
 ## Funkcje
 
-**MP** pozwala na przekazanie do funkcji maksymalnie `8 `parametrów. Są dostępne trzy sposoby przekazywania parametrów - przez wartość, stałą `CONST` i zmienną `VAR`. Wynik funkcji zwracamy przypisując go do nazwy funkcji lub korzystając z automatycznie deklarowanej zmiennej `RESULT`, np.:
+**MP** pozwala na przekazanie do funkcji maksymalnie **8** parametrów. Są dostępne trzy sposoby przekazywania parametrów - przez wartość, stałą `CONST` i zmienną `VAR`. Wynik funkcji zwracamy przypisując go do nazwy funkcji lub korzystając z automatycznie deklarowanej zmiennej `RESULT`, np.:
 
 ```pascal
 function add(a,b: word): cardinal;
