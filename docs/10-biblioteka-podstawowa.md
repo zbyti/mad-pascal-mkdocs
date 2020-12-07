@@ -304,7 +304,7 @@ Procedura zapisuje słowo `value` pod adresem `a`.
     function Eof(var f: file): Boolean;
 ```
 
-Funkcja zwraca wartość logiczną True jeśli osiągnięty został koniec pliku.
+Funkcja zwraca wartość logiczną `TRUE` jeśli osiągnięty został koniec pliku.
 
 ---
 
