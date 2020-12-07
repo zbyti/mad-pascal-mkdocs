@@ -880,3 +880,208 @@ Procedura przekształca ciąg znaków `S` na liczbę `V`. Code przyjmie wartoś�
 ```
 
 Procedura zapisuje sektora `SECTOR` dyskietki w stacji `DEVNUM` na podstawie bufora `BUF`.
+
+## [CRT](http://mads.atari8.info/library/doc/crt.html)
+
+### Constants
+
+```
+CN_START_SELECT_OPTION  = 0;
+CN_SELECT_OPTION    = 1;
+CN_START_OPTION     = 2;
+CN_OPTION       = 3;
+CN_START_SELECT     = 4;
+CN_SELECT       = 5;
+CN_START        = 6;
+CN_NONE         = 7;
+```
+
+### Variables
+
+#### `Consol`
+
+```
+    Consol: byte absolute $d01f
+```
+
+Zmienna zwraca kod naciśniętego klawisza/klawiszy konsoli.
+
+---
+
+#### `TextAttr`
+
+```
+    TextAttr: byte = 0
+```
+
+Zmienna przechowuje wartość jaka jest dodawana do każdego wyświetlanego znaku, np. `TextAttr = $80` spowoduje że znaki będą wyświetlane w inwersie.
+
+```
+    ScreenHeight: word = 24;
+```
+
+---
+
+#### `WhereX`
+
+```
+    WhereX: byte absolute $54;
+```
+
+Zmienna przechowuje aktualną poziomą pozycję kursora.
+
+---
+
+#### `WhereY`
+
+```
+    WhereY: byte absolute $55;
+```
+
+Zmienna 'WhereY' przechowuje aktualną pionową pozycję kursora.
+
+### Procedures and functions
+
+```pascal
+ClrEol             ClrScr              CursorOff          CursorOn          Delay
+DelLine            GotoXY              InsLine            Keypressed        NoSound
+ReadKey            Sound               TextBackground     TextColor
+```
+
+#### `ClrEol`
+
+```
+    procedure ClrEol;
+```
+
+Procedura czyści wiersz od aktualnej pozycji kursora do prawej strony krawędzi ekranu. Pozycja kursora nie ulega zmianie.
+
+---
+
+#### `ClrScr`
+
+```
+    procedure ClrScr;
+```
+
+Procedura czyści ekran edytora, wykonuje kod znaku `CH_CLR`.
+
+---
+
+#### `CursorOff`
+
+```
+    procedure CursorOff;
+```
+
+Procedura wyłącza kursor.
+
+---
+
+#### `CursorOn`
+
+```
+    procedure CursorOn;
+```
+
+Procedura włącza kursor.
+
+---
+
+#### `Delay`
+
+```
+    procedure Delay(MS: Word);
+```
+
+Procedura czeka zadaną ilość milisekund **MS**. W przybliżeniu `Delay(1000)` generuje opóźnienie jednej sekundy.
+
+---
+
+#### `DelLine`
+
+```
+    procedure DelLine;
+```
+
+Procedura kasuje wiersz na aktualnej pozycji kursora, wykonuje kod znaku `CH_DELLINE`.
+
+---
+
+#### `GotoXY`
+
+```
+    procedure GotoXY(x, y: byte);
+```
+
+Procedura ustawia nową pozycję kursora.
+
+---
+
+#### `InsLine`
+
+```
+    procedure InsLine;
+```
+
+Procedura wstawia pusty wiersz na aktualnej pozycji kursora, wykonuje kod znaku `CH_INSLINE`.
+
+---
+
+#### `Keypressed`
+
+```
+    function Keypressed: Boolean;
+```
+
+Funkcja zwraca `TRUE` gdy został naciśnięty jakiś klawisz klawiatury, w przeciwnym razie zwraca `FALSE`.
+
+---
+
+#### `NoSound`
+
+```
+    procedure NoSound;
+```
+
+Procedura wycisza kanały obu **POKEY-i** `$D200` `$D210)`.
+
+---
+
+#### `ReadKey`
+
+```
+    function ReadKey: char;
+```
+
+Funkcja zwraca kod naciśniętego klawisza klawiatury.
+
+---
+
+#### `Sound`
+
+```
+    procedure Sound(Chan,Freq,Dist,Vol: byte);
+```
+
+Procedura odtwarza dźwięk na kanale **POKEY-a** `CHAN (0..3, 4..7)`, o częstotliwości `FREQ (0..255)`, `filtrach DIST (0..7)`, głośności `VOL (0..15)`.
+
+---
+
+#### `TextBackground`
+
+```
+    procedure TextBackground(a: byte);
+```
+
+Procedura ustawia nowy kolor tła znaków (działa najlepiej z włączonym VBXE).
+
+---
+
+#### `TextColor`
+
+```
+    procedure TextColor(a: byte);
+```
+
+Procedura ustawia nowy kolor znaków (działa najlepiej z włączonym VBXE).
