@@ -62,7 +62,7 @@ Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla 
 |SINGLE (IEEE-754)|1.5E-45 .. 3.4E38       |4            |
 |FLOAT (IEEE-754) |1.5E-45 .. 3.4E38       |4            |
 
-Konwersja typu `FLOAT` / `SINGLE` do liczby całkowitej dostępna jest tylko w zakresie `INTEGER`. Typ `INTEGER` nie pozwoli zaprezentować maksymalnej wartości `3.4E38` typu `FLOAT` / `SINGLE`.
+Konwersja typu `FLOAT` `SINGLE` do liczby całkowitej dostępna jest tylko w zakresie `INTEGER`. Typ `INTEGER` nie pozwoli zaprezentować maksymalnej wartości `3.4E38` typu `FLOAT` `SINGLE`.
 
 ## [znakowe](https://www.freepascal.org/docs-html/ref/refsu6.html#x29-320003.2.1)
 
@@ -105,7 +105,7 @@ Niezaincjowany wskaźnik najczęściej będzie miał adres `$0000`, należy zadb
 
 Jeśli tego nie zrobimy to w przypadku uruchomienia takiego programu na **PC** spowodujemy błąd ochrony pamięci **Access Violation**.
 
-Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje. Zmniejszenie wskaźnika przez `DEC` zmniejszy go o rozmiar typu na jaki wskazuje. Jeśli typ jest nieokreślony, wówczas domyślną wartością zwiększania/zmniejszanie będzie 1.
+Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje. Zmniejszenie wskaźnika przez `DEC` zmniejszy go o rozmiar typu na jaki wskazuje. Jeśli typ jest nieokreślony, wówczas domyślną wartością zwiększania/zmniejszanie będzie `1`.
 
 ## [tablice](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
 
