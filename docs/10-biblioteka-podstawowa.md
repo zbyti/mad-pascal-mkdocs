@@ -8,7 +8,7 @@ Moduł `SYSTEM` jest domyślnie dopisywany do listy `USES` i kompilowany jako pi
 
 ## [SYSTEM](http://mads.atari8.info/library/doc/system.html)
 
-**Constants**
+### Constants
 
 ```
 PI               = 3.1406     // write(pi)
@@ -65,47 +65,60 @@ COLOR_LIGHTGREEN = $cc;
 COLOR_LIGHTBLUE  = $7c;
 ```
 
-**Types**
+### Types
 
-* `TPoint` definicja współrzędnych (x,y).
+#### `TPoint`
 
 ```
     TPoint = record x,y: SmallInt end;
 ```
 
-* `TRect` definicja położenia i rozmiaru czworokąta o parametrach (left, top) - lewy górny narożnik, (right, bottom) - prawy dolny narożnik.
+Definicja współrzędnych (x,y).
+
+#### `TRect`
 
 ```
     TRect = record left, top, right, bottom: smallint end;
 ```
 
-* `TString` definicja krótkiego ciągu znakowego wykorzystywanego do przekazywania nazw plików itp.
+Definicja położenia i rozmiaru czworokąta o parametrach (left, top) - lewy górny narożnik, (right, bottom) - prawy dolny narożnik.
+
+
+#### `TString`
 
 ```
     TString = string[32];
 ```
 
-**Variables**
+Definicja krótkiego ciągu znakowego wykorzystywanego do przekazywania nazw plików itp.
 
-* `IOResult` zmienna przechowuje ostatni błąd operacji `I/O`. [Kody błędów I/O](http://atariki.krap.pl/index.php/Kody_statusowe_Atari_OS).
+### Variables
+
+#### `IOResult`
 
 ```
     IOResult: byte;
 ```
 
-* `ScreenWidth` zmienna przechowująca aktualną szerokość ekranu. Domyślnie jest to wartość 40 dla ekranu edytora.
+Zmienna przechowuje ostatni błąd operacji `I/O`. [Kody błędów I/O](http://atariki.krap.pl/index.php/Kody_statusowe_Atari_OS).
+
+#### `ScreenWidth`
 
 ```
     ScreenWidth: word = 40
 ```
 
-* `ScreenHeight` zmienna przechowująća aktualną wysokość ekranu. Domyślnie jest to wartość 24 dla ekranu edytora.
+Zmienna przechowująca aktualną szerokość ekranu. Domyślnie jest to wartość 40 dla ekranu edytora.
 
 ```
     ScreenHeight: word = 24;
 ```
 
-**Procedures and functions**
+#### `ScreenHeight`
+
+Zmienna przechowująća aktualną wysokość ekranu. Domyślnie jest to wartość 24 dla ekranu edytora.
+
+### Procedures and functions
 
 ```pascal
 Abs                ArcTan              Assign             BinStr            Concat
@@ -123,32 +136,41 @@ SizeOf             Str                 StringOfChar       Sqr               Sqrt
 Trunc              UpCase              Val                WriteSector
 ```
 
-* `Abs` funkcja obliczająca wartość bezwzględną podanej liczby (ang. **Absolute value**). Wartość bezwzględna liczby nieujemnej to ta sama liczba, a liczby ujemnej - liczba do niej przeciwna. Funkcja w przypadku podania jej argumentu całkowitego zwraca wynik również typu całkowitego.
+#### `Abs`
 
 ```
     function Abs(x: real): real;
     function Abs(x: integer): integer;
 ```
 
-* `ArcTan` funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi x.
+Funkcja obliczająca wartość bezwzględną podanej liczby (ang. **Absolute value**). Wartość bezwzględna liczby nieujemnej to ta sama liczba, a liczby ujemnej - liczba do niej przeciwna. Funkcja w przypadku podania jej argumentu całkowitego zwraca wynik również typu całkowitego.
+
+#### `ArcTan`
 
 ```
     function ArcTan(x: real): real;
 ```
 
-* `Assign` procedura przypisuje zmiennej plikowej `F` plik o nazwie `FileName`. Aby móc odwoływać się do jakiegoś pliku, zawsze należy najpierw użyć procedury `Assign`. Przy dalszych operacjach pliki są identyfikowane przy pomocy zmiennej plikowej, a nie nazwy.
+Funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi x.
+
+#### `Assign`
 
 ```
     procedure Assign(var F:File; FileName:string)
 ```
 
-* `BinStr` funkcja zwraca ciąg znakowy z reprezentacją binarną wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+Procedura przypisuje zmiennej plikowej `F` plik o nazwie `FileName`. Aby móc odwoływać się do jakiegoś pliku, zawsze należy najpierw użyć procedury `Assign`. Przy dalszych operacjach pliki są identyfikowane przy pomocy zmiennej plikowej, a nie nazwy.
+
+#### `BinStr`
 
 ```
     function BinStr(Value: cardinal; Digits: byte): TString;
 ```
 
-* `Concat` funkcja łączy dwa ciągi tekstowe w nowy ciąg znakowy.
+Funkcja zwraca ciąg znakowy z reprezentacją binarną wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+
+
+#### `Concat`
 
 ```
     function Concat(a,b: string): string; assembler
@@ -157,14 +179,25 @@ Trunc              UpCase              Val                WriteSector
     function Concat(a,b: char): string;
 ```
 
-* `Blockread` `Blockwrite` procedura `BlockRead` wczytuje z pliku plik do zmiennej `Buf` nie więcej niż `Count` bajtów i umieszcza w zmiennej `Result` ilość rzeczywiście przeczytanych bajtów (która może być mniejsza od oczekiwanej np. ze względu na rzeczywistą długość pliku). Procedura `BlockWrite` działa tak samo, tylko zapisuje do pliku.
+Funkcja łączy dwa ciągi tekstowe w nowy ciąg znakowy.
+
+#### ` Blockread`
 
 ```
     procedure BlockRead(var f: file; var Buf; Count: word; var Result: word);
+```
+
+Procedura wczytuje z pliku plik do zmiennej `Buf` nie więcej niż `Count` bajtów i umieszcza w zmiennej `Result` ilość rzeczywiście przeczytanych bajtów (która może być mniejsza od oczekiwanej np. ze względu na rzeczywistą długość pliku).
+
+#### `Blockwrite`
+
+```
     procedure BlockWrite(var f: file; var Buf; Count: word; var Result: word);
 ```
 
-* `Chr` funkcja zwraca znak `Char` o odpowiadającym kodzie **ATASCII** podanym w parametrze. Zamiennie z funkcją `Chr`, chcąc uzyskać odpowiedni znak możemy użyć jego kodu **ATASCII** poprzedzając go `#`.
+Procedura zapisuje do pliku ze zmiennej `Buf` nie więcej niż `Count` bajtów.
+
+#### `Chr`
 
 ```
     Chr(65); // Zwraca znak A
@@ -175,76 +208,108 @@ Trunc              UpCase              Val                WriteSector
     Writeln(#65#32#65); // Napisze 'A Z'
 ```
 
-* `Cos` cosinus kąta (x w radianach).
+Funkcja zwraca znak `Char` o odpowiadającym kodzie **ATASCII** podanym w parametrze. Zamiennie z funkcją `Chr`, chcąc uzyskać odpowiedni znak możemy użyć jego kodu **ATASCII** poprzedzając go `#`.
+
+#### `Cos`
 
 ```
     function Cos(x: real): real;
 ```
 
-* `Close` procedura służąca do zamykania otwartego pliku dowolnego typu. Każdy plik otwarty przy pomocy `Reset` lub `Rewrite` powinno się zamknąć przy pomocy `Close`.
+Cosinus kąta (x w radianach).
+
+#### `Close`
 
 ```
     procedure Close(var f: file);
 ```
 
-* `Dec` procedura zmniejsza wartość parametru `X` o `1` lub wartość parametru `N`. Wartość parametru `X` może być typu `CHAR` `BYTE` `WORD` `CARDINAL`. Procedura `DEC` generuje optymalny kod, jest zalecana do używania w pętlach, zamiast operatora odejmowania `-`.
+Procedura służąca do zamykania otwartego pliku dowolnego typu. Każdy plik otwarty przy pomocy `Reset` lub `Rewrite` powinno się zamknąć przy pomocy `Close`.
+
+#### `Dec`
 
 ```
     procedure Dec(var X [, N: int]);
+```
 
+Procedura zmniejsza wartość parametru `X` o `1` lub wartość parametru `N`. Wartość parametru `X` może być typu `CHAR` `BYTE` `WORD` `CARDINAL`. Procedura `DEC` generuje optymalny kod, jest zalecana do używania w pętlach, zamiast operatora odejmowania `-`.
+
+```
     dec(tmp);
     dec(tmp[2]);
 ```
 
-* `DeleteFile` funkcja pozwala skasować plik z dysku o nazwie `FileName`, zwraca `TRUE` kiedy operacja powiodła się, `FALSE` w przypadku wystąpienia błędu (najczęściej z powodu zabezpieczenia przed zapisem lub błędnej nazwy pliku).
+#### `DeleteFile`
 
 ```
     function DeleteFile(FileName: string): Boolean;
 ```
 
-* `DPeek` funkcja zwraca słowo spod adresu `A`.
+Funkcja pozwala skasować plik z dysku o nazwie `FileName`, zwraca `TRUE` kiedy operacja powiodła się, `FALSE` w przypadku wystąpienia błędu (najczęściej z powodu zabezpieczenia przed zapisem lub błędnej nazwy pliku).
+
+#### `DPeek`
 
 ```
     function DPeek(a: word): word;
 ```
 
-* `DPoke` procedura zapisuje słowo `Value` pod adresem `A`.
+Funkcja zwraca słowo spod adresu `A`.
+
+#### `DPoke`
 
 ```
     procedure DPoke(a: word; value: word);
 ```
 
-* `Eof` Funkcja zwraca wartość logiczną True jeśli osiągnięty został koniec pliku.
+Procedura zapisuje słowo `Value` pod adresem `A`.
+
+
+#### `Eof`
 
 ```
     function Eof(var f: file): Boolean;
 ```
 
-* `Exit` wywołanie procedury `Exit` powoduje natychmiastowe opuszczenie bloku programu, w którym to wywołanie nastąpiło. Można jej użyć do opuszczenia pętli, wyjścia z **procedury/funkcji** lub programu głównego.
+Funkcja zwraca wartość logiczną True jeśli osiągnięty został koniec pliku.
 
-* `Exp` funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument.
+#### `Exit`
+
+Wywołanie procedury `Exit` powoduje natychmiastowe opuszczenie bloku programu, w którym to wywołanie nastąpiło. Można jej użyć do opuszczenia pętli, wyjścia z **procedury/funkcji** lub programu głównego.
+
+#### `Exp`
 
 ```
     function Exp(x: real): real;
 ```
 
-* `FilePos` funkcja zwraca aktualną pozycję pliku. Plik nie może być tekstowy i musi być otwarty (np. poleceniem `Reset`). Bity `0..15` zwróconej wartości to numer sektora dysku, bity `16..23` pozycja w sektorze `[0..255]`. Jest to odpowiednik instrukcji `NOTE`.
+Funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument.
+
+#### `FilePos`
 
 ```
     function FilePos(var f: file): cardinal;
 ```
 
-* `FileSize` funkcja zwraca długość pliku w bajtach (**Sparta DOS X**). Plik nie może być tekstowy i musi być otwarty (np. poleceniem `Reset`).
+Funkcja zwraca aktualną pozycję pliku. Plik nie może być tekstowy i musi być otwarty (np. poleceniem `Reset`). Bity `0..15` zwróconej wartości to numer sektora dysku, bity `16..23` pozycja w sektorze `[0..255]`. Jest to odpowiednik instrukcji `NOTE`.
+
+
+#### `FileSize`
 
 ```
     function FileSize(var f: file): cardinal;
 ```
 
-* `FillChar` procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub bajtami. Parametr `Value` musi określać dane, natomiast `Count` - ilość danych jakie zostaną przypisane do bufora.
+Funkcja zwraca długość pliku w bajtach (**Sparta DOS X**). Plik nie może być tekstowy i musi być otwarty (np. poleceniem `Reset`).
+
+#### `FillChar`
 
 ```
     procedure FillChar(a: pointer; count: word; value: char);
+```
 
+Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub bajtami. Parametr `Value` musi określać dane, natomiast `Count` - ilość danych jakie zostaną przypisane do bufora.
+
+```
     var
       Buffer : array[0..100] of Char;
     begin
@@ -252,110 +317,147 @@ Trunc              UpCase              Val                WriteSector
     end.
 ```
 
-* `Frac` zwraca część ułamkową liczby x w postaci rzeczywistej.
+#### `Frac`
 
 ```
     function Frac(x: real): real;
 ```
 
-* `GetIntVec` procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` i `iVBL - przerwanie VBL`.
+Zwraca część ułamkową liczby x w postaci rzeczywistej.
+
+#### `GetIntVec`
 
 ```
     procedure GetIntVec(intno: Byte; var vector: pointer);
 ```
 
-* `Halt` wywołanie powoduje natychmiastowe wyjście z programu. Można (opcjonalnie) podać kod błędu, w przypadku **MP** jest on ignorowany.
+Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` i `iVBL - przerwanie VBL`.
+
+#### `Halt`
 
 ```
     procedure halt;
 ```
 
-* `Hi` funkcja zwracająca starszy bajt parametru `X`.
+Wywołanie powoduje natychmiastowe wyjście z programu. Można (opcjonalnie) podać kod błędu, w przypadku **MP** jest on ignorowany.
+
+
+#### `Hi`
 
 ```
     function Hi(x): byte
 ```
 
-* `HexStr` funkcja zwraca ciąg znakowy z reprezentacją heksadecymalną wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+Funkcja zwracająca starszy bajt parametru `X`.
+
+#### `HexStr`
 
 ```
     function HexStr(Value: cardinal; Digits: byte): TString;
 ```
 
-* `Inc` procedura zwiększa wartość parametru `X` o `1` lub wartość parametru `N`. Wartość parametru `X` może być typu `CHAR` `BYTE` `WORD` `CARDINAL`. Procedura `INC` generuje optymalny kod, jest zalecana do używania w pętlach, zamiast operatora dodawania `+`.
+Funkcja zwraca ciąg znakowy z reprezentacją heksadecymalną wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+
+#### ` Inc`
 
 ```
     Inc procedure Inc(var X [, N: int]);
+```
 
+Procedura zwiększa wartość parametru `X` o `1` lub wartość parametru `N`. Wartość parametru `X` może być typu `CHAR` `BYTE` `WORD` `CARDINAL`. Procedura `INC` generuje optymalny kod, jest zalecana do używania w pętlach, zamiast operatora dodawania `+`.
+
+```
     inc(tmp);
     inc(tmp[2]);
 ```
 
-* `Int` funkcja zwraca część całkowitą argumentu będącego liczbą rzeczywistą.
+#### `Int`
 
 ```
     function Int(x: real): real;
 ```
 
-* `Ln` funkcja licząca logarytm naturalny (o podstawie e) z podanej liczby. Argument funkcji musi być **dodatni**!
+Funkcja zwraca część całkowitą argumentu będącego liczbą rzeczywistą.
+
+#### `Ln`
 
 ```
     function Ln(x: real): real;
 ```
 
-* `Lo` funkcja zwracająca młodszy bajt parametru `X`.
+Funkcja licząca logarytm naturalny (o podstawie e) z podanej liczby. Argument funkcji musi być **dodatni**!
+
+#### `Lo`
 
 ```
     function Lo(x): byte;
 ```
 
-* `LowerCase` funkcja zmieniająca znaki 'A'..'Z' na odpowiednie małe znaki 'a'..'z'.
+Funkcja zwracająca młodszy bajt parametru `X`.
+
+#### `LowerCase`
 
 ```
     function LowerCase(a: char): char;
 ```
 
-* `Move` Procedura służy do kopiowania danych ze źródła, parametr `Source`, do bufora oznaczonego jako przeznaczenie, parametr `Dest`. Ilość kopiowanych danych określa parametr `Count`.
+Funkcja zmieniająca znaki 'A'..'Z' na odpowiednie małe znaki 'a'..'z'.
+
+
+#### `Move`
 
 ```
     procedure Move(source, dest: pointer; count: word);
 ```
 
-* `OctStr` funkcja zwraca ciąg znakowy z reprezentacją ósemkową wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+Procedura służy do kopiowania danych ze źródła, parametr `Source`, do bufora oznaczonego jako przeznaczenie, parametr `Dest`. Ilość kopiowanych danych określa parametr `Count`.
+
+#### `OctStr`
 
 ```
     function OctStr(Value: cardinal; Digits: byte): TString;
 ```
 
-* `Odd` funkcja zwraca wartość `True` jeżeli liczba określona w parametrze `X` jest nieparzysta, `False` jeżeli jest parzysta.
+Funkcja zwraca ciąg znakowy z reprezentacją ósemkową wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+
+#### `Odd`
 
 ```
     function Odd(x: cardinal): Boolean;
     function Odd(x: integer): Boolean;
 ```
 
-* `Ord` funkcja ta działa odwrotnie do `Chr`. Z podanego znaku jako parametr zwraca nam jego kod w **ATASCII**.
+Funkcja zwraca wartość `True` jeżeli liczba określona w parametrze `X` jest nieparzysta, `False` jeżeli jest parzysta.
+
+#### `Ord`
 
 ```
     function Ord(X);
+```
 
+Funkcja ta działa odwrotnie do `Chr`. Z podanego znaku jako parametr zwraca nam jego kod w **ATASCII**.
+
+```
     Ord('A'); // Zwraca 65
     Ord('Z'); // Zwraca 90
     Ord(' '); // Zwraca 32
 ```
 
-* `ParamCount` funkcja zwraca ilość dostępnych argumentów (**Sparta Dos X**, **BWDos**), tzn. maksymalny indeks dla procedury `ParamStr`. `ParamCount` określa ilość parametrów przekazanych do programu z linii poleceń.
+#### `ParamCount`
 
 ```
     function ParamCount: byte;
 ```
 
+Funkcja zwraca ilość dostępnych argumentów (**Sparta Dos X**, **BWDos**), tzn. maksymalny indeks dla procedury `ParamStr`. `ParamCount` określa ilość parametrów przekazanych do programu z linii poleceń.
 
-* `ParamStr` funkcja zwraca parametry programu (**Sparta Dos X**, **BWDos**). `Index` to numer parametru, czyli ciągu znaków oddzielonego spacją.
+#### `ParamStr`
 
 ```
     function ParamStr(Index: byte): TString;
 ```
+
+Funkcja zwraca parametry programu (**Sparta Dos X**, **BWDos**). `Index` to numer parametru, czyli ciągu znaków oddzielonego spacją.
 
 Jeżeli uruchomimy program `TEST.EXE` w taki sposób:
 
@@ -367,45 +469,57 @@ Jeżeli uruchomimy program `TEST.EXE` w taki sposób:
 To aby uzyskać `parametr3` należy podać `Index=3`, zaś aby uzyskać `parametr1` należy `Index=1`. `Index=0` to specjalny argument, wtedy funkcja zwraca napęd z którego został uruchomiony programu, np. `D1:`.
 
 
-* `Pause` zatrzymuje działanie programu na `N * 1.50` sek.
+#### `Pause`
 
 ```
     procedure Pause;
     procedure Pause(n: word);
 ```
 
-* `Peek` funkcja zwraca bajt spod adresu `A`.
+Procedura zatrzymuje działanie programu na `N * 1.50` sek.
+
+#### `Peek`
 
 ```
     function Peek(a: word): byte;
 ```
 
-* `Point` na podstawie parametrów `AX` oraz `AY` tworzony jest rekord typu `TPoint`.
+Funkcja zwraca bajt spod adresu `A`.
 
+#### `Point`
 
 ```
     function Point(AX, AY: smallint): TPoint;
 ```
 
-* `PointsEqual` funkcja sprawdza czy wartości współrzędnych określone w parametrach `P1` oraz `P2` są sobie równe. W takim wypadku funkcja zwraca wartość `True`.
+Funkcja na podstawie parametrów `AX` oraz `AY` tworzony jest rekord typu `TPoint`.
+
+
+#### `PointsEqual`
 
 ```
     function PointsEqual(const P1, P2: TPoint): Boolean;
 ```
 
-* `Poke` procedura zapisuje bajt `Value` pod adresem `A`.
+Funkcja sprawdza czy wartości współrzędnych określone w parametrach `P1` oraz `P2` są sobie równe. W takim wypadku funkcja zwraca wartość `True`.
+
+#### `Poke`
 
 ```
     procedure Poke(a: word; value: byte);
 ```
 
-* `Pred` poprzednik elementu `X`.
+Procedura zapisuje bajt `Value` pod adresem `A`.
+
+#### `Pred`
 
 ```
     function Pred(X: TOrdinal): TOrdinal;
 ```
 
-* `Random`
+Poprzednik elementu `X`.
+
+#### `Random`
 
 ```
     function Random: Real; assembler;
@@ -425,11 +539,15 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`, w przypadku Ran
 
 Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
 
-* `ReadConfig` odczyt statusu stacji `DEVNUM`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)`.
+#### `ReadConfig`
 
 ```
     function ReadConfig(devnum: byte): cardinal;
+```
 
+Odczyt statusu stacji `DEVNUM`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)`.
+
+```
     Byte 0 ($02ea):
     Bit 0:Indicates the last command frame had an error.
     Bit 1:Checksum, indicates that there was a checksum error in the last command or data frame
@@ -457,106 +575,142 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
     not used, should be zero
 ```
 
-* `ReadSector` odczyt sektora `SECTOR` dyskietki w stacji dysków `DEVNUM` i zapisanie go w buforze `BUF`.
+#### `ReadSector`
 
 ```
     procedure ReadSector(devnum: byte; sector: word; var buf);
 ```
 
-* `Rect` na podstawie parametrów tworzony jest rekord typu `TRect`.
+Procedura odczytuje sektora `SECTOR` dyskietki w stacji dysków `DEVNUM` i zapisanie go w buforze `BUF`.
+
+#### `Rect`
 
 ```
     function Rect(ALeft, ATop, ARight, ABottom: smallint): TRect;
 ```
 
-* `RenameFile` funkcja pozwala zmienić nazwę pliku `OldName` na nową nazwę `NewName`, zwraca `TRUE` kiedy operacja powiodła się, `FALSE` w przypadku wystąpienia błędu (najczęściej z powodu zabezpieczenia przed zapisem lub błędnej nazwy pliku).
+Funckja na podstawie parametrów tworzy rekord typu `TRect`.
+
+#### `RenameFile`
 
 ```
     function RenameFile(OldName, NewName: string): Boolean;
+```
+Funkcja pozwala zmienić nazwę pliku `OldName` na nową nazwę `NewName`, zwraca `TRUE` kiedy operacja powiodła się, `FALSE` w przypadku wystąpienia błędu (najczęściej z powodu zabezpieczenia przed zapisem lub błędnej nazwy pliku).
 
+
+```
     RenameFile('D:OLDNAME.TMP', 'NEWNAME.TMP');
 ```
 
-* `Reset` otwiera istniejący plik z nazwą przekazaną do `F` poleceniem `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
+#### `Reset`
+
 
 ```
     procedure Reset(var f: file; l: Word);
 ```
 
-* `Rewrite` tworzy i otwiera nowy plik. `F` jest nazwą przekazaną za pomocą polecenia `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
+Procedura otwiera istniejący plik z nazwą przekazaną do `F` poleceniem `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
+
+#### `Rewrite`
 
 ```
     procedure Rewrite(var f: file; l: Word);
 ```
 
-* `Round` funkcja dokonuje zaokrąglenia podanej liczby rzeczywistej do najbliższej liczby całkowitej.
+Procedura tworzy i otwiera nowy plik. `F` jest nazwą przekazaną za pomocą polecenia `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
+
+#### `Round`
 
 ```
     function Round(x: real): integer;
 ```
 
-* `Seek` ustawia pozycję w pliku na `N`. `N` powinno być wartością zwróconą przez `FilePos`. Jest to odpowiednik instrukcji `POINT`.
+Funkcja dokonuje zaokrąglenia podanej liczby rzeczywistej do najbliższej liczby całkowitej.
+
+#### `Seek`
 
 ```
     procedure Seek(var f: file; N: cardinal);
 ```
 
-* `SetLength` ustawia długość ciągu `S` na `LEN`.
+Procedura ustawia pozycję w pliku na `N`. `N` powinno być wartością zwróconą przez `FilePos`. Jest to odpowiednik instrukcji `POINT`.
+
+#### `SetLength`
 
 ```
     procedure SetLength(var S: string; Len: byte);
 ```
 
-* `SetIntVec` procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` oraz `iVBL - przerwanie VBL`.
+Procedura ustawia długość ciągu `S` na `LEN`.
+
+#### `SetIntVec`
 
 ```
     procedure SetIntVec(intno: Byte; vector: pointer);
 ```
 
-* `Sin` sinus kąta (x w radianach).
+Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` oraz `iVBL - przerwanie VBL`.
+
+#### `Sin`
 
 ```
     function Sin(x: real): real;
 ```
 
-* `Succ` następnik elementu `X`.
+Sinus kąta (x w radianach).
+
+#### `Succ`
 
 ```
     function Succ(X: TOrdinal): TOrdinal;
 ```
 
-* `Space` funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami spacji.
+Następnik elementu `X`.
+
+#### `Space`
 
 ```
     function Space(Len: Byte): ^char;
 ```
 
-* `SizeOf` funkcja zwraca rozmiar podanej zmiennej (lub typu) w bajtach.
+Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami spacji.
+
+#### `SizeOf`
 
 ```
     function SizeOf(X: AnyType): byte;
 ```
 
-* `Str` instrukcja zamienia liczbę `X` na łańcuch znaków `S`.
+Funkcja zwraca rozmiar podanej zmiennej (lub typu) w bajtach.
+
+
+#### `Str`
 
 ```
     procedure Str(var X: TNumericType; var S: string);
 ```
 
-* `StringOfChar` funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami `CH`.
+Procedura zamienia liczbę `X` na łańcuch znaków `S`.
+
+#### `StringOfChar`
 
 ```
     procedure StringOfChar(ch: Char; len: byte): ^char;
 ```
 
-* `Sqr` funkcja obliczająca kwadrat podanej liczby (ang. **Square**).
+Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami `CH`.
+
+#### `Sqr`
 
 ```
     function Sqr(x: real): real;
     function Sqr(x: integer): integer;
 ```
 
-* `Sqrt` funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. **Square root**).
+Funkcja obliczająca kwadrat podanej liczby (ang. **Square**).
+
+#### `Sqrt`
 
 ```
     function Sqrt(x: real): real;
@@ -564,26 +718,36 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
     function Sqrt(x: integer): single;
 ```
 
-* `Trunc` funkcja zwraca część całkowitą liczby rzeczywistej w postaci liczby całkowitej.
+Funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. **Square root**).
+
+#### `Trunc`
 
 ```
     function Trunc(x: real): integer;
 ```
 
-* `UpCase` funkcja zmieniająca znaki `'a'..'z'` na odpowiednie duże znaki `'A'..'Z'`.
+Funkcja zwraca część całkowitą liczby rzeczywistej w postaci liczby całkowitej.
+
+#### `UpCase`
 
 ```
     function UpCase(a: char): char;
 ```
 
-* `Val` procedura przekształca ciąg znaków `S` na liczbę `V`. Code przyjmie wartość `0` jeśli nie było błędnych znaków, w przeciwnym wypadku przyjmie numer znaku który spowodował błąd konwersji.
+Funkcja zmieniająca znaki `'a'..'z'` na odpowiednie duże znaki `'A'..'Z'`.
+
+#### `Val`
 
 ```
     procedure Val(const S: string; var V; var Code: Byte);
 ```
 
-* `WriteSector` zapis sektora `SECTOR` dyskietki w stacji `DEVNUM` na podstawie bufora `BUF`.
+Procedura przekształca ciąg znaków `S` na liczbę `V`. Code przyjmie wartość `0` jeśli nie było błędnych znaków, w przeciwnym wypadku przyjmie numer znaku który spowodował błąd konwersji.
+
+#### `WriteSector`
 
 ```
     procedure WriteSector(devnum: byte; sector: word; var buf);
 ```
+
+Procedura zapisuje sektora `SECTOR` dyskietki w stacji `DEVNUM` na podstawie bufora `BUF`.

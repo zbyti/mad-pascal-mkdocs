@@ -22,7 +22,7 @@ inc(a); // to jest komentarz
 
 ## Zarezerwowane słowa
 
-#### rozkazy
+### rozkazy
 
 ```pascal
 absolute           and                 array              asm               begin
@@ -35,7 +35,7 @@ string             then                to                 type              unit
 until              uses                var                while             xor
 ```
 
-#### stałe
+### stałe
 
 ```pascal
 pi
@@ -45,27 +45,27 @@ false
 
 ## Wyrażenia
 
-#### [Liczby](http://www.freepascal.org/docs-html/ref/refse6.html)
+### [Liczby](http://www.freepascal.org/docs-html/ref/refse6.html)
 
-###### zapis decymalny
+#### zapis decymalny
 ```pascal
 -100
 -2437325
 1743
 ```
-###### zapis hexadecymalny
+#### zapis hexadecymalny
 ```pascal
 $100
 $e430
 $000001
 ```
-###### zapis binarny
+#### zapis binarny
 ```pascal
 %0001001010
 %000000001
 %001000
 ```
-###### zapis kodami ATASCII
+#### zapis kodami ATASCII
 ```pascal
 'a'
 'fds'
@@ -74,9 +74,9 @@ $000001
 #$9b
 ```
 
-#### Operatory
+### Operatory
 
-###### arytmetyczne
+#### arytmetyczne
 
 ```pascal
 +   Addition
@@ -87,7 +87,7 @@ DIV Integer division
 MOD Remainder
 ```
 
-###### bitowe
+#### bitowe
 
 ```pascal
 NOT Bitwise negation (unary)
@@ -98,7 +98,7 @@ SHL Bitwise shift to the left
 SHR Bitwise shift to the right
 ```
 
-###### logiczne
+#### logiczne
 
 ```pascal
 NOT logical negation (unary)
@@ -106,7 +106,7 @@ AND logical and
 OR  logical or
 ```
 
-###### relacji
+#### relacji
 
 ```pascal
 =   Equal
@@ -126,13 +126,13 @@ Zapis dyrektyw kompilatora ma postać:
 
 Dyrektywa stanowi komentarz, w którym pierwszy znak $ odróżnia zwykły komentarz, od dyrektywy kompilatora.
 
-#### [CONDITIONAL](https://wiki.freepascal.org/Conditional_compilation)
+### [CONDITIONAL](https://wiki.freepascal.org/Conditional_compilation)
 
 ```
 CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label}, {$UNDEF label}
 ```
 
-#### [FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
+### [FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
 
 ```
 {$f $70}  // fastmul at $7000
@@ -140,7 +140,7 @@ CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label},
 
 Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SMALLINT` `SHORTREAL`. Procedury zajmują **2KB** i są umieszczane od adresu __PAGE*256__.
 
-#### [IOCHECK](https://www.freepascal.org/docs-html/prog/progsu38.html#x45-440001.2.38)
+### [IOCHECK](https://www.freepascal.org/docs-html/prog/progsu38.html#x45-440001.2.38)
 
 ```
 IOCHECK {$I+} {$I-}
@@ -168,13 +168,13 @@ end;
 
 W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, po zakończeniu kompilacji takiego bloku przywracana jest wartość `IOCHECK` która została określona poza takim blokiem.
 
-#### [INCLUDE](https://www.freepascal.org/docs-html/prog/progsu41.html)
+### [INCLUDE](https://www.freepascal.org/docs-html/prog/progsu41.html)
 
 * `{$INCLUDE %DATE%}` dyrektywa dołączenia tekstu z aktualnym czasem kompilacji.
 
 * `{$I filename}`, `{$INCLUDE filename}` dyrektywa dołączenia tekstu zawartego w pliku.
 
-#### [LIBRARY PATH](https://www.freepascal.org/docs-html/prog/progsu99.html)
+### [LIBRARY PATH](https://www.freepascal.org/docs-html/prog/progsu99.html)
 
 ```
 {$LIBRARYPATH path1;path2;...}
@@ -182,25 +182,25 @@ W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, p
 
 Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek (unit).
 
-#### [INFO](https://www.freepascal.org/docs-html/prog/progsu35.html#x42-410001.2.35)
+### [INFO](https://www.freepascal.org/docs-html/prog/progsu35.html#x42-410001.2.35)
 
 ```
 {$INFO user_defined}
 ```
 
-#### [WARNING](https://www.freepascal.org/docs-html/prog/progsu81.html#x88-870001.2.81)
+### [WARNING](https://www.freepascal.org/docs-html/prog/progsu81.html#x88-870001.2.81)
 
 ```
 {$WARNING user_defined}
 ```
 
-#### [ERROR](https://www.freepascal.org/docs-html/prog/progsu17.html#x24-230001.2.17)
+### [ERROR](https://www.freepascal.org/docs-html/prog/progsu17.html#x24-230001.2.17)
 
 ```
 {$ERROR user_defined}
 ```
 
-#### [RESOURCE](https://www.freepascal.org/docs-html/prog/progsu67.html#x74-730001.2.67)
+### [RESOURCE](https://www.freepascal.org/docs-html/prog/progsu67.html#x74-730001.2.67)
 
 ```
 {$R filename}, {$RESOURCE filename}
