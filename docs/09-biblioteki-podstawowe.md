@@ -1081,3 +1081,311 @@ Procedura ustawia nowy kolor tła znaków (działa najlepiej z włączonym **VBX
 ```
 
 Procedura ustawia nowy kolor znaków (działa najlepiej z włączonym **VBXE**).
+
+## [GRAPH](http://mads.atari8.info/library/doc/graph.html)
+
+### Constants
+
+```
+{ graphic drivers }
+D1bit   = 11;
+D2bit   = 12;
+D4bit   = 13;
+D6bit   = 14;       // 64 colors Half-brite mode - Amiga
+D8bit   = 15;
+D12bit  = 16;       // 4096 color modes HAM mode - Amiga
+
+m640x480 = 8 + 16;
+
+{ error codes }
+grOK             = 0;
+grNoInitGraph    = -1;
+grNotDetected    = -2;
+grFileNotFound   = -3;
+grInvalidDriver  = -4;
+grNoLoadMem      = -5;
+grNoScanMem      = -6;
+grNoFloodMem     = -7;
+grFontNotFound   = -8;
+grNoFontMem      = -9;
+grInvalidMode    = -10;
+grError          = -11;
+grIOerror        = -12;
+grInvalidFont    = -13;
+grInvalidFontNum = -14;
+grInvalidVersion = -18;
+```
+
+### Variables
+
+#### `GraphResult`
+
+```
+    GraphResult : byte
+```
+
+### Procedures and functions
+
+```pascal
+Bar                Bar3D               Circle             ClipLine          Ellipse
+FillEllipse        FillRect            FloodFill          GetColor          GetMaxX
+GetMaxY            GetPixel            GetX               GetY              InitGraph
+Line               LineTo              MoveRel            MoveTo            PutPixel
+Rectangle          SetBkColor          SetClipRect        SetColor          SetColorMapEntry
+SetColorMapDimensions
+```
+
+#### `Bar`
+
+```
+    procedure Bar(x1, y1, x2, y2: Smallint);
+```
+
+Prostokąt, np. dla wykresów słupkowych.
+
+---
+
+#### `Bar3D`
+
+```
+    procedure Bar3D(x1, y1, x2, y2: smallint; depth: word; top: boolean);
+```
+
+Słupek dla wykresów trójwymiarowych.
+
+---
+
+#### `Circle`
+
+```
+    procedure Circle(x0,y0,radius: word);
+```
+
+Okrąg.
+
+---
+
+#### `ClipLine`
+
+```
+    procedure ClipLine(x1, y1, x2, y2: smallint);
+```
+
+---
+
+#### `Ellipse`
+
+```
+    procedure Ellipse(x0, y0, a, b: word);
+```
+
+Elipsa.
+
+---
+
+#### `FillEllipse`
+
+```
+    procedure FillEllipse(x0, y0, a, b: word);
+```
+
+Elipsa wypełniona wewnątrz.
+
+---
+
+#### `FillRect`
+
+```
+    procedure FillRect(Rect: TRect);
+```
+
+Prostokąt wypełniony wewnątrz.
+
+---
+
+#### `FloodFill`
+
+```
+    procedure FloodFill(x, y: smallint; color: byte);
+```
+
+Wypełnienie zamkniętego obszaru ekranu.
+
+---
+
+#### `GetColor`
+
+```
+    function GetColor: byte; assembler;
+```
+
+Podaj bieżący kolor rysowania.
+
+---
+
+#### `GetMaxX`
+
+```
+    function GetMaxX: word;
+```
+
+Podaj najwyższą wartość współrzędnej X na ekranie.
+
+---
+
+#### `GetMaxY`
+
+```
+    function GetMaxY: word;
+```
+
+Podaj najwyższą wartość współrzędnej Y na ekranie.
+
+---
+
+#### `GetPixel`
+
+```
+    function GetPixel(x,y: smallint): byte;
+```
+
+Podaj kolor danego punktu na ekranie.
+
+---
+
+#### `GetX`
+
+```
+    function GetX: smallint;
+```
+
+Podaj bieżącą współrzędną X kursora graficznego.
+
+---
+
+#### `GetY`
+
+```
+    function GetY: smallint;
+```
+
+Podaj bieżącą współrzędną Y kursora graficznego.
+
+---
+
+#### `InitGraph`
+
+```
+    procedure InitGraph(mode: byte);
+    procedure InitGraph(driver, mode: byte; pth: TString);
+```
+
+Zainicjuj tryb graficzny.
+
+---
+
+#### `Line`
+
+```
+    procedure Line(x0, y0, x1, y1: smallint);
+```
+
+Linia prosta.
+
+---
+
+#### `LineTo`
+
+```
+    procedure LineTo(x, y: smallint);
+```
+
+Linia od bieżącej pozycji kursora do wskazanego punktu.
+
+---
+
+#### `MoveRel`
+
+```
+    procedure MoveRel(Dx, Dy: smallint);
+```
+
+Przesuń kursor graficzny.
+
+---
+
+#### `MoveTo`
+
+```
+    procedure MoveTo(x, y: smallint);
+```
+
+Przesuń kursor graficzny do wskazanego punktu.
+
+---
+
+#### `PutPixel`
+
+```
+    procedure PutPixel(x,y: smallint);
+    procedure PutPixel(x,y: smallint; color: byte);
+```
+
+Zapal punkt na ekranie.
+
+---
+
+#### `Rectangle`
+
+```
+    procedure Rectangle(x1, y1, x2, y2: smallint);
+    procedure Rectangle(Rect: TRect);
+```
+
+Prostokąt.
+
+---
+
+#### `SetBkColor`
+
+```
+    procedure SetBkColor(color: byte);
+```
+
+Ustaw kolor tła.
+
+---
+
+#### `SetClipRect`
+
+```
+    procedure SetClipRect(x0,y0,x1,y1: smallint);
+    procedure SetClipRect(Rect: TRect);
+```
+
+---
+
+#### `SetColor`
+
+```
+    procedure SetColor(color: byte);
+```
+
+Ustaw kolor pisaka.
+
+---
+
+#### `SetColorMapEntry`
+
+```
+    procedure SetColorMapEntry;
+    procedure SetColorMapEntry(a,b,c: byte);
+```
+
+---
+
+#### `SetColorMapDimensions`
+
+```
+    procedure SetColorMapDimensions(w,h: byte);
+```
