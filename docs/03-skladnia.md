@@ -208,7 +208,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek (u
 RCLABEL RCTYPE RCFILE [PAR0 PAR1 PAR2 PAR3 PAR4 PAR5 PAR6 PAR7]
 ```
 
-Dyrektywa dołączenia pliku z zasobami. Plik zasobów jest plikiem tekstowym, każdy jego kolejny wiersz powinien składać się z trzech pól rozdzielonych "białym znakiem": etykieta `RCLABEL` (jej deklaracja musi znaleźć się także w programie), typ zasobów `RCTYPE`, lokalizacja pliku `RCFILE`. Aktualnie w pliku B`ASE\RES6502.ASM` znajdują się makra do obsługi 10 typów zasobów `RCTYPE`:
+Dyrektywa dołączenia pliku z zasobami. Plik zasobów jest plikiem tekstowym, każdy jego kolejny wiersz powinien składać się z trzech pól rozdzielonych "białym znakiem": etykieta `RCLABEL` (jej deklaracja musi znaleźć się także w programie), typ zasobów `RCTYPE`, lokalizacja pliku `RCFILE`. Aktualnie w pliku `BASE\RES6502.ASM` znajdują się makra do obsługi 10 typów zasobów `RCTYPE`:
 
 * `RCDATA` dowolny typ danych
 * `RCASM` plik w assemlerze, który zostanie dołączony i zasemblowany
