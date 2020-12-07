@@ -1060,7 +1060,7 @@ Funkcja zwraca kod naciśniętego klawisza klawiatury.
     procedure Sound(Chan,Freq,Dist,Vol: byte);
 ```
 
-Procedura odtwarza dźwięk na kanale **POKEY-a** `CHAN (0..3, 4..7)`, o częstotliwości `FREQ (0..255)`, `filtrach DIST (0..7)`, głośności `VOL (0..15)`.
+Procedura odtwarza dźwięk na kanale **POKEY-a** `CHAN (0..3, 4..7)`, o częstotliwości `FREQ (0..255)`, filtrach `DIST (0..7)`, głośności `VOL (0..15)`.
 
 ---
 
