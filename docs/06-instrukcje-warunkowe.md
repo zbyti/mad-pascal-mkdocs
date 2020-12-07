@@ -2,7 +2,7 @@
 
 ## case of else
 
-Obecnie Mad Pascal akceptuje dla zmiennej `CASE` typy tylko o długości 1 bajta: `SHORTINT` `BYTE` `CHAR` `BOOLEAN`.
+Obecnie **Mad Pascal** akceptuje dla zmiennej `CASE` typy tylko o długości 1 bajta: `SHORTINT` `BYTE` `CHAR` `BOOLEAN`.
 
 ```pascal
  case a of             // dla zmiennej A typu CHAR
