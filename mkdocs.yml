@@ -6,8 +6,7 @@ nav:
     - Składnia: 03-skladnia.md
     - Stałe: 04-stale.md
     - Typy: 05-typy.md
-    - Instrukcje warunkowe: 06-instrukcje-warunkowe.md
-    - Instrukcje interacyjne: 07-instrukcje-iteracyjne.md
-    - Procedury, funkcje, modyfikatory: 08-procedury-funkcje.md
-    - Moduły: 09-moduly.md
-    - Biblioteka podstawowa: 10-biblioteka-podstawowa.md
+    - Instrukcje: 06-instrukcje.md
+    - Procedury, funkcje, modyfikatory: 07-procedury-funkcje.md
+    - Moduły: 08-moduly.md
+    - Biblioteki podstawowe: 09-biblioteki-podstawowe.md

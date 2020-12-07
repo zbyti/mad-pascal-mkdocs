@@ -1,4 +1,4 @@
-# Biblioteka podstawowa
+# Biblioteki podstawowe
 
 W katalogu `LIB` **Mad-Pascala** znajdują się potrzebne do kompilacji podstawowe moduły `UNIT`, takie jak `SYSTEM` `CRT` `GRAPH` `SYSUTILS` `MATH` `DOS`. W programie wybierane są przez instrukcję `USES`, np.:
 

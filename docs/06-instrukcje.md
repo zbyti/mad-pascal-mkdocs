@@ -1,6 +1,26 @@
-# Instrukcje interacyjne
+# Instrukcje warunkowe
 
-## [for to downto do](https://www.freepascal.org/docs-html/ref/refsu57.html)
+## warunkowe
+
+### case of else
+
+Obecnie **Mad Pascal** akceptuje dla zmiennej `CASE` typy tylko o długości 1 bajta: `SHORTINT` `BYTE` `CHAR` `BOOLEAN`.
+
+```pascal
+ case a of             // dla zmiennej A typu CHAR
+  'A'..'Z': begin end;
+  '0'..'9': begin end;
+   '+','*': begin end;
+ end;
+```
+
+### if then else
+
+Instrukcje warunkowe `IF` mogą być zagnieżdżane. Wykorzystywane jest to przy budowie bardziej złożonych warunków.
+
+## interacyjne
+
+### [for to downto do](https://www.freepascal.org/docs-html/ref/refsu57.html)
 
     FOR zmienna := { wartość początkowa } TO { wartość końcowa } DO { instrukcje do wykonania }
     FOR zmienna := { wartość końcowa } DOWNTO { wartość początkowa } DO { instrukcje do wykonania }
@@ -11,7 +31,7 @@ Kompilator dba o to aby nie wystąpiła pętla bez końca, dlatego można bez ob
 
     for i:=0 to 255 do writeln(i);    // dla zmiennej I typu BYTE
 
-## while do
+### while do
 
     while { warunek } do { instrukcja do wykonania }
 
@@ -23,7 +43,7 @@ Ograniczenia dla instrukcji `WHILE`:
 
     while i<=255 do inc(i); // pętla bez końca gdy zmienna I typu BYTE
 
-## [repeat until](https://www.freepascal.org/docs-html/ref/refsu59.html)
+### [repeat until](https://www.freepascal.org/docs-html/ref/refsu59.html)
 
     repeat
       { instrukcje do wykonania }
