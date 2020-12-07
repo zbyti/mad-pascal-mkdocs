@@ -30,7 +30,7 @@ Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą pr
 
 ## Modyfikatory
 
-### assembler
+### `assembler`
 
 **Procedury/Funkcje** oznaczona przez ASSEMBLER mogą składać się tylko z bloku ASM. Kompilator nie dokonuje analizy składni takich bloków, traktuje je jak komentarz, ewentualne błędy zostaną wychwycone dopiero podczas asemblacji.
 
@@ -40,7 +40,7 @@ Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą pr
     };
     end;
 
-### overload
+### `overload`
 
 **Procedury/Funkcje** przeciążone rozpoznawane są na podstawie listy parametrów.
 
@@ -68,7 +68,7 @@ begin
 end;
 ```
 
-### forward
+### `forward`
 
 Jeżeli chcemy aby **procedura/funkcja** była zadeklarowana za miejscem jej pierwszego wywołania, należy użyć modyfikator FORWARD.
 
@@ -84,7 +84,7 @@ begin
 end;
 ```
 
-### register
+### `register`
 
 Użycie modyfikatora `REGISTER` spowoduje że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX` `ECX` `EAX`.
 
@@ -93,7 +93,7 @@ Użycie modyfikatora `REGISTER` spowoduje że trzy pierwsze parametry formalne *
     // b = ecx
     // c = eax
 
-### interrupt
+### `interrupt`
 
 **Procedury/Funkcje** oznaczone przez `INTERRUPT` kompilator będzie kończył rozkazem `RTI` (standardowo `RTS`). Niezależnie czy w programie wystąpi wywołanie takiej **procedury/funkcji** kompilator zawsze wygeneruje dla niej kod. Zaleca się używanie bloku `ASM` w przypadku takich **procedur/funkcji**, w innym przypadku stos programowy Mad Pascala zostanie zniszczony, co może doprowadzić do niestabilnego działania programu, łącznie z zawieszeniem się komputera. Na wejściu **procedury/funkcji** oznaczonej przez `INTERRUPT` programista musi zadbać o zachowanie rejestrów **CPU** `A` `X` `Y`, na wyjściu o przywrócenie stanu takich rejestrów, kompilator ogranicza się tylko do wstawienia końcowego rozkazu `RTI`.
 
