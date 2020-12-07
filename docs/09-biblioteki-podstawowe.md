@@ -1572,3 +1572,263 @@ Funkcja konwertuje łańcuch do postaci zmiennoprzenkowej typu `Real`.
 ```
 
 Funkcja służy do konwersji tekstu zapisanego w zmiennej S na liczbę całkowitą - o ile to możliwe.
+
+## [VBXE](http://mads.atari8.info/library/doc/vbxe.html)
+
+Mapa pamięci dla VBXE zdefiniowana jest w module SYSTEM
+
+```
+VBXE_XDLADR = $0000;    // XDLIST
+VBXE_MAPADR = $1000;    // COLOR MAP ADDRESS
+VBXE_BCBADR = $0100;    // BLITTER LIST ADDRESS
+VBXE_OVRADR = $5000;    // OVERLAY ADDRESS
+VBXE_WINDOW = $B000;    // 4K WINDOW $B000..$BFFF
+```
+
+### Constants
+
+```
+LoRes  = 1;
+MedRes = 2;
+HiRes  = 3;
+```
+
+### Types
+
+#### `TUInt24`
+
+```
+    record
+        byte0: byte;
+        byte1: byte;
+        byte2: byte;
+    end;
+```
+
+Typ 24-bitowy wykorzystywany do definicji adresów pamięci **VBXE**.
+
+---
+
+#### `TXDL`
+
+```
+    record
+        xdlc_: word;
+        rptl_: byte;
+        xdlc: word;
+        rptl: byte;
+        ov_adr: TUInt24;
+        ov_step: word;
+        mp_adr: TUInt24;
+        mp_step: word;
+        mp_hscrol: byte;
+        mp_vscrol: byte;
+        mp_width: byte;
+        mp_height: byte;
+        ov_width: byte;
+        ov_prior: byte;
+    end;
+```
+
+Typ `TXDL` wykorzystywany przez procedury `GetXDL` i `SetXDL`. Pozwala na modyfikację programu dla **VBXE** wykorzystywanego przez **MP**.
+
+---
+
+#### `TBCB`
+
+```
+    record
+        src_adr: TUInt24;
+        src_step_y: smallint;
+        src_step_x: shortint;
+        dst_adr: TUInt24;
+        dst_step_y: smallint;
+        dst_step_x: shortint;
+        blt_width: word;
+        blt_height: byte;
+        blt_and_mask: byte;
+        blt_xor_mask: byte;
+        blt_collision_mask: byte;
+        blt_zoom: byte;
+        pattern_feature: byte;
+        blt_control: byte;
+    end;
+```
+
+Typ `TBCB` (21 bajtów), **Blitter Code Block**. Definicja typu bloku programu dla Blittera **VBXE**.
+
+---
+
+#### `TVBXEMemoryStream`
+
+```
+    Object
+        Position: cardinal;
+        Size: cardinal;         // 0..Size-1
+
+        procedure Create;
+
+        procedure Clear;
+        procedure SetBank;
+
+        procedure ReadBuffer(var Buffer; Count: word);
+        procedure WriteBuffer(var Buffer; Count: word);
+
+        function ReadByte: Byte;
+        function ReadWord: Word;
+        function ReadDWord: Cardinal;
+
+        procedure WriteByte(b: Byte);
+        procedure WriteWord(w: Word);
+        procedure WriteDWord(d: Cardinal);
+    end;
+```
+
+Obiekt `TVBXEMemoryStream` pozwala na liniowy dostęp do pamięci **VBXE**.
+
+### Procedures and functions
+
+```pascal
+BlitterBusy        ColorMapOff         ColorMapOn         DstBCB            ExtractFileExt
+GetXDL             IniBCB              OverlayOff         RunBCB            SetHorizontalRes
+VBXEMemoryBank     SetXDL              SrcBCB             VBXEControl       VBXEOff
+```
+
+#### `BlitterBusy`
+
+```
+    function BlitterBusy: Boolean; assembler;
+```
+
+Funkcja zwraca `TRUE` jeśli blitter **VBXE** zajęty jest wykonywaniem programu blittera.
+
+---
+
+#### `ColorMapOff`
+
+```
+    procedure ColorMapOff; assembler;
+```
+
+Wyłączenie mapy kolorów w programie `XDLIST` dla **VBXE**.
+
+---
+
+#### `ColorMapOn`
+
+```
+    procedure ColorMapOn; assembler;
+```
+
+Włączenie mapy kolorów w programie `XDLIST` dla **VBXE**.
+
+---
+
+#### `DstBCB`
+
+```
+    procedure DstBCB(var a: TBCB; dst: cardinal);
+```
+
+Procedura zmieniająca adres docelowy `dst_adr` w programie blittera `A`.
+
+---
+
+#### `GetXDL`
+
+```
+    procedure GetXDL(var a: txdl); register; assembler;
+```
+
+Procedura przepisuje do zmiennej `A` program `XDLIST` spod adresu `VBXE_XDLADR` w pamięci **VBXE**.
+
+---
+
+#### `IniBCB`
+
+```
+    procedure IniBCB(var a: TBCB; src,dst: cardinal; w0, w1: smallint; w: word; h: byte; ctrl: byte);
+```
+
+Procedura pozwala zaincjować pamięć dla programu blittera pod adresem `A`. Dodatkowe parametry określają adres spod którego będą kopiowane dane `SRC`, adres docelowy kopiowanych danych `DST`, szerokość okna danych źródłowych `W0`, docelowych `W1`, rozmiar okna wynikowego, jego szerokość `W`, wysokość `H`, oraz określić parametry końcowe bloku programu blittera `CTRL` (ustawiony bit 3 `CTRL` nakazuje blitterowi odczyt kolejnego programu i jego wykonanie).
+
+---
+
+#### `OverlayOff`
+
+```
+    procedure OverlayOff; assembler;
+```
+
+Wyłączenie trybu overlay w programie `XDLIST`.
+
+---
+
+#### `RunBCB`
+
+```
+    procedure RunBCB(var a: TBCB); assembler;
+```
+
+Wystartowanie blittera **VBXE** na podstawie adresu programu `A`.
+
+---
+
+#### `SetHorizontalRes`
+
+```
+    procedure SetHorizontalRes(a: byte); assembler;
+    procedure SetHRes(a: byte); assembler;
+```
+
+Ustanowienie trybu overlay w programie `XDLIST` (LoRes: 160x240x256c, MedRes: 320x240x256c, HiRes: 640x240x16c).
+
+---
+
+#### `VBXEMemoryBank`
+
+```
+    procedure VBXEMemoryBank(b: byte); assembler;
+```
+
+Włączenie 4K banku **VBXE** w okno pamięci **XE/XL** `$B000..$BCFF`.
+
+---
+
+#### `SetXDL`
+
+```
+    procedure SetXDL(var a: txdl); register; assembler;
+```
+
+Procedura przepisuje program `A` pod adres `VBXE_XDLADR` w pamięci **VBXE**.
+
+---
+
+#### `SrcBCB`
+
+```
+    procedure SrcBCB(var a: TBCB; src: cardinal);
+```
+
+Procedura zmieniająca adres źródłowy `src_adr` w programie blittera `A`.
+
+---
+
+#### `VBXEControl`
+
+```
+    procedure VBXEControl(a: byte); assembler;
+```
+
+Procedura ustawia wartośc `FX_VIDEO_CONTROL`.
+
+---
+
+#### `VBXEOff`
+
+```
+    procedure VBXEOff
+```
+
+Wyłączenie, reset **VBXE**.
