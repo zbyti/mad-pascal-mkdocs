@@ -1,10 +1,5 @@
 site_name: Mad-Pascal
-theme:
-    name: readthedocs
-    highlightjs: true
-    hljs_languages:
-        - pascal
-    navigation_depth: 4
+theme: readthedocs
 nav:
     - Wprowadzenie: 01-wprowadzenie.md
     - Sposób użycia: 02-sposob-uzycia.md
