@@ -1389,3 +1389,186 @@ Ustaw kolor pisaka.
 ```
     procedure SetColorMapDimensions(w,h: byte);
 ```
+
+## [SYSUTILS](http://mads.atari8.info/library/doc/strutils.html)
+
+### Constants
+
+```
+faReadOnly  = $01;
+faHidden    = $02;
+faSysFile   = $04;
+faVolumeID  = $08;
+faDirectory = $10;
+faArchive   = $20;
+faAnyFile   = $3f;
+```
+
+### Types
+
+#### `TSearchRec`
+
+```
+    TSearchRec = record
+            Attr: Byte;
+            Name: TString;
+            FindHandle: Pointer;
+             end;
+```
+
+### Procedures and functions
+
+```pascal
+AnsiUpperCase      Beep                Click              DeleteFile        ExtractFileExt
+FileExists         FindFirst           FindNext           FindClose         GetTickCount
+IntToHex           IntToStr            RenameFile         StrToFloat        StrToInt
+```
+
+#### `AnsiUpperCase`
+
+```
+    function AnsiUpperCase(const a: string): string;
+```
+
+Funkcja konwertuje znaki z łańcucha `a` na wielkie.
+
+---
+
+#### `Beep`
+
+```
+    procedure Beep;
+```
+
+Sygnał brzęczka (buzzer).
+
+---
+
+#### `Click`
+
+```
+    procedure Click;
+```
+
+Sygnał klawiatury.
+
+---
+
+#### `DeleteFile`
+
+```
+    function DeleteFile(var FileName: TString): Boolean;
+```
+
+Funkcja kasuje plik określony w parametrze `FileName`, zwraca `TRUE` gdy operacja się powiodła.
+
+---
+
+#### `ExtractFileExt`
+
+```
+    function ExtractFileExt(const FileName: string): TString;
+```
+
+Na podstawie nazwy pliku lub pełnej ścieżki do pliku określonej w parametrze `FileName`, funkcja zwraca rozszerzenie (poprzedzone kropką - np. `.txt`).
+
+---
+
+#### `FileExists`
+
+```
+    function FileExists(const FileName: string): Boolean;
+```
+
+Funkcja sprawdza czy plik określony w parametrze `FileName`, istnieje `True` czy też nie `False`.
+
+---
+
+#### `FindFirst`
+
+```
+    function FindFirst(const FileMask: TString; Attributes: Byte; var SearchResult: TSearchRec): byte;
+```
+
+Funkcja wyszukuje pliki pasujące do wzorca `FileMask` i posiadające atrybuty określone w `Attributes`. Jeśli zostały znalezione pliki pasujące do szablonu to pierwszy z nich jest zwracany w zmiennej `SerchResult`.
+
+---
+
+#### `FindNext`
+
+```
+    function FindNext(var f: TSearchRec): byte;
+```
+
+Funkcja przechodzi do następnego rekordu znalezionego wcześniej przy pomocy `FindFirst`. W parametrze musi zostać przekazane wskazanie na rekord, który wcześniej został użyty w funkcji `FindFirst`.
+
+---
+
+#### `FindClose`
+
+```
+    procedure FindClose(var f: TSearchRec);
+```
+
+Procedura zwalnia zasoby (pamięć) zaalokowaną przez funkcję `FindFirst`. Procedura ta powinna być wywoływana za każdym razem po zakończeniu procesu wyszukiwania.
+
+---
+
+#### `GetTickCount`
+
+```
+    function GetTickCount: cardinal;
+```
+
+GetTickCount zwraca 24-bitowy licznik czasu `(PEEK(RTCLOK+2) + PEEK(RTCLOK+1)*256 + PEEK(RTCLOK)*65536)`. Jest to przydatne do pomiaru czasu.
+
+---
+
+#### `IntToHex`
+
+```
+    function IntToHex(Value: cardinal; Digits: byte): TString;
+```
+
+Funkcja konwertuje wartość liczbową na jej odpowiednik łańcuchowy w systemie szesnastkowym.
+
+---
+
+#### `IntToStr`
+
+```
+    function IntToStr(a: integer): ^char;
+```
+
+Funkcja służy do konwersji liczby całkowitej podanej w parametrze do postaci łańcuchowej.
+
+---
+
+#### `RenameFile`
+
+```
+    function RenameFile(var OldName,NewName: TString): Boolean;
+```
+
+Funkcja próbuje zmienić nazwę pliku określonego w parametrze `OldName` na `NewName`. Jeżeli operacja się powiedzie, funkcja zwróci wartość `True` w przeciwnym wypadku `False`. Może się zdarzyć, że funkcja nie będzie mogła zmienić nazwy (np. gdy aplikacja nie ma prawa do tego) - wówczas funkcja zwróci `False`.
+
+---
+
+#### `StrToFloat`
+
+```
+    function StrToFloat(var s: TString): real;
+```
+
+Funkcja konwertuje łańcuch do postaci zmiennoprzenkowej typu `Real`.
+
+---
+
+#### `StrToInt`
+
+```
+    function StrToInt(const S: char): byte;
+    function StrToInt (const S: TString): integer;
+```
+
+Funkcja służy do konwersji tekstu zapisanego w zmiennej S na liczbę całkowitą - o ile to możliwe.
