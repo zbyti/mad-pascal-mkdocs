@@ -74,6 +74,8 @@ COLOR_LIGHTBLUE  = $7c;
 
 Definicja współrzędnych (x,y).
 
+---
+
 #### `TRect`
 
 ```
@@ -82,6 +84,7 @@ Definicja współrzędnych (x,y).
 
 Definicja położenia i rozmiaru czworokąta o parametrach (left, top) - lewy górny narożnik, (right, bottom) - prawy dolny narożnik.
 
+---
 
 #### `TString`
 
@@ -90,6 +93,8 @@ Definicja położenia i rozmiaru czworokąta o parametrach (left, top) - lewy g�
 ```
 
 Definicja krótkiego ciągu znakowego wykorzystywanego do przekazywania nazw plików itp.
+
+---
 
 ### Variables
 
@@ -100,6 +105,8 @@ Definicja krótkiego ciągu znakowego wykorzystywanego do przekazywania nazw pli
 ```
 
 Zmienna przechowuje ostatni błąd operacji `I/O`. [Kody błędów I/O](http://atariki.krap.pl/index.php/Kody_statusowe_Atari_OS).
+
+---
 
 #### `ScreenWidth`
 
@@ -112,6 +119,8 @@ Zmienna przechowująca aktualną szerokość ekranu. Domyślnie jest to wartoś�
 ```
     ScreenHeight: word = 24;
 ```
+
+---
 
 #### `ScreenHeight`
 
@@ -144,6 +153,8 @@ Trunc              UpCase              Val                WriteSector
 
 Funkcja obliczająca wartość bezwzględną podanej liczby (ang. **Absolute value**). Wartość bezwzględna liczby nieujemnej to ta sama liczba, a liczby ujemnej - liczba do niej przeciwna. Funkcja w przypadku podania jej argumentu całkowitego zwraca wynik również typu całkowitego.
 
+---
+
 #### `ArcTan`
 
 ```
@@ -151,6 +162,8 @@ Funkcja obliczająca wartość bezwzględną podanej liczby (ang. **Absolute val
 ```
 
 Funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi x.
+
+---
 
 #### `Assign`
 
@@ -160,6 +173,8 @@ Funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi x.
 
 Procedura przypisuje zmiennej plikowej `F` plik o nazwie `FileName`. Aby móc odwoływać się do jakiegoś pliku, zawsze należy najpierw użyć procedury `Assign`. Przy dalszych operacjach pliki są identyfikowane przy pomocy zmiennej plikowej, a nie nazwy.
 
+---
+
 #### `BinStr`
 
 ```
@@ -168,6 +183,7 @@ Procedura przypisuje zmiennej plikowej `F` plik o nazwie `FileName`. Aby móc od
 
 Funkcja zwraca ciąg znakowy z reprezentacją binarną wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
 
+---
 
 #### `Concat`
 
@@ -180,6 +196,8 @@ Funkcja zwraca ciąg znakowy z reprezentacją binarną wartości `Value`. `Digit
 
 Funkcja łączy dwa ciągi tekstowe w nowy ciąg znakowy.
 
+---
+
 #### ` Blockread`
 
 ```
@@ -188,6 +206,8 @@ Funkcja łączy dwa ciągi tekstowe w nowy ciąg znakowy.
 
 Procedura wczytuje z pliku plik do zmiennej `Buf` nie więcej niż `Count` bajtów i umieszcza w zmiennej `Result` ilość rzeczywiście przeczytanych bajtów (która może być mniejsza od oczekiwanej np. ze względu na rzeczywistą długość pliku).
 
+---
+
 #### `Blockwrite`
 
 ```
@@ -195,6 +215,8 @@ Procedura wczytuje z pliku plik do zmiennej `Buf` nie więcej niż `Count` bajt�
 ```
 
 Procedura zapisuje do pliku ze zmiennej `Buf` nie więcej niż `Count` bajtów.
+
+---
 
 #### `Chr`
 
@@ -209,6 +231,8 @@ Procedura zapisuje do pliku ze zmiennej `Buf` nie więcej niż `Count` bajtów.
 
 Funkcja zwraca znak `Char` o odpowiadającym kodzie **ATASCII** podanym w parametrze. Zamiennie z funkcją `Chr`, chcąc uzyskać odpowiedni znak możemy użyć jego kodu **ATASCII** poprzedzając go `#`.
 
+---
+
 #### `Cos`
 
 ```
@@ -217,6 +241,8 @@ Funkcja zwraca znak `Char` o odpowiadającym kodzie **ATASCII** podanym w parame
 
 Cosinus kąta (x w radianach).
 
+---
+
 #### `Close`
 
 ```
@@ -224,6 +250,8 @@ Cosinus kąta (x w radianach).
 ```
 
 Procedura służąca do zamykania otwartego pliku dowolnego typu. Każdy plik otwarty przy pomocy `Reset` lub `Rewrite` powinno się zamknąć przy pomocy `Close`.
+
+---
 
 #### `Dec`
 
@@ -238,6 +266,8 @@ Procedura zmniejsza wartość parametru `X` o `1` lub wartość parametru `N`. W
     dec(tmp[2]);
 ```
 
+---
+
 #### `DeleteFile`
 
 ```
@@ -245,6 +275,8 @@ Procedura zmniejsza wartość parametru `X` o `1` lub wartość parametru `N`. W
 ```
 
 Funkcja pozwala skasować plik z dysku o nazwie `FileName`, zwraca `TRUE` kiedy operacja powiodła się, `FALSE` w przypadku wystąpienia błędu (najczęściej z powodu zabezpieczenia przed zapisem lub błędnej nazwy pliku).
+
+---
 
 #### `DPeek`
 
@@ -254,6 +286,8 @@ Funkcja pozwala skasować plik z dysku o nazwie `FileName`, zwraca `TRUE` kiedy 
 
 Funkcja zwraca słowo spod adresu `A`.
 
+---
+
 #### `DPoke`
 
 ```
@@ -262,6 +296,7 @@ Funkcja zwraca słowo spod adresu `A`.
 
 Procedura zapisuje słowo `Value` pod adresem `A`.
 
+---
 
 #### `Eof`
 
@@ -271,9 +306,13 @@ Procedura zapisuje słowo `Value` pod adresem `A`.
 
 Funkcja zwraca wartość logiczną True jeśli osiągnięty został koniec pliku.
 
+---
+
 #### `Exit`
 
 Wywołanie procedury `Exit` powoduje natychmiastowe opuszczenie bloku programu, w którym to wywołanie nastąpiło. Można jej użyć do opuszczenia pętli, wyjścia z **procedury/funkcji** lub programu głównego.
+
+---
 
 #### `Exp`
 
@@ -283,6 +322,8 @@ Wywołanie procedury `Exit` powoduje natychmiastowe opuszczenie bloku programu, 
 
 Funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument.
 
+---
+
 #### `FilePos`
 
 ```
@@ -291,6 +332,7 @@ Funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument.
 
 Funkcja zwraca aktualną pozycję pliku. Plik nie może być tekstowy i musi być otwarty (np. poleceniem `Reset`). Bity `0..15` zwróconej wartości to numer sektora dysku, bity `16..23` pozycja w sektorze `[0..255]`. Jest to odpowiednik instrukcji `NOTE`.
 
+---
 
 #### `FileSize`
 
@@ -299,6 +341,8 @@ Funkcja zwraca aktualną pozycję pliku. Plik nie może być tekstowy i musi by�
 ```
 
 Funkcja zwraca długość pliku w bajtach (**Sparta DOS X**). Plik nie może być tekstowy i musi być otwarty (np. poleceniem `Reset`).
+
+---
 
 #### `FillChar`
 
@@ -316,6 +360,8 @@ Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub b
     end.
 ```
 
+---
+
 #### `Frac`
 
 ```
@@ -324,6 +370,8 @@ Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub b
 
 Zwraca część ułamkową liczby x w postaci rzeczywistej.
 
+---
+
 #### `GetIntVec`
 
 ```
@@ -331,6 +379,8 @@ Zwraca część ułamkową liczby x w postaci rzeczywistej.
 ```
 
 Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` i `iVBL - przerwanie VBL`.
+
+---
 
 #### `Halt`
 
@@ -341,6 +391,8 @@ Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszcz
 Wywołanie powoduje natychmiastowe wyjście z programu. Można (opcjonalnie) podać kod błędu, w przypadku **MP** jest on ignorowany.
 
 
+---
+
 #### `Hi`
 
 ```
@@ -349,6 +401,8 @@ Wywołanie powoduje natychmiastowe wyjście z programu. Można (opcjonalnie) pod
 
 Funkcja zwracająca starszy bajt parametru `X`.
 
+---
+
 #### `HexStr`
 
 ```
@@ -356,6 +410,8 @@ Funkcja zwracająca starszy bajt parametru `X`.
 ```
 
 Funkcja zwraca ciąg znakowy z reprezentacją heksadecymalną wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+
+---
 
 #### ` Inc`
 
@@ -370,6 +426,8 @@ Procedura zwiększa wartość parametru `X` o `1` lub wartość parametru `N`. W
     inc(tmp[2]);
 ```
 
+---
+
 #### `Int`
 
 ```
@@ -377,6 +435,8 @@ Procedura zwiększa wartość parametru `X` o `1` lub wartość parametru `N`. W
 ```
 
 Funkcja zwraca część całkowitą argumentu będącego liczbą rzeczywistą.
+
+---
 
 #### `Ln`
 
@@ -386,6 +446,8 @@ Funkcja zwraca część całkowitą argumentu będącego liczbą rzeczywistą.
 
 Funkcja licząca logarytm naturalny (o podstawie e) z podanej liczby. Argument funkcji musi być **dodatni**!
 
+---
+
 #### `Lo`
 
 ```
@@ -393,6 +455,8 @@ Funkcja licząca logarytm naturalny (o podstawie e) z podanej liczby. Argument f
 ```
 
 Funkcja zwracająca młodszy bajt parametru `X`.
+
+---
 
 #### `LowerCase`
 
@@ -402,6 +466,7 @@ Funkcja zwracająca młodszy bajt parametru `X`.
 
 Funkcja zmieniająca znaki 'A'..'Z' na odpowiednie małe znaki 'a'..'z'.
 
+---
 
 #### `Move`
 
@@ -411,6 +476,8 @@ Funkcja zmieniająca znaki 'A'..'Z' na odpowiednie małe znaki 'a'..'z'.
 
 Procedura służy do kopiowania danych ze źródła, parametr `Source`, do bufora oznaczonego jako przeznaczenie, parametr `Dest`. Ilość kopiowanych danych określa parametr `Count`.
 
+---
+
 #### `OctStr`
 
 ```
@@ -418,6 +485,8 @@ Procedura służy do kopiowania danych ze źródła, parametr `Source`, do bufor
 ```
 
 Funkcja zwraca ciąg znakowy z reprezentacją ósemkową wartości `Value`. `Digits` określa długość ciągu, który maksymalnie może liczyć 32 znaki.
+
+---
 
 #### `Odd`
 
@@ -427,6 +496,8 @@ Funkcja zwraca ciąg znakowy z reprezentacją ósemkową wartości `Value`. `Dig
 ```
 
 Funkcja zwraca wartość `True` jeżeli liczba określona w parametrze `X` jest nieparzysta, `False` jeżeli jest parzysta.
+
+---
 
 #### `Ord`
 
@@ -442,6 +513,8 @@ Funkcja ta działa odwrotnie do `Chr`. Z podanego znaku jako parametr zwraca nam
     Ord(' '); // Zwraca 32
 ```
 
+---
+
 #### `ParamCount`
 
 ```
@@ -449,6 +522,8 @@ Funkcja ta działa odwrotnie do `Chr`. Z podanego znaku jako parametr zwraca nam
 ```
 
 Funkcja zwraca ilość dostępnych argumentów (**Sparta Dos X**, **BWDos**), tzn. maksymalny indeks dla procedury `ParamStr`. `ParamCount` określa ilość parametrów przekazanych do programu z linii poleceń.
+
+---
 
 #### `ParamStr`
 
@@ -467,6 +542,7 @@ Jeżeli uruchomimy program `TEST.EXE` w taki sposób:
 
 To aby uzyskać `parametr3` należy podać `Index=3`, zaś aby uzyskać `parametr1` należy `Index=1`. `Index=0` to specjalny argument, wtedy funkcja zwraca napęd z którego został uruchomiony programu, np. `D1:`.
 
+---
 
 #### `Pause`
 
@@ -477,6 +553,8 @@ To aby uzyskać `parametr3` należy podać `Index=3`, zaś aby uzyskać `paramet
 
 Procedura zatrzymuje działanie programu na `N * 1.50` sek.
 
+---
+
 #### `Peek`
 
 ```
@@ -484,6 +562,8 @@ Procedura zatrzymuje działanie programu na `N * 1.50` sek.
 ```
 
 Funkcja zwraca bajt spod adresu `A`.
+
+---
 
 #### `Point`
 
@@ -493,6 +573,7 @@ Funkcja zwraca bajt spod adresu `A`.
 
 Funkcja na podstawie parametrów `AX` oraz `AY` tworzony jest rekord typu `TPoint`.
 
+---
 
 #### `PointsEqual`
 
@@ -502,6 +583,8 @@ Funkcja na podstawie parametrów `AX` oraz `AY` tworzony jest rekord typu `TPoin
 
 Funkcja sprawdza czy wartości współrzędnych określone w parametrach `P1` oraz `P2` są sobie równe. W takim wypadku funkcja zwraca wartość `True`.
 
+---
+
 #### `Poke`
 
 ```
@@ -510,6 +593,8 @@ Funkcja sprawdza czy wartości współrzędnych określone w parametrach `P1` or
 
 Procedura zapisuje bajt `Value` pod adresem `A`.
 
+---
+
 #### `Pred`
 
 ```
@@ -517,6 +602,8 @@ Procedura zapisuje bajt `Value` pod adresem `A`.
 ```
 
 Poprzednik elementu `X`.
+
+---
 
 #### `Random`
 
@@ -537,6 +624,8 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`, w przypadku Ran
 ```
 
 Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
+
+---
 
 #### `ReadConfig`
 
@@ -574,6 +663,8 @@ Odczyt statusu stacji `DEVNUM`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)
     not used, should be zero
 ```
 
+---
+
 #### `ReadSector`
 
 ```
@@ -582,6 +673,8 @@ Odczyt statusu stacji `DEVNUM`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)
 
 Procedura odczytuje sektora `SECTOR` dyskietki w stacji dysków `DEVNUM` i zapisanie go w buforze `BUF`.
 
+---
+
 #### `Rect`
 
 ```
@@ -589,6 +682,8 @@ Procedura odczytuje sektora `SECTOR` dyskietki w stacji dysków `DEVNUM` i zapis
 ```
 
 Funckja na podstawie parametrów tworzy rekord typu `TRect`.
+
+---
 
 #### `RenameFile`
 
@@ -602,6 +697,8 @@ Funkcja pozwala zmienić nazwę pliku `OldName` na nową nazwę `NewName`, zwrac
     RenameFile('D:OLDNAME.TMP', 'NEWNAME.TMP');
 ```
 
+---
+
 #### `Reset`
 
 
@@ -611,6 +708,8 @@ Funkcja pozwala zmienić nazwę pliku `OldName` na nową nazwę `NewName`, zwrac
 
 Procedura otwiera istniejący plik z nazwą przekazaną do `F` poleceniem `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
 
+---
+
 #### `Rewrite`
 
 ```
@@ -618,6 +717,8 @@ Procedura otwiera istniejący plik z nazwą przekazaną do `F` poleceniem `Assig
 ```
 
 Procedura tworzy i otwiera nowy plik. `F` jest nazwą przekazaną za pomocą polecenia `Assign`. Opcjonalnie możemy podać rozmiar rekordu w bajtach `L`, domyślnie jest to wartość 128.
+
+---
 
 #### `Round`
 
@@ -627,6 +728,8 @@ Procedura tworzy i otwiera nowy plik. `F` jest nazwą przekazaną za pomocą pol
 
 Funkcja dokonuje zaokrąglenia podanej liczby rzeczywistej do najbliższej liczby całkowitej.
 
+---
+
 #### `Seek`
 
 ```
@@ -634,6 +737,8 @@ Funkcja dokonuje zaokrąglenia podanej liczby rzeczywistej do najbliższej liczb
 ```
 
 Procedura ustawia pozycję w pliku na `N`. `N` powinno być wartością zwróconą przez `FilePos`. Jest to odpowiednik instrukcji `POINT`.
+
+---
 
 #### `SetLength`
 
@@ -643,6 +748,8 @@ Procedura ustawia pozycję w pliku na `N`. `N` powinno być wartością zwrócon
 
 Procedura ustawia długość ciągu `S` na `LEN`.
 
+---
+
 #### `SetIntVec`
 
 ```
@@ -650,6 +757,8 @@ Procedura ustawia długość ciągu `S` na `LEN`.
 ```
 
 Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczalnymi kodami są: `iDLI - przerwanie DLI` oraz `iVBL - przerwanie VBL`.
+
+---
 
 #### `Sin`
 
@@ -659,6 +768,8 @@ Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczal
 
 Sinus kąta (x w radianach).
 
+---
+
 #### `Succ`
 
 ```
@@ -666,6 +777,8 @@ Sinus kąta (x w radianach).
 ```
 
 Następnik elementu `X`.
+
+---
 
 #### `Space`
 
@@ -675,6 +788,8 @@ Następnik elementu `X`.
 
 Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami spacji.
 
+---
+
 #### `SizeOf`
 
 ```
@@ -683,6 +798,7 @@ Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami spacj
 
 Funkcja zwraca rozmiar podanej zmiennej (lub typu) w bajtach.
 
+---
 
 #### `Str`
 
@@ -692,6 +808,8 @@ Funkcja zwraca rozmiar podanej zmiennej (lub typu) w bajtach.
 
 Procedura zamienia liczbę `X` na łańcuch znaków `S`.
 
+---
+
 #### `StringOfChar`
 
 ```
@@ -699,6 +817,8 @@ Procedura zamienia liczbę `X` na łańcuch znaków `S`.
 ```
 
 Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami `CH`.
+
+---
 
 #### `Sqr`
 
@@ -708,6 +828,8 @@ Funkcja generuje nowy ciąg znakowy o długości `LEN` wypełniony znakami `CH`.
 ```
 
 Funkcja obliczająca kwadrat podanej liczby (ang. **Square**).
+
+---
 
 #### `Sqrt`
 
@@ -719,6 +841,8 @@ Funkcja obliczająca kwadrat podanej liczby (ang. **Square**).
 
 Funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. **Square root**).
 
+---
+
 #### `Trunc`
 
 ```
@@ -726,6 +850,8 @@ Funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. **Square root**
 ```
 
 Funkcja zwraca część całkowitą liczby rzeczywistej w postaci liczby całkowitej.
+
+---
 
 #### `UpCase`
 
@@ -735,6 +861,8 @@ Funkcja zwraca część całkowitą liczby rzeczywistej w postaci liczby całkow
 
 Funkcja zmieniająca znaki `'a'..'z'` na odpowiednie duże znaki `'A'..'Z'`.
 
+---
+
 #### `Val`
 
 ```
@@ -742,6 +870,8 @@ Funkcja zmieniająca znaki `'a'..'z'` na odpowiednie duże znaki `'A'..'Z'`.
 ```
 
 Procedura przekształca ciąg znaków `S` na liczbę `V`. Code przyjmie wartość `0` jeśli nie było błędnych znaków, w przeciwnym wypadku przyjmie numer znaku który spowodował błąd konwersji.
+
+---
 
 #### `WriteSector`
 
