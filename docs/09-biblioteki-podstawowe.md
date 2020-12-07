@@ -1588,9 +1588,9 @@ VBXE_WINDOW = $B000;    // 4K WINDOW $B000..$BFFF
 ### Constants
 
 ```
-LoRes  = 1;
-MedRes = 2;
-HiRes  = 3;
+LoRes  = 1;  // 160x240x256c
+MedRes = 2;  // 320x240x256c
+HiRes  = 3;  // 640x240x16c
 ```
 
 ### Types
@@ -1781,7 +1781,7 @@ Wystartowanie blittera **VBXE** na podstawie adresu programu `A`.
     procedure SetHRes(a: byte); assembler;
 ```
 
-Ustanowienie trybu overlay w programie `XDLIST` (LoRes: 160x240x256c, MedRes: 320x240x256c, HiRes: 640x240x16c).
+Ustanowienie trybu overlay w programie `XDLIST`.
 
 ---
 
@@ -1832,3 +1832,300 @@ Procedura ustawia wartośc `FX_VIDEO_CONTROL`.
 ```
 
 Wyłączenie, reset **VBXE**.
+
+## [MATH](http://mads.atari8.info/library/doc/math.html)
+
+### Procedures and functions
+
+```pascal
+ArcCos             ArcSin              ArcTan2            Ceil              CycleToRad
+DegNormalize       DegToGrad           DegToRad           DivMod            EnsureRange
+Floor              FMod                GradToDeg          GradToRad         InRange
+IsNan              Log2                Log10              LogN              Max
+Min                Power               RadToCycle         RadToDeg          RadToGrad
+RandG              RandomRange         RandomRangeF       Tan
+```
+
+#### `ArcCos`
+
+```
+    function ArcCos(x: real): real;
+```
+
+`ArcCos` jest funkcją odwrotną do funkcji `Cos`. Wartość parametru `X` musi należeć do przedziału obustronnie domkniętego `<-1; 1>`. Wartością zwracaną przez funkcję jest kąt z przedziału `<0; ?>` wyrażony w mierze łukowej (radianach).
+
+---
+
+#### `ArcSin`
+
+```
+    function ArcSin(x: real): real;
+```
+
+Funkcja służy do obliczenia funkcji matematycznej arcus sinus z liczby `X`. Jest to funkcja odwrotna do funkcji sinus, tzn. `sin(arcsin(x)) = x`.
+
+---
+
+#### `ArcTan2`
+
+```
+    function ArcTan2(y, x: real) : real;
+```
+
+Funkcja oblicza arcus tangens (odwrotność tangensa) z liczby `Y/X` i zwraca wartość w radianach.
+
+---
+
+#### `Ceil`
+
+```
+    function Ceil(a: real): smallint;
+```
+
+Funkcja zwraca najmniejszą liczbę całkowitą większą lub równą od tej podanej w parametrze.
+
+---
+
+#### `CycleToRad`
+
+```
+    function CycleToRad(cycle : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w cyklach (obrotach) na kąt wyrażony w radianach.
+
+---
+
+#### `DegNormalize`
+
+```
+    function DegNormalize(deg : real) : real;
+```
+
+---
+
+#### `DegToGrad`
+
+```
+    function DegToGrad(deg : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w stopniach na kąt wyrażony w gradach.
+
+---
+
+#### `DegToRad`
+
+```
+    function DegToRad(deg : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w stopniach na kąt wyrażony w mierze łukowej, czyli radianach.
+
+---
+
+#### `DivMod`
+
+```
+    procedure DivMod(Dividend: integer; Divisor: Word; var r, Remainder: Word);
+    procedure DivMod(Dividend: integer; Divisor: Word; var r, Remainder: smallint);
+```
+
+---
+
+#### `EnsureRange`
+
+```
+    function EnsureRange(const AValue, AMin, AMax: byte): Integer;
+    function EnsureRange(const AValue, AMin, AMax: Integer): Integer;
+```
+
+---
+
+#### `Floor`
+
+```
+    function Floor(a: real): smallint;
+```
+
+Funkcja zwraca najbliższą liczbę całkowitą mniejszą lub równą od tej podanej w parametrze.
+
+---
+
+#### `FMod`
+
+```
+    function FMod(a, b: real): real;
+```
+
+Funkcja zwraca resztę z dzielenia dwóch liczb rzeczywistych.
+
+---
+
+#### `GradToDeg`
+
+```
+    function GradToDeg(grad : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w gradach na kąt wyrażony w stopniach.
+
+---
+
+#### `GradToRad`
+
+```
+    function GradToRad(grad : real) : real;
+```
+
+Funkcja GradToRad przelicza wartość kąta wyrażonego w gradach na kąt wyrażony w radianach.
+
+---
+
+#### `InRange`
+
+```
+    function InRange(const AValue, AMin, AMax: byte): Boolean;
+    function InRange(const AValue, AMin, AMax: Integer): Boolean;
+```
+
+---
+
+#### `IsNan`
+
+```
+    function IsNan(const d : Single): Boolean;
+```
+
+Funkcja sprawdza czy wartość parametru `d` jest poprawną liczbą.
+
+---
+
+#### `Log2`
+
+```
+    function log2(x : single): single;
+```
+
+Funkcja zwraca wartość logarytmu przy podstawie 2 dla parametru rzeczywistego X>0.
+
+---
+
+#### `Log10`
+
+```
+    function log10(x : single): single;
+```
+
+Funkcja zwraca wartość logarytmu dziesiętnego (logarytmu przy podstawie 10) dla parametru rzeczywistego X>0.
+
+---
+
+#### `LogN`
+
+```
+    function logN(n,x : single): single;
+```
+
+Funkcja zwraca wartość logarytmu przy podstawie N>0 dla parametru rzeczywistego X>0.
+
+---
+
+#### `Max`
+
+```
+    function Max(a, b: real): real;
+    function Max(a, b: integer): integer;
+```
+
+Przeciążona funkcja porównuje wartości dwóch parametrów: `a` i `b`, oraz zwraca ten, który jest większy.
+
+---
+
+#### `Min`
+
+```
+    function Min(a, b: real): real;
+    function Min(a, b: integer): integer;
+```
+
+Przeciążona funkcja porównuje wartości dwóch parametrów `a` i `b`, oraz zwraca wartość tego który jest mniejszy.
+
+---
+
+#### `Power`
+
+```
+    function Power(base : real; const exponent : shortint): real;
+    power(base : integer; const exponent : shortint): integer;
+```
+
+Funkcja podnosi liczbę A do dowolnej potęgi N, potęga może być ułamkiem.
+
+---
+
+#### `RadToCycle`
+
+```
+    function RadToCycle(rad : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w cyklach (obrotach).
+
+---
+
+#### `RadToDeg`
+
+```
+    function RadToDeg(rad : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w stopniach (deg).
+
+---
+
+#### `RadToGrad`
+
+```
+    function RadToGrad(rad : real) : real;
+```
+
+Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w gradach.
+
+---
+
+#### `RandG`
+
+```
+    function RandG(mean, StdDev : single) : single;
+```
+
+`RandG` reprezentuje generator liczb pseudolosowych o rozkładzie **Gaussa** wokół średniej `mean`. Parametr `StdDev` jest odchyleniem standardowym generowanych liczb od wartości średniej `mean`.
+
+---
+
+#### `RandomRange`
+
+```
+    function RandomRange(const aFrom, aTo: smallint): smallint;
+```
+
+Funkcja zwraca losową liczbę z przedziału `AFrom - ATo`, łącznie z wartością `ATo`.
+
+---
+
+#### `RandomRangeF`
+
+```
+    function RandomRangeF(const min, max: single): single;
+```
+
+---
+
+#### `Tan`
+
+```
+    function Tan(x: Real): Real;
+```
+
+Funkcja zwraca wartość tangensa kąta podanego w parametrze `x`.
