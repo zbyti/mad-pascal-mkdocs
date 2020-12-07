@@ -34,11 +34,13 @@ Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą pr
 
 **Procedury/Funkcje** oznaczona przez `ASSEMBLER` mogą składać się tylko z bloku **ASM**. Kompilator nie dokonuje analizy składni takich bloków, traktuje je jak komentarz, ewentualne błędy zostaną wychwycone dopiero podczas asemblacji.
 
+```
 procedure color(a: byte); assembler;
 asm
 {   mva a 712
 };
 end;
+```
 
 ### `overload`
 
