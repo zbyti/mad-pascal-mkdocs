@@ -5,13 +5,13 @@
 ![StarVagrant.png](gfx/StarVagrant.png)
 
 * autor: MADRAFi
-* [Strona Domowa](http://madsoft.us/)
-* [GitHub](https://github.com/MADRAFi/StarVagrant)
+* [strona domowa](http://madsoft.us/)
+* [źródła](https://github.com/MADRAFi/StarVagrant)
 
 ## Start Dom
 
 ![StartDom.png](gfx/StartDom.png)
 
 * autor: bocianu
-* [Strona Domowa](http://bocianu.atari.pl/blog/starydom)
-* [GitHub](https://github.com/MADRAFi/StarVagrant)
+* [strona domowa](http://bocianu.atari.pl/blog/starydom)
+* [źródła](https://github.com/MADRAFi/StarVagrant)
