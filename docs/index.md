@@ -6,7 +6,7 @@
 
 # Historia
 
-## 1.6.4
+## [1.6.4](https://github.com/tebe6502/Mad-Pascal/releases/tag/1.6.4)
 
 - procedury mnożenie u8x8, u16x16 zastąpione kodem z CC65
 - dodanie kodu resetujacego POKEY-a na początku uruchomienia programu
@@ -33,7 +33,7 @@
 - krótsze nazwy przełacznikow -zpage (-z), -stack (-s), -data (-d), -code (-c), -define (-d), -ipath (-i)
 - dodana możliwość generowania kodu dla C64 (-t c64)
 
-## 1.6.3
+## [1.6.3](https://github.com/tebe6502/Mad-Pascal/releases/tag/v1.6.3)
 
 - poprawki, optymalizacje
 - SYSUTILS: Trim
