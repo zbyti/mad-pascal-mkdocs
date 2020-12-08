@@ -19,7 +19,7 @@
 
 ## Stary Dom
 
-![StaryDom](gfx/StaryDom.png)
+![StaryDom](gfx/StaryDom.gif)
 
 * autor: bocianu
 * platforma: A8
