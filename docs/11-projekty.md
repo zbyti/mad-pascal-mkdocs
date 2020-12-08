@@ -2,7 +2,7 @@
 
 ## Benchmark Suite
 
-![BenchmarkSuite.png](gfx/BenchmarkSuite.png)
+![BenchmarkSuite](gfx/BenchmarkSuite.gif)
 
 * autor: zbyti
 * platforma: A8
@@ -10,7 +10,7 @@
 
 ## Star Vagrant
 
-![StarVagrant.png](gfx/StarVagrant.png)
+![StarVagrant](gfx/StarVagrant.gif)
 
 * autor: MADRAFi
 * platforma: A8
@@ -19,7 +19,7 @@
 
 ## Stary Dom
 
-![StaryDom.png](gfx/StaryDom.png)
+![StaryDom](gfx/StaryDom.png)
 
 * autor: bocianu
 * platforma: A8
