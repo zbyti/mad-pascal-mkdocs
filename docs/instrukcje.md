@@ -6,7 +6,7 @@
 
 Obecnie **Mad Pascal** akceptuje dla zmiennej `CASE` typy tylko o długości 1 bajta: `SHORTINT` `BYTE` `CHAR` `BOOLEAN`.
 
-```pascal
+```delphi
 case a of               // dla zmiennej A typu CHAR
   'A'..'Z': begin end;
   '0'..'9': begin end;

@@ -12,7 +12,7 @@ Możliwa jest rekurencja procedur, pod warunkiem że parametry procedury będą 
 
 **MP** pozwala na przekazanie do funkcji maksymalnie **8** parametrów. Są dostępne trzy sposoby przekazywania parametrów - przez wartość, stałą `CONST` i zmienną `VAR`. Wynik funkcji zwracamy przypisując go do nazwy funkcji lub korzystając z automatycznie deklarowanej zmiennej `RESULT`, np.:
 
-```pascal
+```delphi
 function add(a,b: word): cardinal;
 begin
   Result := a+b;
@@ -34,7 +34,7 @@ Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą pr
 
 **Procedury/Funkcje** oznaczona przez `ASSEMBLER` mogą składać się tylko z bloku **ASM**. Kompilator nie dokonuje analizy składni takich bloków, traktuje je jak komentarz, ewentualne błędy zostaną wychwycone dopiero podczas asemblacji.
 
-```pascal
+```delphi
 procedure color(a: byte); assembler;
 asm
 {   mva a 712
@@ -46,7 +46,7 @@ end;
 
 **Procedury/Funkcje** przeciążone rozpoznawane są na podstawie listy parametrów.
 
-```pascal
+```delphi
 procedure suma(var i: integer; a,b: integer); overload;
 begin
   i := a+b;
@@ -74,7 +74,7 @@ end;
 
 Jeżeli chcemy aby **procedura/funkcja** była zadeklarowana za miejscem jej pierwszego wywołania, należy użyć modyfikator `FORWARD`.
 
-```pascal
+```delphi
 procedure nazwa [(lista-parametrów-formalnych)]; forward;
 
 ...
@@ -99,7 +99,7 @@ Użycie modyfikatora `REGISTER` spowoduje, że trzy pierwsze parametry formalne 
 
 **Procedury/Funkcje** oznaczone przez `INTERRUPT` kompilator będzie kończył rozkazem `RTI` (standardowo `RTS`). Niezależnie czy w programie wystąpi wywołanie takiej **procedury/funkcji** kompilator zawsze wygeneruje dla niej kod. Zaleca się używanie bloku **ASM** w przypadku takich **procedur/funkcji**, w innym przypadku stos programowy Mad Pascala zostanie zniszczony, co może doprowadzić do niestabilnego działania programu, łącznie z zawieszeniem się komputera. Na wejściu **procedury/funkcji** oznaczonej przez `INTERRUPT` programista musi zadbać o zachowanie rejestrów **CPU** `A` `X` `Y`, na wyjściu o przywrócenie stanu takich rejestrów, kompilator ogranicza się tylko do wstawienia końcowego rozkazu `RTI`.
 
-```pascal
+```delphi
 procedure dli; interrupt;
 asm
 {   pha

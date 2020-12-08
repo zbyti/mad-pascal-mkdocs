@@ -7,7 +7,7 @@ Do deklaracji stałych `CONST` służy znak `=`. Dopuszczalne jest użycie opera
 `+` `-` `*` `/` `not` `and` `or` `div` `mod` `ord` `chr` `sizeof` `pi`
 
 
-```pascal
+```delphi
 const
   e = 2.7182818;       { Real type constant }
   f : single = 3.14;   { Single type constant }

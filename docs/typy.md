@@ -29,7 +29,7 @@
 
 Typ wyliczeniowy w **MP** został zaimplementowany w podstawowej postaci, tzn.:
 
-```pascal
+```delphi
 Type
   Days = (monday,tuesday,wednesday,thursday,friday,
           saturday,sunday);
@@ -38,7 +38,7 @@ Type
 ```
 Typ wyliczeniowy przechowywany jest tylko w pamięci kompilatora **MP**, do pliku wynikowego nie zostaną zapisane jakiekolwiek informacje dotyczące pól typu wyliczeniowego. Dopuszczalne jest użycie komendy `ORD`, `SIZEOF` oraz rzutowania dla typu wyliczeniowego.
 
-```pascal
+```delphi
 var
    d: Days;
 
@@ -88,7 +88,7 @@ Dopuszczalne jest użycie dodatkowych znaków po końcowym apostrofie, takich ja
 
 Innym sposobem modyfikacji wyprowadzanych znaków jest użycie systemowej zmiennej `TextAttr`, każdy znak wyprowadzany na ekran jest zwiększany o wartość `TextAttr` (domyślnie = 0).
 
-```pascal
+```delphi
 a: string = 'Atari'*;         // ciąg znaków w inwersie
 b: string = 'Spectrum'~;      // ciąg znaków w kodach ANTIC-a
 c: char = 'X'~*;              // znak w inwersie, kodach ANTIC-a
@@ -104,7 +104,7 @@ c: char = 'X'~*;              // znak w inwersie, kodach ANTIC-a
 
 Wskaźniki w **MP** mogą być typowane i bez określonego typu, np.:
 
-```pascal
+```delphi
  a: ^word;         // wskaźnik typowany na słowo
  b: pointer;       // wskaźnik bez typu
 ```
@@ -123,7 +123,7 @@ Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje
 
 Tablice w **MP** są tylko statyczne, jednowymiarowe lub dwuwymiarowe z początkowym indeksem równym `0`, np.:
 
-```pascal
+```delphi
 var tb: array [0..100] of word;
 var tb2: array [0..15, 0..31] of Boolean;
 ```
@@ -140,7 +140,7 @@ W pamięci tablica reprezentowana jest przez wskaźnik `POINTER`, wskaźnik jest
 Kompilator generuje kod dla tablic zależnie od ich deklaracji:
 
 * gdy nie przekracza 256 bajtów
-```pascal
+```delphi
 array [0..255] of byte
 array [0..127] of word
 array [0..63] of cardinal
@@ -152,7 +152,7 @@ Gdy liczba bajtów zajmowanych przez tablicę nie przekracza 256 bajtów generow
     lda adr.tb,y
 
 * gdy liczba elementów tablicy wynosi `1`
-```pascal
+```delphi
 array [0..0] of type
 ```
 
@@ -167,7 +167,7 @@ Gdy liczba elementów tablicy wynosi `1` jest ona traktowana specjalnie. Generow
     lda (bp),y
 
 * gdy przekracza 256 bajtów
-```pascal
+```delphi
 array [0..255+1] of byte
 array [0..127+1] of word
 array [0..63+1] of cardinal
@@ -214,7 +214,7 @@ Dostęp do pól rekordu z poziomu asm:
 
 Obiekty to rekordy z dodatkowymi metodami. W pamięci obiekt reprezentowany jest przez wskaźnik `POINTER`.
 
-```pascal
+```delphi
 type
     TRMT = Object
 
@@ -234,7 +234,7 @@ type
 
 Typ `FILE` reprezentuje uchwyt do pliku oraz definiuje rozmiar rekordu.
 
-```pascal
+```delphi
 type
   ftype = array [0..63] of cardinal;
 

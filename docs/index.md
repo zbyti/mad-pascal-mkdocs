@@ -121,7 +121,7 @@
 - zasoby RCASM, CMCPLAY, MPTPLAY można teraz ładować pod ROM
 - dodana możliwość oznaczenia kodowania ciągu znakowego jako internal ANTIC-a poprzez znak tyldy `~`, np.:
 
-```pascal
+```delphi
 txt0: string = 'Atari'~;      // ciąg w kodach ANTIC-a
 txt1: string = 'Spectrum'*~;  // ciąg w inwersie w kodach ANTIC-a
 ```
@@ -148,7 +148,7 @@ txt1: string = 'Spectrum'*~;  // ciąg w inwersie w kodach ANTIC-a
 - optymalizacja dla imulBYTE, imulWORD, imulCARD, mulSHORTINT, mulSMALLINT, mulINTEGER
 - dodana obsługa wskaźnika rekordu, np.:
 
-```pascal
+```delphi
 type
   TPoint = record x,y: smallint end;
 var
@@ -163,7 +163,7 @@ end.
 - dodany nowy typ EXTMEM dla pliku resource $R, pozwalajacy ładować dane do pamięci dodatkowej
 - dodany nowy typ OBJECT, czyli RECORD z dodatkowymi metodami
 
-```pascal
+```delphi
 type
   TMemoryStream = Object
 
@@ -183,7 +183,7 @@ type
 
 - dodana obsługa dyrektyw warunkowych $IFDEF, $IFNDEF, $ELSE, $ENDIF, $DEFINE, $UNDEF przez DMSC
 
-```pascal
+```delphi
 {$define test}
 
 const
@@ -209,7 +209,7 @@ const
 
 - dodana możliwość zwrócenia wartości funkcji przez RECORD, np:
 
-```pascal
+```delphi
   var p: TPoint;
   p:=Point(x,y);
 ```
@@ -233,7 +233,7 @@ const
 
 - w parametrach formalnych procedur i funkcji dodana możliwość podania typu UNTYPED (tylko przez VAR), np.
 
-```pascal
+```delphi
 procedure move(var x,y; count: word);
 begin
 end;
@@ -250,7 +250,7 @@ move(tab[100], tab[200], 50);
 
 - funkcja INTTOREAL usunięta, zastąpiona przez wbudowaną konwersję typu REAL, np.
 
-```pascal
+```delphi
 var
   f: real;
   i: word;
@@ -289,7 +289,7 @@ f:=real(i);
   const tb: array [0..0] of byte = ( lo(word(@tb)) );
 - dodany odczyt wektorów DLI, VBL przez rozkaz INTR
 
-```pascal
+```delphi
 intr(rVBL, label);
 intr(rDLI, label);
 ```
@@ -306,7 +306,7 @@ intr(rDLI, label);
 - Greblus dodał poprawki umożliwiające działanie kompilatora z Linux-em
 - dodana możliwość zaincjowania wskaźnika
 
-```pascal
+```delphi
 tmp: byte;
 p: pointer = @tmp;
 a: ^byte = @tmp;
@@ -314,7 +314,7 @@ a: ^byte = @tmp;
 
 - dodana możliwość przypisania rekordu
 
-```pascal
+```delphi
 type a = record x,y: byte end;
 var k,w: a;
 k:=w;
@@ -339,7 +339,7 @@ k:=w;
 - dodany przełącznik -o Optimize code
 - możliwość wymuszenia typu dla CONST
 
-```pascal
+```delphi
   const
       a: word = 5;     // WORD
       b = 5;           // BYTE

@@ -4,7 +4,7 @@
 
 W **MP** do oznaczenia komentarza jednoliniowego służą znaki `//`, dla wieloliniowego klamry `{ }`, lub `(* *)`.
 
-```pascal
+```delphi
 // to jest komentarz
 inc(a); // to jest komentarz
 
@@ -24,7 +24,7 @@ inc(a); // to jest komentarz
 
 ### rozkazy
 
-```pascal
+```delphi
 absolute           and                 array              asm               begin
 case               const               div                do                downto
 else               end                 file               for               function
@@ -37,7 +37,7 @@ until              uses                var                while             xor
 
 ### stałe
 
-```pascal
+```delphi
 pi
 true
 false
@@ -48,25 +48,25 @@ false
 ### [Liczby](http://www.freepascal.org/docs-html/ref/refse6.html)
 
 #### zapis decymalny
-```pascal
+```delphi
 -100
 -2437325
 1743
 ```
 #### zapis hexadecymalny
-```pascal
+```delphi
 $100
 $e430
 $000001
 ```
 #### zapis binarny
-```pascal
+```delphi
 %0001001010
 %000000001
 %001000
 ```
 #### zapis kodami ATASCII
-```pascal
+```delphi
 'a'
 'fds'
 'W'
@@ -78,7 +78,7 @@ $000001
 
 #### arytmetyczne
 
-```pascal
+```delphi
 +   Addition
 -   Subtraction
 *   Multiplication
@@ -89,7 +89,7 @@ MOD Remainder
 
 #### bitowe
 
-```pascal
+```delphi
 NOT Bitwise negation (unary)
 AND Bitwise and
 OR  Bitwise or
@@ -100,7 +100,7 @@ SHR Bitwise shift to the right
 
 #### logiczne
 
-```pascal
+```delphi
 NOT logical negation (unary)
 AND logical and
 OR  logical or
@@ -109,7 +109,7 @@ XOR logical xor
 
 #### relacji
 
-```pascal
+```delphi
 =   Equal
 <>  Not equal
 <   Less than
@@ -129,11 +129,11 @@ Dyrektywa stanowi komentarz, w którym pierwszy znak $ odróżnia zwykły koment
 
 ### [CONDITIONAL](https://wiki.freepascal.org/Conditional_compilation)
 
-```pascal
+```delphi
 CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label}, {$UNDEF label}
 ```
 
-```pascal
+```delphi
 {$define test}
 
 const
@@ -148,7 +148,7 @@ Z poziomu assemblera dostęp do zdefiniowanych etykiet `$DEFINE` możliwy jest p
 
 ### [FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
 
-```pascal
+```delphi
 {$f $70}  // fastmul at $7000
 ```
 
@@ -156,7 +156,7 @@ Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SM
 
 ### [IOCHECK](https://www.freepascal.org/docs-html/prog/progsu38.html#x45-440001.2.38)
 
-```pascal
+```delphi
 IOCHECK {$I+} {$I-}
 
 {i+}  IOCHECK ON  default
@@ -165,7 +165,7 @@ IOCHECK {$I+} {$I-}
 
 Dla {$i+} w przypadku wystąpienia błędów transmisji **I/O** dla: `RESET` `REWRITE` `BLOCKREAD` `BLOCKWRITE` `CLOSE`, wykonywany program zostaje zatrzymany, generowany jest komunikat błędu `ERROR xxx`. Wyłączenie `IOCHECK {$i-}` przydaje się gdy chcemy sprawdzić istnienie pliku na dysku, np.:
 
-```pascal
+```delphi
 function FileExists(name: TString): Boolean;
 var f: file;
 begin
@@ -184,7 +184,7 @@ W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, p
 
 ### `INCLUDE DATE`
 
-```pascal
+```delphi
     {$INCLUDE %DATE%}, {$I %DATE%}
 ```
 
@@ -194,7 +194,7 @@ Dyrektywa dołączenia tekstu z aktualną datą kompilacji.
 
 ### `INCLUDE TIME`
 
-```pascal
+```delphi
     {$INCLUDE %TIME%}, {$I %TIME%}
 ```
 
@@ -204,7 +204,7 @@ Dyrektywa dołączenia tekstu z aktualnym czasem kompilacji.
 
 ### `INCLUDE filename`
 
-```pascal
+```delphi
     {$INCLUDE filename}, {$I filename}
 ```
 
@@ -214,7 +214,7 @@ Dyrektywa dołączenia tekstu zawartego w pliku.
 
 ### `LIBRARY PATH`
 
-```pascal
+```delphi
 {$LIBRARYPATH path1;path2;...}
 ```
 
@@ -224,7 +224,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### INFO
 
-```pascal
+```delphi
 {$INFO user_defined}
 ```
 
@@ -232,7 +232,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### WARNING
 
-```pascal
+```delphi
 {$WARNING user_defined}
 ```
 
@@ -240,7 +240,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### ERROR
 
-```pascal
+```delphi
 {$ERROR user_defined}
 ```
 
@@ -248,7 +248,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### DEFINE BASICOFF
 
-```pascal
+```delphi
     {$DEFINE BASICOFF}
 ```
 
@@ -258,7 +258,7 @@ Dodatkowy blok programu realizujący wyłączenie BASIC-a.
 
 ### DEFINE ROMOFF
 
-```pascal
+```delphi
     {$DEFINE ROMOFF}
 ```
 
@@ -270,7 +270,7 @@ Zestaw znaków z **ROM** `$E000..$E3FF` zostaje przepisany pod ten sam adres w *
 
 ### RESOURCE
 
-```pascal
+```delphi
 {$R filename}, {$RESOURCE filename}
 
 RCLABEL RCTYPE RCFILE [PAR0 PAR1 PAR2 PAR3 PAR4 PAR5 PAR6 PAR7]
