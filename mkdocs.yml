@@ -1,7 +1,7 @@
 site_name: Mad-Pascal
 site_author: TeBe
 site_description: "Mad-Pascal Dokumentacja"
-site_keyword: "compiler"
+site_keyword: "cross-compiler"
 
 theme:
     name: readthedocs
