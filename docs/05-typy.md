@@ -98,7 +98,7 @@ c: char = 'X'~*;              // znak w inwersie, kodach ANTIC-a
 
 ## [wskaźniki](https://www.freepascal.org/docs-html/ref/refse15.html)
 
-|Type    |Ord(True)                |Size in bytes|
+|Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
 |POINTER |0 .. 65535               |2            |
 
