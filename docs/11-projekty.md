@@ -8,9 +8,9 @@
 * [strona domowa](http://madsoft.us/)
 * [źródła](https://github.com/MADRAFi/StarVagrant)
 
-## Start Dom
+## Stary Dom
 
-![StartDom.png](gfx/StartDom.png)
+![StaryDom.png](gfx/StaryDom.png)
 
 * autor: bocianu
 * [strona domowa](http://bocianu.atari.pl/blog/starydom)
