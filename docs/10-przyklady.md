@@ -1,5 +1,76 @@
 #
 
+## Skrypty
+
+### Linux
+
+#### mp-build-a8
+
+```bash
+#!/bin/bash
+
+mp="$HOME/Programs/MadPascal/mp"
+mads="$HOME/Programs/mads/mads"
+base="$HOME/Programs/MadPascal/base"
+
+if [ -z "$1" ]; then
+  echo -e "\nPlease call '$0 <argument>' to run this command!\n"
+  exit 1
+fi
+
+name=${1::-4}
+
+$mp $name.pas -o
+
+if [ -f $name.a65 ]; then
+  [ ! -d "output" ] && mkdir output
+  mv $name.a65 output/
+  $mads output/$name.a65 -x -i:$base -o:output/$name.xex
+else
+  exit 1
+fi
+
+if [ ! -z "$2" ]; then
+  atari800 output/$name.xex
+fi
+```
+
+    mp-build-a8 main.pas r
+
+
+#### mp-build-c64
+
+```bash
+#!/bin/bash
+
+mp="$HOME/Programs/MadPascal/mp"
+mads="$HOME/Programs/mads/mads"
+base="$HOME/Programs/MadPascal/base"
+
+if [ -z "$1" ]; then
+  echo -e "\nPlease call '$0 <argument>' to run this command!\n"
+  exit 1
+fi
+
+name=${1::-4}
+
+$mp $name.pas -t c64 -z 10 -o
+
+if [ -f $name.a65 ]; then
+  [ ! -d "output" ] && mkdir output
+  mv $name.a65 output/
+  $mads output/$name.a65 -x -i:$base -o:output/$name.prg
+else
+  exit 1
+fi
+
+if [ ! -z "$2" ]; then
+  x64 output/$name.prg
+fi
+```
+
+    mp-build-c64 main.pas r
+
 ## Atari 8-bit
 
 ### Hello World
