@@ -1,14 +1,14 @@
 site_name: Mad-Pascal
 theme: readthedocs
 nav:
-    - Wprowadzenie: 01-wprowadzenie.md
-    - Sposób użycia: 02-sposob-uzycia.md
-    - Składnia: 03-skladnia.md
-    - Stałe: 04-stale.md
-    - Typy: 05-typy.md
-    - Instrukcje: 06-instrukcje.md
-    - Procedury, funkcje, modyfikatory: 07-procedury-funkcje.md
-    - Moduły: 08-moduly.md
-    - Biblioteki podstawowe: 09-biblioteki-podstawowe.md
-    - Przykłady: 10-przyklady.md
-    - Projekty: 11-projekty.md
+    - Wprowadzenie: wprowadzenie.md
+    - Sposób użycia: sposob-uzycia.md
+    - Składnia: skladnia.md
+    - Stałe: stale.md
+    - Typy: typy.md
+    - Instrukcje: instrukcje.md
+    - Procedury, funkcje, modyfikatory: procedury-funkcje.md
+    - Moduły: moduly.md
+    - Biblioteki podstawowe: biblioteki-podstawowe.md
+    - Przykłady: przyklady.md
+    - Projekty: projekty.md
