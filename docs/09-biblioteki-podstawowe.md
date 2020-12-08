@@ -1575,7 +1575,7 @@ Funkcja służy do konwersji tekstu zapisanego w zmiennej S na liczbę całkowit
 
 ## [VBXE](http://mads.atari8.info/library/doc/vbxe.html)
 
-Mapa pamięci dla VBXE zdefiniowana jest w module SYSTEM
+Mapa pamięci dla VBXE zdefiniowana jest w module `SYSTEM`.
 
 ```
 VBXE_XDLADR = $0000;    // XDLIST
