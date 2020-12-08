@@ -14,4 +14,4 @@
 
 * autor: bocianu
 * [strona domowa](http://bocianu.atari.pl/blog/starydom)
-* [źródła](https://github.com/MADRAFi/StarVagrant)
+* [źródła](https://gitlab.com/bocianu/oldmansion)
