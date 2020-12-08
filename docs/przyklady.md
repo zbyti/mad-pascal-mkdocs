@@ -75,13 +75,14 @@ fi
 
 ### Hello World
 
-```
+```pascal
 program HelloWorld;
 
 uses crt;
 
 begin
   writeln('Hello World');
+  readkey;
 end.
 ```
 
@@ -89,7 +90,7 @@ end.
 
 ### Test
 
-```
+```pascal
 // https://bitbucket.org/paul_nicholls/pas6502/src/master/projects/pas6502_test.dpr
 
 program Test;
@@ -104,6 +105,7 @@ var
   screen0    : array[0..1000-1] of Byte absolute cScreen0;
   color0     : array[0..1000-1] of Byte absolute cColor;
   i          : Integer;
+
 begin
   i := 0;
   while i < 1000 do begin
@@ -111,7 +113,7 @@ begin
     screen0[i] := i;
 
     // fill color RAM with all colors
-    color0 [i] := i;
+    color0[i] := i;
 
     Inc(i);
   end;

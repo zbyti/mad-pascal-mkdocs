@@ -10,7 +10,7 @@ Moduł `SYSTEM` jest domyślnie dopisywany do listy `USES` i kompilowany jako pi
 
 ### Constants
 
-```
+```pascal
 M_PI_2           = 6.283285;  // pi * 2
 D_PI_2           = 1.570796;  // pi / 2
 D_PI_180         = 0.017453;  // pi / 180
@@ -68,7 +68,7 @@ COLOR_LIGHTBLUE  = $7c;
 
 #### `TPoint`
 
-```
+```pascal
     TPoint = record x,y: SmallInt end;
 ```
 
@@ -78,7 +78,7 @@ Definicja współrzędnych (x,y).
 
 #### `TRect`
 
-```
+```pascal
     TRect = record left, top, right, bottom: smallint end;
 ```
 
@@ -88,7 +88,7 @@ Definicja położenia i rozmiaru czworokąta o parametrach (left, top) - lewy g�
 
 #### `TString`
 
-```
+```pascal
     TString = string[32];
 ```
 
@@ -100,7 +100,7 @@ Definicja krótkiego ciągu znakowego wykorzystywanego do przekazywania nazw pli
 
 #### `IOResult`
 
-```
+```pascal
     IOResult: byte;
 ```
 
@@ -110,13 +110,13 @@ Zmienna przechowuje ostatni błąd operacji `I/O`. [Kody błędów I/O](http://a
 
 #### `ScreenWidth`
 
-```
+```pascal
     ScreenWidth: word = 40
 ```
 
 Zmienna przechowująca aktualną szerokość ekranu. Domyślnie jest to wartość 40 dla ekranu edytora.
 
-```
+```pascal
     ScreenHeight: word = 24;
 ```
 
@@ -146,7 +146,7 @@ Trunc              UpCase              Val                WriteSector
 
 #### `Abs`
 
-```
+```pascal
     function Abs(x: real): real;
     function Abs(x: integer): integer;
 ```
@@ -157,7 +157,7 @@ Funkcja obliczająca wartość bezwzględną podanej liczby (ang. **Absolute val
 
 #### `ArcTan`
 
-```
+```pascal
     function ArcTan(x: real): real;
 ```
 
@@ -167,7 +167,7 @@ Funkcja (arcus tangens) zwraca wartość kąta, którego tangens wynosi `x`.
 
 #### `Assign`
 
-```
+```pascal
     procedure Assign(var F:File; FileName:string)
 ```
 
@@ -177,7 +177,7 @@ Procedura przypisuje zmiennej plikowej `F` plik o nazwie `FileName`. Aby móc od
 
 #### `BinStr`
 
-```
+```pascal
     function BinStr(Value: cardinal; Digits: byte): TString;
 ```
 
@@ -187,7 +187,7 @@ Funkcja zwraca ciąg znakowy z reprezentacją binarną wartości `Value`. `Digit
 
 #### `Concat`
 
-```
+```pascal
     function Concat(a,b: string): string; assembler
     function Concat(a: string; b: char): string; assembler;
     function Concat(a: char; b: string): string; assembler;
@@ -200,7 +200,7 @@ Funkcja łączy dwa ciągi tekstowe w nowy ciąg znakowy.
 
 #### `Blockread`
 
-```
+```pascal
     procedure BlockRead(var f: file; var Buf; Count: word; var Result: word);
 ```
 
@@ -210,7 +210,7 @@ Procedura wczytuje z pliku plik do zmiennej `Buf` nie więcej niż `Count` bajt�
 
 #### `Blockwrite`
 
-```
+```pascal
     procedure BlockWrite(var f: file; var Buf; Count: word; var Result: word);
 ```
 
@@ -220,11 +220,13 @@ Procedura zapisuje do pliku ze zmiennej `Buf` nie więcej niż `Count` bajtów.
 
 #### `Chr`
 
-```
+```pascal
     Chr(65); // Zwraca znak A
     Chr(90); // Zwraca znak Z
     Chr(32); // Zwraca znak spacji
+```
 
+```pascal
     Writeln(#65);       // Znak A
     Writeln(#65#32#65); // Napisze 'A Z'
 ```
@@ -235,7 +237,7 @@ Funkcja zwraca znak `Char` o odpowiadającym kodzie **ATASCII** podanym w parame
 
 #### `Cos`
 
-```
+```pascal
     function Cos(x: real): real;
 ```
 
@@ -245,7 +247,7 @@ Cosinus kąta, `x` w radianach.
 
 #### `Close`
 
-```
+```pascal
     procedure Close(var f: file);
 ```
 
@@ -255,13 +257,13 @@ Procedura służąca do zamykania otwartego pliku dowolnego typu. Każdy plik ot
 
 #### `Dec`
 
-```
+```pascal
     procedure Dec(var X [, N: int]);
 ```
 
 Procedura zmniejsza wartość parametru `X` o `1` lub wartość parametru `N`. Wartość parametru `X` może być typu `CHAR` `BYTE` `WORD` `CARDINAL`. Procedura `DEC` generuje optymalny kod, jest zalecana do używania w pętlach, zamiast operatora odejmowania `-`.
 
-```
+```pascal
     dec(tmp);
     dec(tmp[2]);
 ```
@@ -270,7 +272,7 @@ Procedura zmniejsza wartość parametru `X` o `1` lub wartość parametru `N`. W
 
 #### `DeleteFile`
 
-```
+```pascal
     function DeleteFile(FileName: string): Boolean;
 ```
 
@@ -280,7 +282,7 @@ Funkcja pozwala skasować plik z dysku o nazwie `FileName`, zwraca `TRUE` kiedy 
 
 #### `DPeek`
 
-```
+```pascal
     function DPeek(a: word): word;
 ```
 
@@ -290,7 +292,7 @@ Funkcja zwraca słowo spod adresu `a`.
 
 #### `DPoke`
 
-```
+```pascal
     procedure DPoke(a: word; value: word);
 ```
 
@@ -300,7 +302,7 @@ Procedura zapisuje słowo `value` pod adresem `a`.
 
 #### `Eof`
 
-```
+```pascal
     function Eof(var f: file): Boolean;
 ```
 
@@ -316,7 +318,7 @@ Wywołanie procedury `Exit` powoduje natychmiastowe opuszczenie bloku programu, 
 
 #### `Exp`
 
-```
+```pascal
     function Exp(x: real): real;
 ```
 
@@ -326,7 +328,7 @@ Funkcja podnosząca liczbę e (=2.71) do potęgi podanej przez argument `x`.
 
 #### `FilePos`
 
-```
+```pascal
     function FilePos(var f: file): cardinal;
 ```
 
@@ -336,7 +338,7 @@ Funkcja zwraca aktualną pozycję pliku. Plik nie może być tekstowy i musi by�
 
 #### `FileSize`
 
-```
+```pascal
     function FileSize(var f: file): cardinal;
 ```
 
@@ -346,13 +348,13 @@ Funkcja zwraca długość pliku w bajtach (**Sparta DOS X**). Plik nie może by�
 
 #### `FillChar`
 
-```
+```pascal
     procedure FillChar(x: pointer; count: word; value: char);
 ```
 
 Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub bajtami. Parametr `value` musi określać dane, natomiast `count` - ilość danych jakie zostaną przypisane do bufora.
 
-```
+```pascal
     var
       Buffer : array[0..100] of Char;
     begin
@@ -364,7 +366,7 @@ Procedura wypełnia bufor określony w parametrze `X` identycznymi znakami lub b
 
 #### `Frac`
 
-```
+```pascal
     function Frac(x: real): real;
 ```
 
@@ -374,7 +376,7 @@ Zwraca część ułamkową liczby `x` w postaci rzeczywistej.
 
 #### `GetIntVec`
 
-```
+```pascal
     procedure GetIntVec(intno: byte; var vector: pointer);
 ```
 
@@ -384,7 +386,7 @@ Procedura odczytuje adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszcz
 
 #### `Halt`
 
-```
+```pascal
     procedure halt;
 ```
 
@@ -395,7 +397,7 @@ Wywołanie powoduje natychmiastowe wyjście z programu. Można (opcjonalnie) pod
 
 #### `Hi`
 
-```
+```pascal
     function Hi(x): byte
 ```
 
@@ -405,7 +407,7 @@ Funkcja zwracająca starszy bajt parametru `x`.
 
 #### `HexStr`
 
-```
+```pascal
     function HexStr(Value: cardinal; Digits: byte): TString;
 ```
 
@@ -415,13 +417,13 @@ Funkcja zwraca ciąg znakowy z reprezentacją heksadecymalną wartości `Value`.
 
 #### ` Inc`
 
-```
+```pascal
     Inc procedure Inc(var X [, N: int]);
 ```
 
 Procedura zwiększa wartość parametru `X` o `1` lub wartość parametru `N`. Wartość parametru `X` może być typu `CHAR` `BYTE` `WORD` `CARDINAL`. Procedura `INC` generuje optymalny kod, jest zalecana do używania w pętlach, zamiast operatora dodawania `+`.
 
-```
+```pascal
     inc(tmp);
     inc(tmp[2]);
 ```
@@ -430,7 +432,7 @@ Procedura zwiększa wartość parametru `X` o `1` lub wartość parametru `N`. W
 
 #### `Int`
 
-```
+```pascal
     function Int(x: real): real;
 ```
 
@@ -440,7 +442,7 @@ Funkcja zwraca część całkowitą argumentu będącego liczbą rzeczywistą.
 
 #### `Ln`
 
-```
+```pascal
     function Ln(x: real): real;
 ```
 
@@ -450,7 +452,7 @@ Funkcja licząca logarytm naturalny (o podstawie e) z podanej liczby. Argument f
 
 #### `Lo`
 
-```
+```pascal
     function Lo(x): byte;
 ```
 
@@ -460,7 +462,7 @@ Funkcja zwracająca młodszy bajt parametru `X`.
 
 #### `LowerCase`
 
-```
+```pascal
     function LowerCase(a: char): char;
 ```
 
@@ -470,7 +472,7 @@ Funkcja zmieniająca znaki 'A'..'Z' na odpowiednie małe znaki 'a'..'z'.
 
 #### `Move`
 
-```
+```pascal
     procedure Move(source, dest: pointer; count: word);
 ```
 
@@ -480,7 +482,7 @@ Procedura służy do kopiowania danych ze źródła, parametr `Source`, do bufor
 
 #### `OctStr`
 
-```
+```pascal
     function OctStr(Value: cardinal; Digits: byte): TString;
 ```
 
@@ -490,7 +492,7 @@ Funkcja zwraca ciąg znakowy z reprezentacją ósemkową wartości `Value`. `Dig
 
 #### `Odd`
 
-```
+```pascal
     function Odd(x: cardinal): Boolean;
     function Odd(x: integer): Boolean;
 ```
@@ -501,13 +503,13 @@ Funkcja zwraca wartość `True` jeżeli liczba określona w parametrze `X` jest 
 
 #### `Ord`
 
-```
+```pascal
     function Ord(X);
 ```
 
 Funkcja ta działa odwrotnie do `Chr`. Z podanego znaku jako parametr zwraca nam jego kod w **ATASCII**.
 
-```
+```pascal
     Ord('A'); // Zwraca 65
     Ord('Z'); // Zwraca 90
     Ord(' '); // Zwraca 32
@@ -517,7 +519,7 @@ Funkcja ta działa odwrotnie do `Chr`. Z podanego znaku jako parametr zwraca nam
 
 #### `ParamCount`
 
-```
+```pascal
     function ParamCount: byte;
 ```
 
@@ -527,7 +529,7 @@ Funkcja zwraca ilość dostępnych argumentów (**Sparta Dos X**, **BWDos**), tz
 
 #### `ParamStr`
 
-```
+```pascal
     function ParamStr(Index: byte): TString;
 ```
 
@@ -536,7 +538,7 @@ Funkcja zwraca parametry programu (**Sparta Dos X**, **BWDos**). `Index` to nume
 Jeżeli uruchomimy program `TEST.EXE` w taki sposób:
 
 
-```
+```pascal
     TEST.EXE parametr1 parametr2 parametr3
 ```
 
@@ -546,7 +548,7 @@ To aby uzyskać `parametr3` należy podać `Index=3`, zaś aby uzyskać `paramet
 
 #### `Pause`
 
-```
+```pascal
     procedure Pause;
     procedure Pause(n: word);
 ```
@@ -557,7 +559,7 @@ Procedura zatrzymuje działanie programu na `N * 1.50` sek.
 
 #### `Peek`
 
-```
+```pascal
     function Peek(a: word): byte;
 ```
 
@@ -567,7 +569,7 @@ Funkcja zwraca bajt spod adresu `a`.
 
 #### `Point`
 
-```
+```pascal
     function Point(AX, AY: smallint): TPoint;
 ```
 
@@ -577,7 +579,7 @@ Funkcja na podstawie parametrów `AX` oraz `AY` tworzony jest rekord typu `TPoin
 
 #### `PointsEqual`
 
-```
+```pascal
     function PointsEqual(const P1, P2: TPoint): Boolean;
 ```
 
@@ -587,7 +589,7 @@ Funkcja sprawdza czy wartości współrzędnych określone w parametrach `P1` or
 
 #### `Poke`
 
-```
+```pascal
     procedure Poke(a: word; value: byte);
 ```
 
@@ -597,7 +599,7 @@ Procedura zapisuje bajt `value` pod adresem `a`.
 
 #### `Pred`
 
-```
+```pascal
     function Pred(X: TOrdinal): TOrdinal;
 ```
 
@@ -607,19 +609,19 @@ Poprzednik elementu `X`.
 
 #### `Random`
 
-```
+```pascal
     function Random: Real; assembler;
 ```
 
 Funkcja zwraca losową wartość z przedziału `<0 .. 1>`.
 
-```
+```pascal
     function Random(range: byte): byte; assembler;
 ```
 
 Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`, w przypadku Range=0 zwraca wartość losową z przedziału `<0 .. 255 >`.
 
-```
+```pascal
     function Random(range: smallint): smallint;
 ```
 
@@ -629,7 +631,7 @@ Funkcja zwraca losową wartość z przedziału `<0 .. range-1>`.
 
 #### `ReadConfig`
 
-```
+```pascal
     function ReadConfig(devnum: byte): cardinal;
 ```
 
@@ -667,7 +669,7 @@ Odczyt statusu stacji `devnum`. Wynikiem są cztery bajty `DVSTAT ($02EA..$02ED)
 
 #### `ReadSector`
 
-```
+```pascal
     procedure ReadSector(devnum: byte; sector: word; var buf);
 ```
 
@@ -677,7 +679,7 @@ Procedura odczytuje sektora `sector` dyskietki w stacji dysków `devnum` i zapis
 
 #### `Rect`
 
-```
+```pascal
     function Rect(ALeft, ATop, ARight, ABottom: smallint): TRect;
 ```
 
@@ -687,13 +689,14 @@ Funckja na podstawie parametrów tworzy rekord typu `TRect`.
 
 #### `RenameFile`
 
-```
+```pascal
     function RenameFile(OldName, NewName: string): Boolean;
 ```
+
 Funkcja pozwala zmienić nazwę pliku `OldName` na nową nazwę `NewName`, zwraca `TRUE` kiedy operacja powiodła się, `FALSE` w przypadku wystąpienia błędu (najczęściej z powodu zabezpieczenia przed zapisem lub błędnej nazwy pliku).
 
 
-```
+```pascal
     RenameFile('D:OLDNAME.TMP', 'NEWNAME.TMP');
 ```
 
@@ -702,7 +705,7 @@ Funkcja pozwala zmienić nazwę pliku `OldName` na nową nazwę `NewName`, zwrac
 #### `Reset`
 
 
-```
+```pascal
     procedure Reset(var f: file; l: Word);
 ```
 
@@ -712,7 +715,7 @@ Procedura otwiera istniejący plik z nazwą przekazaną do `F` poleceniem `Assig
 
 #### `Rewrite`
 
-```
+```pascal
     procedure Rewrite(var f: file; l: Word);
 ```
 
@@ -722,7 +725,7 @@ Procedura tworzy i otwiera nowy plik. `f` jest nazwą przekazaną za pomocą pol
 
 #### `Round`
 
-```
+```pascal
     function Round(x: real): integer;
 ```
 
@@ -732,7 +735,7 @@ Funkcja dokonuje zaokrąglenia podanej liczby rzeczywistej do najbliższej liczb
 
 #### `Seek`
 
-```
+```pascal
     procedure Seek(var f: file; N: cardinal);
 ```
 
@@ -742,7 +745,7 @@ Procedura ustawia pozycję w pliku na `N`. `N` powinno być wartością zwrócon
 
 #### `SetLength`
 
-```
+```pascal
     procedure SetLength(var S: string; Len: byte);
 ```
 
@@ -752,7 +755,7 @@ Procedura ustawia długość ciągu `S` na `LEN`.
 
 #### `SetIntVec`
 
-```
+```pascal
     procedure SetIntVec(intno: Byte; vector: pointer);
 ```
 
@@ -762,7 +765,7 @@ Procedura ustawia adres wektora przerwań wg. kodu **INTNO**. Obecnie dopuszczal
 
 #### `Sin`
 
-```
+```pascal
     function Sin(x: real): real;
 ```
 
@@ -772,7 +775,7 @@ Sinus kąta. `x` w radianach.
 
 #### `Succ`
 
-```
+```pascal
     function Succ(X: TOrdinal): TOrdinal;
 ```
 
@@ -782,7 +785,7 @@ Następnik elementu `X`.
 
 #### `Space`
 
-```
+```pascal
     function Space(Len: Byte): ^char;
 ```
 
@@ -792,7 +795,7 @@ Funkcja generuje nowy ciąg znakowy o długości `Len` wypełniony znakami spacj
 
 #### `SizeOf`
 
-```
+```pascal
     function SizeOf(X: AnyType): byte;
 ```
 
@@ -802,7 +805,7 @@ Funkcja zwraca rozmiar podanej zmiennej (lub typu) w bajtach.
 
 #### `Str`
 
-```
+```pascal
     procedure Str(var X: TNumericType; var S: string);
 ```
 
@@ -812,7 +815,7 @@ Procedura zamienia liczbę `X` na łańcuch znaków `S`.
 
 #### `StringOfChar`
 
-```
+```pascal
     procedure StringOfChar(ch: Char; len: byte): ^char;
 ```
 
@@ -822,7 +825,7 @@ Funkcja generuje nowy ciąg znakowy o długości `len` wypełniony znakami `ch`.
 
 #### `Sqr`
 
-```
+```pascal
     function Sqr(x: real): real;
     function Sqr(x: integer): integer;
 ```
@@ -833,7 +836,7 @@ Funkcja obliczająca kwadrat podanej liczby (ang. **Square**).
 
 #### `Sqrt`
 
-```
+```pascal
     function Sqrt(x: real): real;
     function Sqrt(x: single): single;
     function Sqrt(x: integer): single;
@@ -845,7 +848,7 @@ Funkcja obliczająca pierwiastek kwadratowy podanej liczby (ang. **Square root**
 
 #### `Trunc`
 
-```
+```pascal
     function Trunc(x: real): integer;
 ```
 
@@ -855,7 +858,7 @@ Funkcja zwraca część całkowitą liczby rzeczywistej w postaci liczby całkow
 
 #### `UpCase`
 
-```
+```pascal
     function UpCase(a: char): char;
 ```
 
@@ -865,7 +868,7 @@ Funkcja zmieniająca znaki `'a'..'z'` na odpowiednie duże znaki `'A'..'Z'`.
 
 #### `Val`
 
-```
+```pascal
     procedure Val(const S: string; var V; var Code: Byte);
 ```
 
@@ -875,7 +878,7 @@ Procedura przekształca ciąg znaków `S` na liczbę `V`. Code przyjmie wartoś�
 
 #### `WriteSector`
 
-```
+```pascal
     procedure WriteSector(devnum: byte; sector: word; var buf);
 ```
 
@@ -885,7 +888,7 @@ Procedura zapisuje sektora `sector` dyskietki w stacji `devnum` na podstawie buf
 
 ### Constants
 
-```
+```pascal
 CN_START_SELECT_OPTION  = 0;
 CN_SELECT_OPTION        = 1;
 CN_START_OPTION         = 2;
@@ -900,7 +903,7 @@ CN_NONE                 = 7;
 
 #### `Consol`
 
-```
+```pascal
     Consol: byte absolute $d01f
 ```
 
@@ -910,7 +913,7 @@ Zmienna zwraca kod naciśniętego klawisza/klawiszy konsoli.
 
 #### `TextAttr`
 
-```
+```pascal
     TextAttr: byte = 0
 ```
 
@@ -920,7 +923,7 @@ Zmienna przechowuje wartość jaka jest dodawana do każdego wyświetlanego znak
 
 #### `WhereX`
 
-```
+```pascal
     WhereX: byte absolute $54;
 ```
 
@@ -930,7 +933,7 @@ Zmienna przechowuje aktualną poziomą pozycję kursora.
 
 #### `WhereY`
 
-```
+```pascal
     WhereY: byte absolute $55;
 ```
 
@@ -946,7 +949,7 @@ ReadKey            Sound               TextBackground     TextColor
 
 #### `ClrEol`
 
-```
+```pascal
     procedure ClrEol;
 ```
 
@@ -956,7 +959,7 @@ Procedura czyści wiersz od aktualnej pozycji kursora do prawej strony krawędzi
 
 #### `ClrScr`
 
-```
+```pascal
     procedure ClrScr;
 ```
 
@@ -966,7 +969,7 @@ Procedura czyści ekran edytora, wykonuje kod znaku `CH_CLR`.
 
 #### `CursorOff`
 
-```
+```pascal
     procedure CursorOff;
 ```
 
@@ -976,7 +979,7 @@ Procedura wyłącza kursor.
 
 #### `CursorOn`
 
-```
+```pascal
     procedure CursorOn;
 ```
 
@@ -986,7 +989,7 @@ Procedura włącza kursor.
 
 #### `Delay`
 
-```
+```pascal
     procedure Delay(MS: Word);
 ```
 
@@ -996,7 +999,7 @@ Procedura czeka zadaną ilość milisekund `MS`. W przybliżeniu `Delay(1000)` g
 
 #### `DelLine`
 
-```
+```pascal
     procedure DelLine;
 ```
 
@@ -1006,7 +1009,7 @@ Procedura kasuje wiersz na aktualnej pozycji kursora, wykonuje kod znaku `CH_DEL
 
 #### `GotoXY`
 
-```
+```pascal
     procedure GotoXY(x, y: byte);
 ```
 
@@ -1016,7 +1019,7 @@ Procedura ustawia nową pozycję kursora.
 
 #### `InsLine`
 
-```
+```pascal
     procedure InsLine;
 ```
 
@@ -1026,7 +1029,7 @@ Procedura wstawia pusty wiersz na aktualnej pozycji kursora, wykonuje kod znaku 
 
 #### `Keypressed`
 
-```
+```pascal
     function Keypressed: Boolean;
 ```
 
@@ -1036,7 +1039,7 @@ Funkcja zwraca `TRUE` gdy został naciśnięty jakiś klawisz klawiatury, w prze
 
 #### `NoSound`
 
-```
+```pascal
     procedure NoSound;
 ```
 
@@ -1046,7 +1049,7 @@ Procedura wycisza kanały obu **POKEY-i** `$D200` `$D210)`.
 
 #### `ReadKey`
 
-```
+```pascal
     function ReadKey: char;
 ```
 
@@ -1056,7 +1059,7 @@ Funkcja zwraca kod naciśniętego klawisza klawiatury.
 
 #### `Sound`
 
-```
+```pascal
     procedure Sound(Chan,Freq,Dist,Vol: byte);
 ```
 
@@ -1066,7 +1069,7 @@ Procedura odtwarza dźwięk na kanale **POKEY-a** `CHAN (0..3, 4..7)`, o często
 
 #### `TextBackground`
 
-```
+```pascal
     procedure TextBackground(a: byte);
 ```
 
@@ -1076,7 +1079,7 @@ Procedura ustawia nowy kolor tła znaków (działa najlepiej z włączonym **VBX
 
 #### `TextColor`
 
-```
+```pascal
     procedure TextColor(a: byte);
 ```
 
@@ -1086,7 +1089,7 @@ Procedura ustawia nowy kolor znaków (działa najlepiej z włączonym **VBXE**).
 
 ### Constants
 
-```
+```pascal
 { graphic drivers }
 D1bit   = 11;
 D2bit   = 12;
@@ -1120,7 +1123,7 @@ grInvalidVersion = -18;
 
 #### `GraphResult`
 
-```
+```pascal
     GraphResult : byte
 ```
 
@@ -1137,7 +1140,7 @@ SetColorMapDimensions
 
 #### `Bar`
 
-```
+```pascal
     procedure Bar(x1, y1, x2, y2: Smallint);
 ```
 
@@ -1147,7 +1150,7 @@ Prostokąt, np. dla wykresów słupkowych.
 
 #### `Bar3D`
 
-```
+```pascal
     procedure Bar3D(x1, y1, x2, y2: smallint; depth: word; top: boolean);
 ```
 
@@ -1157,7 +1160,7 @@ Słupek dla wykresów trójwymiarowych.
 
 #### `Circle`
 
-```
+```pascal
     procedure Circle(x0,y0,radius: word);
 ```
 
@@ -1167,7 +1170,7 @@ Okrąg.
 
 #### `ClipLine`
 
-```
+```pascal
     procedure ClipLine(x1, y1, x2, y2: smallint);
 ```
 
@@ -1175,7 +1178,7 @@ Okrąg.
 
 #### `Ellipse`
 
-```
+```pascal
     procedure Ellipse(x0, y0, a, b: word);
 ```
 
@@ -1185,7 +1188,7 @@ Elipsa.
 
 #### `FillEllipse`
 
-```
+```pascal
     procedure FillEllipse(x0, y0, a, b: word);
 ```
 
@@ -1195,7 +1198,7 @@ Elipsa wypełniona wewnątrz.
 
 #### `FillRect`
 
-```
+```pascal
     procedure FillRect(Rect: TRect);
 ```
 
@@ -1205,7 +1208,7 @@ Prostokąt wypełniony wewnątrz.
 
 #### `FloodFill`
 
-```
+```pascal
     procedure FloodFill(x, y: smallint; color: byte);
 ```
 
@@ -1215,7 +1218,7 @@ Wypełnienie zamkniętego obszaru ekranu.
 
 #### `GetColor`
 
-```
+```pascal
     function GetColor: byte; assembler;
 ```
 
@@ -1225,7 +1228,7 @@ Podaj bieżący kolor rysowania.
 
 #### `GetMaxX`
 
-```
+```pascal
     function GetMaxX: word;
 ```
 
@@ -1235,7 +1238,7 @@ Podaj najwyższą wartość współrzędnej X na ekranie.
 
 #### `GetMaxY`
 
-```
+```pascal
     function GetMaxY: word;
 ```
 
@@ -1245,7 +1248,7 @@ Podaj najwyższą wartość współrzędnej Y na ekranie.
 
 #### `GetPixel`
 
-```
+```pascal
     function GetPixel(x,y: smallint): byte;
 ```
 
@@ -1255,7 +1258,7 @@ Podaj kolor danego punktu na ekranie.
 
 #### `GetX`
 
-```
+```pascal
     function GetX: smallint;
 ```
 
@@ -1265,7 +1268,7 @@ Podaj bieżącą współrzędną X kursora graficznego.
 
 #### `GetY`
 
-```
+```pascal
     function GetY: smallint;
 ```
 
@@ -1275,7 +1278,7 @@ Podaj bieżącą współrzędną Y kursora graficznego.
 
 #### `InitGraph`
 
-```
+```pascal
     procedure InitGraph(mode: byte);
     procedure InitGraph(driver, mode: byte; pth: TString);
 ```
@@ -1286,7 +1289,7 @@ Zainicjuj tryb graficzny.
 
 #### `Line`
 
-```
+```pascal
     procedure Line(x0, y0, x1, y1: smallint);
 ```
 
@@ -1296,7 +1299,7 @@ Linia prosta.
 
 #### `LineTo`
 
-```
+```pascal
     procedure LineTo(x, y: smallint);
 ```
 
@@ -1306,7 +1309,7 @@ Linia od bieżącej pozycji kursora do wskazanego punktu.
 
 #### `MoveRel`
 
-```
+```pascal
     procedure MoveRel(Dx, Dy: smallint);
 ```
 
@@ -1316,7 +1319,7 @@ Przesuń kursor graficzny.
 
 #### `MoveTo`
 
-```
+```pascal
     procedure MoveTo(x, y: smallint);
 ```
 
@@ -1326,7 +1329,7 @@ Przesuń kursor graficzny do wskazanego punktu.
 
 #### `PutPixel`
 
-```
+```pascal
     procedure PutPixel(x,y: smallint);
     procedure PutPixel(x,y: smallint; color: byte);
 ```
@@ -1337,7 +1340,7 @@ Zapal punkt na ekranie.
 
 #### `Rectangle`
 
-```
+```pascal
     procedure Rectangle(x1, y1, x2, y2: smallint);
     procedure Rectangle(Rect: TRect);
 ```
@@ -1348,7 +1351,7 @@ Prostokąt.
 
 #### `SetBkColor`
 
-```
+```pascal
     procedure SetBkColor(color: byte);
 ```
 
@@ -1358,7 +1361,7 @@ Ustaw kolor tła.
 
 #### `SetClipRect`
 
-```
+```pascal
     procedure SetClipRect(x0,y0,x1,y1: smallint);
     procedure SetClipRect(Rect: TRect);
 ```
@@ -1367,7 +1370,7 @@ Ustaw kolor tła.
 
 #### `SetColor`
 
-```
+```pascal
     procedure SetColor(color: byte);
 ```
 
@@ -1377,7 +1380,7 @@ Ustaw kolor pisaka.
 
 #### `SetColorMapEntry`
 
-```
+```pascal
     procedure SetColorMapEntry;
     procedure SetColorMapEntry(a,b,c: byte);
 ```
@@ -1386,7 +1389,7 @@ Ustaw kolor pisaka.
 
 #### `SetColorMapDimensions`
 
-```
+```pascal
     procedure SetColorMapDimensions(w,h: byte);
 ```
 
@@ -1394,7 +1397,7 @@ Ustaw kolor pisaka.
 
 ### Constants
 
-```
+```pascal
 faReadOnly  = $01;
 faHidden    = $02;
 faSysFile   = $04;
@@ -1408,12 +1411,12 @@ faAnyFile   = $3f;
 
 #### `TSearchRec`
 
-```
+```pascal
     TSearchRec = record
             Attr: Byte;
             Name: TString;
             FindHandle: Pointer;
-             end;
+    end;
 ```
 
 ### Procedures and functions
@@ -1426,7 +1429,7 @@ IntToHex           IntToStr            RenameFile         StrToFloat        StrT
 
 #### `AnsiUpperCase`
 
-```
+```pascal
     function AnsiUpperCase(const a: string): string;
 ```
 
@@ -1436,7 +1439,7 @@ Funkcja konwertuje znaki z łańcucha `a` na wielkie.
 
 #### `Beep`
 
-```
+```pascal
     procedure Beep;
 ```
 
@@ -1446,7 +1449,7 @@ Sygnał brzęczka (buzzer).
 
 #### `Click`
 
-```
+```pascal
     procedure Click;
 ```
 
@@ -1456,7 +1459,7 @@ Sygnał klawiatury.
 
 #### `DeleteFile`
 
-```
+```pascal
     function DeleteFile(var FileName: TString): Boolean;
 ```
 
@@ -1466,7 +1469,7 @@ Funkcja kasuje plik określony w parametrze `FileName`, zwraca `TRUE` gdy operac
 
 #### `ExtractFileExt`
 
-```
+```pascal
     function ExtractFileExt(const FileName: string): TString;
 ```
 
@@ -1476,7 +1479,7 @@ Na podstawie nazwy pliku lub pełnej ścieżki do pliku określonej w parametrze
 
 #### `FileExists`
 
-```
+```pascal
     function FileExists(const FileName: string): Boolean;
 ```
 
@@ -1486,7 +1489,7 @@ Funkcja sprawdza czy plik określony w parametrze `FileName`, istnieje `True` cz
 
 #### `FindFirst`
 
-```
+```pascal
     function FindFirst(const FileMask: TString; Attributes: Byte; var SearchResult: TSearchRec): byte;
 ```
 
@@ -1496,7 +1499,7 @@ Funkcja wyszukuje pliki pasujące do wzorca `FileMask` i posiadające atrybuty o
 
 #### `FindNext`
 
-```
+```pascal
     function FindNext(var f: TSearchRec): byte;
 ```
 
@@ -1506,7 +1509,7 @@ Funkcja przechodzi do następnego rekordu znalezionego wcześniej przy pomocy `F
 
 #### `FindClose`
 
-```
+```pascal
     procedure FindClose(var f: TSearchRec);
 ```
 
@@ -1516,7 +1519,7 @@ Procedura zwalnia zasoby (pamięć) zaalokowaną przez funkcję `FindFirst`. Pro
 
 #### `GetTickCount`
 
-```
+```pascal
     function GetTickCount: cardinal;
 ```
 
@@ -1526,7 +1529,7 @@ GetTickCount zwraca 24-bitowy licznik czasu `(PEEK(RTCLOK+2) + PEEK(RTCLOK+1)*25
 
 #### `IntToHex`
 
-```
+```pascal
     function IntToHex(Value: cardinal; Digits: byte): TString;
 ```
 
@@ -1536,7 +1539,7 @@ Funkcja konwertuje wartość liczbową na jej odpowiednik łańcuchowy w systemi
 
 #### `IntToStr`
 
-```
+```pascal
     function IntToStr(a: integer): ^char;
 ```
 
@@ -1546,7 +1549,7 @@ Funkcja służy do konwersji liczby całkowitej podanej w parametrze do postaci 
 
 #### `RenameFile`
 
-```
+```pascal
     function RenameFile(var OldName,NewName: TString): Boolean;
 ```
 
@@ -1556,7 +1559,7 @@ Funkcja próbuje zmienić nazwę pliku określonego w parametrze `OldName` na `N
 
 #### `StrToFloat`
 
-```
+```pascal
     function StrToFloat(var s: TString): real;
 ```
 
@@ -1566,7 +1569,7 @@ Funkcja konwertuje łańcuch do postaci zmiennoprzenkowej typu `Real`.
 
 #### `StrToInt`
 
-```
+```pascal
     function StrToInt(const S: char): byte;
     function StrToInt (const S: TString): integer;
 ```
@@ -1577,7 +1580,7 @@ Funkcja służy do konwersji tekstu zapisanego w zmiennej S na liczbę całkowit
 
 Mapa pamięci dla VBXE zdefiniowana jest w module `SYSTEM`.
 
-```
+```pascal
 VBXE_XDLADR = $0000;    // XDLIST
 VBXE_MAPADR = $1000;    // COLOR MAP ADDRESS
 VBXE_BCBADR = $0100;    // BLITTER LIST ADDRESS
@@ -1587,7 +1590,7 @@ VBXE_WINDOW = $B000;    // 4K WINDOW $B000..$BFFF
 
 ### Constants
 
-```
+```pascal
 LoRes  = 1;  // 160x240x256c
 MedRes = 2;  // 320x240x256c
 HiRes  = 3;  // 640x240x16c
@@ -1597,7 +1600,7 @@ HiRes  = 3;  // 640x240x16c
 
 #### `TUInt24`
 
-```
+```pascal
     record
         byte0: byte;
         byte1: byte;
@@ -1611,7 +1614,7 @@ Typ 24-bitowy wykorzystywany do definicji adresów pamięci **VBXE**.
 
 #### `TXDL`
 
-```
+```pascal
     record
         xdlc_: word;
         rptl_: byte;
@@ -1636,7 +1639,7 @@ Typ `TXDL` wykorzystywany przez procedury `GetXDL` i `SetXDL`. Pozwala na modyfi
 
 #### `TBCB`
 
-```
+```pascal
     record
         src_adr: TUInt24;
         src_step_y: smallint;
@@ -1661,7 +1664,7 @@ Typ `TBCB` (21 bajtów), **Blitter Code Block**. Definicja typu bloku programu d
 
 #### `TVBXEMemoryStream`
 
-```
+```pascal
     Object
         Position: cardinal;
         Size: cardinal;         // 0..Size-1
@@ -1696,7 +1699,7 @@ VBXEMemoryBank     SetXDL              SrcBCB             VBXEControl       VBXE
 
 #### `BlitterBusy`
 
-```
+```pascal
     function BlitterBusy: Boolean; assembler;
 ```
 
@@ -1706,7 +1709,7 @@ Funkcja zwraca `TRUE` jeśli blitter **VBXE** zajęty jest wykonywaniem programu
 
 #### `ColorMapOff`
 
-```
+```pascal
     procedure ColorMapOff; assembler;
 ```
 
@@ -1716,7 +1719,7 @@ Wyłączenie mapy kolorów w programie `XDLIST` dla **VBXE**.
 
 #### `ColorMapOn`
 
-```
+```pascal
     procedure ColorMapOn; assembler;
 ```
 
@@ -1726,7 +1729,7 @@ Włączenie mapy kolorów w programie `XDLIST` dla **VBXE**.
 
 #### `DstBCB`
 
-```
+```pascal
     procedure DstBCB(var a: TBCB; dst: cardinal);
 ```
 
@@ -1736,7 +1739,7 @@ Procedura zmieniająca adres docelowy `dst_adr` w programie blittera `A`.
 
 #### `GetXDL`
 
-```
+```pascal
     procedure GetXDL(var a: txdl); register; assembler;
 ```
 
@@ -1746,7 +1749,7 @@ Procedura przepisuje do zmiennej `A` program `XDLIST` spod adresu `VBXE_XDLADR` 
 
 #### `IniBCB`
 
-```
+```pascal
     procedure IniBCB(var a: TBCB; src,dst: cardinal; w0, w1: smallint; w: word; h: byte; ctrl: byte);
 ```
 
@@ -1756,7 +1759,7 @@ Procedura pozwala zaincjować pamięć dla programu blittera pod adresem `A`. Do
 
 #### `OverlayOff`
 
-```
+```pascal
     procedure OverlayOff; assembler;
 ```
 
@@ -1766,7 +1769,7 @@ Wyłączenie trybu overlay w programie `XDLIST`.
 
 #### `RunBCB`
 
-```
+```pascal
     procedure RunBCB(var a: TBCB); assembler;
 ```
 
@@ -1776,7 +1779,7 @@ Wystartowanie blittera **VBXE** na podstawie adresu programu `A`.
 
 #### `SetHorizontalRes`
 
-```
+```pascal
     procedure SetHorizontalRes(a: byte); assembler;
     procedure SetHRes(a: byte); assembler;
 ```
@@ -1787,7 +1790,7 @@ Ustanowienie trybu overlay w programie `XDLIST`.
 
 #### `VBXEMemoryBank`
 
-```
+```pascal
     procedure VBXEMemoryBank(b: byte); assembler;
 ```
 
@@ -1797,7 +1800,7 @@ Włączenie 4K banku **VBXE** w okno pamięci **XE/XL** `$B000..$BCFF`.
 
 #### `SetXDL`
 
-```
+```pascal
     procedure SetXDL(var a: txdl); register; assembler;
 ```
 
@@ -1807,7 +1810,7 @@ Procedura przepisuje program `A` pod adres `VBXE_XDLADR` w pamięci **VBXE**.
 
 #### `SrcBCB`
 
-```
+```pascal
     procedure SrcBCB(var a: TBCB; src: cardinal);
 ```
 
@@ -1817,7 +1820,7 @@ Procedura zmieniająca adres źródłowy `src_adr` w programie blittera `A`.
 
 #### `VBXEControl`
 
-```
+```pascal
     procedure VBXEControl(a: byte); assembler;
 ```
 
@@ -1827,7 +1830,7 @@ Procedura ustawia wartośc `FX_VIDEO_CONTROL`.
 
 #### `VBXEOff`
 
-```
+```pascal
     procedure VBXEOff
 ```
 
@@ -1848,7 +1851,7 @@ RandG              RandomRange         RandomRangeF       Tan
 
 #### `ArcCos`
 
-```
+```pascal
     function ArcCos(x: real): real;
 ```
 
@@ -1858,7 +1861,7 @@ RandG              RandomRange         RandomRangeF       Tan
 
 #### `ArcSin`
 
-```
+```pascal
     function ArcSin(x: real): real;
 ```
 
@@ -1868,7 +1871,7 @@ Funkcja służy do obliczenia funkcji matematycznej arcus sinus z liczby `X`. Je
 
 #### `ArcTan2`
 
-```
+```pascal
     function ArcTan2(y, x: real) : real;
 ```
 
@@ -1878,7 +1881,7 @@ Funkcja oblicza arcus tangens (odwrotność tangensa) z liczby `Y/X` i zwraca wa
 
 #### `Ceil`
 
-```
+```pascal
     function Ceil(a: real): smallint;
 ```
 
@@ -1888,7 +1891,7 @@ Funkcja zwraca najmniejszą liczbę całkowitą większą lub równą od tej pod
 
 #### `CycleToRad`
 
-```
+```pascal
     function CycleToRad(cycle : real) : real;
 ```
 
@@ -1898,7 +1901,7 @@ Funkcja przelicza wartość kąta wyrażonego w cyklach (obrotach) na kąt wyra�
 
 #### `DegNormalize`
 
-```
+```pascal
     function DegNormalize(deg : real) : real;
 ```
 
@@ -1906,7 +1909,7 @@ Funkcja przelicza wartość kąta wyrażonego w cyklach (obrotach) na kąt wyra�
 
 #### `DegToGrad`
 
-```
+```pascal
     function DegToGrad(deg : real) : real;
 ```
 
@@ -1916,7 +1919,7 @@ Funkcja przelicza wartość kąta wyrażonego w stopniach na kąt wyrażony w gr
 
 #### `DegToRad`
 
-```
+```pascal
     function DegToRad(deg : real) : real;
 ```
 
@@ -1926,7 +1929,7 @@ Funkcja przelicza wartość kąta wyrażonego w stopniach na kąt wyrażony w mi
 
 #### `DivMod`
 
-```
+```pascal
     procedure DivMod(Dividend: integer; Divisor: Word; var r, Remainder: Word);
     procedure DivMod(Dividend: integer; Divisor: Word; var r, Remainder: smallint);
 ```
@@ -1935,7 +1938,7 @@ Funkcja przelicza wartość kąta wyrażonego w stopniach na kąt wyrażony w mi
 
 #### `EnsureRange`
 
-```
+```pascal
     function EnsureRange(const AValue, AMin, AMax: byte): Integer;
     function EnsureRange(const AValue, AMin, AMax: Integer): Integer;
 ```
@@ -1944,7 +1947,7 @@ Funkcja przelicza wartość kąta wyrażonego w stopniach na kąt wyrażony w mi
 
 #### `Floor`
 
-```
+```pascal
     function Floor(a: real): smallint;
 ```
 
@@ -1954,7 +1957,7 @@ Funkcja zwraca najbliższą liczbę całkowitą mniejszą lub równą od tej pod
 
 #### `FMod`
 
-```
+```pascal
     function FMod(a, b: real): real;
 ```
 
@@ -1964,7 +1967,7 @@ Funkcja zwraca resztę z dzielenia dwóch liczb rzeczywistych.
 
 #### `GradToDeg`
 
-```
+```pascal
     function GradToDeg(grad : real) : real;
 ```
 
@@ -1974,7 +1977,7 @@ Funkcja przelicza wartość kąta wyrażonego w gradach na kąt wyrażony w stop
 
 #### `GradToRad`
 
-```
+```pascal
     function GradToRad(grad : real) : real;
 ```
 
@@ -1984,7 +1987,7 @@ Funkcja GradToRad przelicza wartość kąta wyrażonego w gradach na kąt wyraż
 
 #### `InRange`
 
-```
+```pascal
     function InRange(const AValue, AMin, AMax: byte): Boolean;
     function InRange(const AValue, AMin, AMax: Integer): Boolean;
 ```
@@ -1993,7 +1996,7 @@ Funkcja GradToRad przelicza wartość kąta wyrażonego w gradach na kąt wyraż
 
 #### `IsNan`
 
-```
+```pascal
     function IsNan(const d : Single): Boolean;
 ```
 
@@ -2003,7 +2006,7 @@ Funkcja sprawdza czy wartość parametru `d` jest poprawną liczbą.
 
 #### `Log2`
 
-```
+```pascal
     function log2(x : single): single;
 ```
 
@@ -2013,7 +2016,7 @@ Funkcja zwraca wartość logarytmu przy podstawie 2 dla parametru rzeczywistego 
 
 #### `Log10`
 
-```
+```pascal
     function log10(x : single): single;
 ```
 
@@ -2023,7 +2026,7 @@ Funkcja zwraca wartość logarytmu dziesiętnego (logarytmu przy podstawie 10) d
 
 #### `LogN`
 
-```
+```pascal
     function logN(n,x : single): single;
 ```
 
@@ -2033,7 +2036,7 @@ Funkcja zwraca wartość logarytmu przy podstawie N>0 dla parametru rzeczywisteg
 
 #### `Max`
 
-```
+```pascal
     function Max(a, b: real): real;
     function Max(a, b: integer): integer;
 ```
@@ -2044,7 +2047,7 @@ Przeciążona funkcja porównuje wartości dwóch parametrów: `a` i `b`, oraz z
 
 #### `Min`
 
-```
+```pascal
     function Min(a, b: real): real;
     function Min(a, b: integer): integer;
 ```
@@ -2055,7 +2058,7 @@ Przeciążona funkcja porównuje wartości dwóch parametrów `a` i `b`, oraz zw
 
 #### `Power`
 
-```
+```pascal
     function Power(base : real; const exponent : shortint): real;
     power(base : integer; const exponent : shortint): integer;
 ```
@@ -2066,7 +2069,7 @@ Funkcja podnosi liczbę A do dowolnej potęgi N, potęga może być ułamkiem.
 
 #### `RadToCycle`
 
-```
+```pascal
     function RadToCycle(rad : real) : real;
 ```
 
@@ -2076,7 +2079,7 @@ Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w cy
 
 #### `RadToDeg`
 
-```
+```pascal
     function RadToDeg(rad : real) : real;
 ```
 
@@ -2086,7 +2089,7 @@ Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w st
 
 #### `RadToGrad`
 
-```
+```pascal
     function RadToGrad(rad : real) : real;
 ```
 
@@ -2096,7 +2099,7 @@ Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w gr
 
 #### `RandG`
 
-```
+```pascal
     function RandG(mean, StdDev : single) : single;
 ```
 
@@ -2106,7 +2109,7 @@ Funkcja przelicza wartość kąta wyrażonego w radianach na kąt wyrażony w gr
 
 #### `RandomRange`
 
-```
+```pascal
     function RandomRange(const aFrom, aTo: smallint): smallint;
 ```
 
@@ -2116,7 +2119,7 @@ Funkcja zwraca losową liczbę z przedziału `AFrom - ATo`, łącznie z wartośc
 
 #### `RandomRangeF`
 
-```
+```pascal
     function RandomRangeF(const min, max: single): single;
 ```
 
@@ -2124,7 +2127,7 @@ Funkcja zwraca losową liczbę z przedziału `AFrom - ATo`, łącznie z wartośc
 
 #### `Tan`
 
-```
+```pascal
     function Tan(x: Real): Real;
 ```
 

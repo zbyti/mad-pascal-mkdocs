@@ -129,11 +129,11 @@ Dyrektywa stanowi komentarz, w którym pierwszy znak $ odróżnia zwykły koment
 
 ### [CONDITIONAL](https://wiki.freepascal.org/Conditional_compilation)
 
-```
+```pascal
 CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label}, {$UNDEF label}
 ```
 
-```
+```pascal
 {$define test}
 
 const
@@ -148,7 +148,7 @@ Z poziomu assemblera dostęp do zdefiniowanych etykiet `$DEFINE` możliwy jest p
 
 ### [FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
 
-```
+```pascal
 {$f $70}  // fastmul at $7000
 ```
 
@@ -156,7 +156,7 @@ Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SM
 
 ### [IOCHECK](https://www.freepascal.org/docs-html/prog/progsu38.html#x45-440001.2.38)
 
-```
+```pascal
 IOCHECK {$I+} {$I-}
 
 {i+}  IOCHECK ON  default
@@ -184,7 +184,7 @@ W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, p
 
 ### `INCLUDE DATE`
 
-```
+```pascal
     {$INCLUDE %DATE%}, {$I %DATE%}
 ```
 
@@ -194,7 +194,7 @@ Dyrektywa dołączenia tekstu z aktualną datą kompilacji.
 
 ### `INCLUDE TIME`
 
-```
+```pascal
     {$INCLUDE %TIME%}, {$I %TIME%}
 ```
 
@@ -204,7 +204,7 @@ Dyrektywa dołączenia tekstu z aktualnym czasem kompilacji.
 
 ### `INCLUDE filename`
 
-```
+```pascal
     {$INCLUDE filename}, {$I filename}
 ```
 
@@ -214,7 +214,7 @@ Dyrektywa dołączenia tekstu zawartego w pliku.
 
 ### `LIBRARY PATH`
 
-```
+```pascal
 {$LIBRARYPATH path1;path2;...}
 ```
 
@@ -224,7 +224,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### INFO
 
-```
+```pascal
 {$INFO user_defined}
 ```
 
@@ -232,7 +232,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### WARNING
 
-```
+```pascal
 {$WARNING user_defined}
 ```
 
@@ -240,7 +240,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### ERROR
 
-```
+```pascal
 {$ERROR user_defined}
 ```
 
@@ -248,7 +248,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 
 ### DEFINE BASICOFF
 
-```
+```pascal
     {$DEFINE BASICOFF}
 ```
 
@@ -258,7 +258,7 @@ Dodatkowy blok programu realizujący wyłączenie BASIC-a.
 
 ### DEFINE ROMOFF
 
-```
+```pascal
     {$DEFINE ROMOFF}
 ```
 
@@ -270,7 +270,7 @@ Zestaw znaków z **ROM** `$E000..$E3FF` zostaje przepisany pod ten sam adres w *
 
 ### RESOURCE
 
-```
+```pascal
 {$R filename}, {$RESOURCE filename}
 
 RCLABEL RCTYPE RCFILE [PAR0 PAR1 PAR2 PAR3 PAR4 PAR5 PAR6 PAR7]

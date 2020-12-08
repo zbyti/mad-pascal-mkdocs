@@ -1,5 +1,10 @@
 site_name: Mad-Pascal
+site_author: TeBe
+site_description: "Mad Pascal Dokumentacja"
+site_keyword: "compiler"
+
 theme: readthedocs
+
 nav:
     - Wprowadzenie: wprowadzenie.md
     - Sposób użycia: sposob-uzycia.md
