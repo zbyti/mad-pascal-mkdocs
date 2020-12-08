@@ -3,7 +3,12 @@ site_author: TeBe
 site_description: "Mad Pascal Dokumentacja"
 site_keyword: "compiler"
 
-theme: readthedocs
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_style: dark
+    hljs_languages:
+        - delphi
 
 nav:
     - Wprowadzenie: wprowadzenie.md

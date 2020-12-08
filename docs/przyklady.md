@@ -75,7 +75,7 @@ fi
 
 ### Hello World
 
-```pascal
+```delphi
 program HelloWorld;
 
 uses crt;
@@ -90,7 +90,7 @@ end.
 
 ### Test
 
-```pascal
+```delphi
 // https://bitbucket.org/paul_nicholls/pas6502/src/master/projects/pas6502_test.dpr
 
 program Test;
