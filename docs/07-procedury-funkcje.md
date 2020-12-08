@@ -88,7 +88,7 @@ end;
 
 ### `register`
 
-Użycie modyfikatora `REGISTER` spowoduje że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX` `ECX` `EAX`.
+Użycie modyfikatora `REGISTER` spowoduje, że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX` `ECX` `EAX`.
 
     procedure nazwa (a,b,c: cardinal); register;
     // a = edx
