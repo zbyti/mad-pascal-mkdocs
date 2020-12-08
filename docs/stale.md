@@ -4,7 +4,7 @@
 
 Do deklaracji stałych `CONST` służy znak `=`. Dopuszczalne jest użycie operatorów:
 
-`+` `-` `*` `/` `not` `and` `or` `div` `mod` `ord` `chr` `sizeof`
+`+` `-` `*` `/` `not` `and` `or` `div` `mod` `ord` `chr` `sizeof` `pi`
 
 
 ```pascal
