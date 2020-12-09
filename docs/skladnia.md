@@ -158,12 +158,13 @@ Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SM
 
 ```delphi
     IOCHECK {$I+} {$I-}
+```
 
     {i+}  IOCHECK ON  default
     {i-}  IOCHECK OFF
-```
 
-Dla {$i+} w przypadku wystąpienia błędów transmisji **I/O** dla: `RESET` `REWRITE` `BLOCKREAD` `BLOCKWRITE` `CLOSE`, wykonywany program zostaje zatrzymany, generowany jest komunikat błędu `ERROR xxx`. Wyłączenie `IOCHECK {$i-}` przydaje się gdy chcemy sprawdzić istnienie pliku na dysku, np.:
+
+Dla `{$i+}` w przypadku wystąpienia błędów transmisji **I/O** dla: `RESET` `REWRITE` `BLOCKREAD` `BLOCKWRITE` `CLOSE`, wykonywany program zostaje zatrzymany, generowany jest komunikat błędu `ERROR xxx`. Wyłączenie `IOCHECK {$i-}` przydaje się gdy chcemy sprawdzić istnienie pliku na dysku, np.:
 
 ```delphi
 function FileExists(name: TString): Boolean;
