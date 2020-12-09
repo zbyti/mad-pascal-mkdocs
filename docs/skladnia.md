@@ -130,7 +130,7 @@ Dyrektywa stanowi komentarz, w którym pierwszy znak $ odróżnia zwykły koment
 ### [CONDITIONAL](https://wiki.freepascal.org/Conditional_compilation)
 
 ```delphi
-CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label}, {$UNDEF label}
+    CONDITIONAL {$IFDEF label}, {$IFNDEF label}, {$ELSE}, {$ENDIF}, {$DEFINE label}, {$UNDEF label}
 ```
 
 ```delphi
