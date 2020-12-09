@@ -2,7 +2,7 @@
 
 ## [Ordinary](https://www.freepascal.org/docs-html/ref/refse9.html)
 
-Do deklaracji stałych `CONST` służy znak `=`. Dopuszczalne jest użycie operatorów, nektórych funkcji i stałych:
+Do deklaracji stałych `CONST` służy znak `=`. Dopuszczalne jest użycie operatorów, niektórych funkcji i stałych:
 
 `+` `-` `*` `/` `not` `and` `or` `div` `mod` `ord` `chr` `sizeof` `pi`
 

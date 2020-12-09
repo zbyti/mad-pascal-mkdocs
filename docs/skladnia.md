@@ -149,7 +149,7 @@ Z poziomu assemblera dostęp do zdefiniowanych etykiet `$DEFINE` możliwy jest p
 ### [FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
 
 ```delphi
-{$f $70}  // fastmul at $7000
+    {$f $70}  // fastmul at $7000
 ```
 
 Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SMALLINT` `SHORTREAL`. Procedury zajmują **2KB** i są umieszczane od adresu __PAGE*256__.
@@ -157,10 +157,10 @@ Alternatywne procedury szybkiego mnożenia dla typu `BYTE` `SHORTINT` `WORD` `SM
 ### [IOCHECK](https://www.freepascal.org/docs-html/prog/progsu38.html#x45-440001.2.38)
 
 ```delphi
-IOCHECK {$I+} {$I-}
+    IOCHECK {$I+} {$I-}
 
-{i+}  IOCHECK ON  default
-{i-}  IOCHECK OFF
+    {i+}  IOCHECK ON  default
+    {i-}  IOCHECK OFF
 ```
 
 Dla {$i+} w przypadku wystąpienia błędów transmisji **I/O** dla: `RESET` `REWRITE` `BLOCKREAD` `BLOCKWRITE` `CLOSE`, wykonywany program zostaje zatrzymany, generowany jest komunikat błędu `ERROR xxx`. Wyłączenie `IOCHECK {$i-}` przydaje się gdy chcemy sprawdzić istnienie pliku na dysku, np.:
@@ -215,7 +215,7 @@ Dyrektywa dołączenia tekstu zawartego w pliku.
 ### `LIBRARY PATH`
 
 ```delphi
-{$LIBRARYPATH path1;path2;...}
+    {$LIBRARYPATH path1;path2;...}
 ```
 
 Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `unit`.
@@ -225,7 +225,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 ### INFO
 
 ```delphi
-{$INFO user_defined}
+    {$INFO user_defined}
 ```
 
 ---
@@ -233,7 +233,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 ### WARNING
 
 ```delphi
-{$WARNING user_defined}
+    {$WARNING user_defined}
 ```
 
 ---
@@ -241,7 +241,7 @@ Dyrektywa pozwalająca wskazać dodatkowe ścieżki poszukiwań dla bibliotek `u
 ### ERROR
 
 ```delphi
-{$ERROR user_defined}
+    {$ERROR user_defined}
 ```
 
 ---
@@ -271,9 +271,9 @@ Zestaw znaków z **ROM** `$E000..$E3FF` zostaje przepisany pod ten sam adres w *
 ### RESOURCE
 
 ```delphi
-{$R filename}, {$RESOURCE filename}
+    {$R filename}, {$RESOURCE filename}
 
-RCLABEL RCTYPE RCFILE [PAR0 PAR1 PAR2 PAR3 PAR4 PAR5 PAR6 PAR7]
+    RCLABEL RCTYPE RCFILE [PAR0 PAR1 PAR2 PAR3 PAR4 PAR5 PAR6 PAR7]
 ```
 
 Dyrektywa dołączenia pliku z zasobami. Plik zasobów jest plikiem tekstowym, każdy jego kolejny wiersz powinien składać się z trzech pól rozdzielonych "białym znakiem": etykieta `RCLABEL` (jej deklaracja musi znaleźć się także w programie), typ zasobów `RCTYPE`, lokalizacja pliku `RCFILE`. Aktualnie w pliku `BASE\RES6502.ASM` znajdują się makra do obsługi 10 typów zasobów `RCTYPE`:
