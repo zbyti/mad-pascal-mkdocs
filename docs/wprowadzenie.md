@@ -16,7 +16,7 @@ Dostępne są:
 * Arithmetic and boolean operators
 * Procedures and functions with up to 8 parameters. Returned value of a function is assigned to a predefined `RESULT` variable
 * Static local variables
-* Primitive data types, all types except the `ShortReal/Real` type are compatible. Pointers are dereferenced as pointers to `Word`:
+* Primitive data types, all types except the `ShortReal`/`Real` type are compatible. Pointers are dereferenced as pointers to `Word`:
     * `Cardinal` `Word` `Byte` `Boolean`
     * `Char` `String` `PChar`
     * `Integer` `SmallInt` `ShortInt`
@@ -39,8 +39,7 @@ Innym sposobem, bardziej multi platformowym jest użycie kompilatora z pakietu *
 
 Uruchamiamy instalator, wybieramy katalog w którym zostanie zainstalowany FP. Ważne jest aby nie używać w nazwie katalogu znaku wykrzyknika `!` czy innych nie standardowych znaków. Jeśli nie uda nam się skompilować żadnego pliku, najpewniej winna jest nie standardowa nazwa ścieżki. Linia komend uruchamiająca kompilację może wyglądać następująco (wielkość liter w nazwach parametrów ma znaczenie):
 
-    fpc -Mdelphi -v -O3 mp.dpr
-
+    fpc -Mdelphi -v -O3 mp.pas
 
 * `-Mdelphi` pozwala kompilować plik w formacie Delphi
 * `-v` wyświetla wszystkie komunikaty błędów i ostrzeżeń

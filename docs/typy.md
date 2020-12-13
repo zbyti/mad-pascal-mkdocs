@@ -1,6 +1,6 @@
 #
 
-## [porządkowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
+## [Porządkowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 
 |Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
@@ -15,17 +15,15 @@
 |INTEGER |-2147483648 .. 2147483647|4            |
 |LONGINT |-2147483648 .. 2147483647|4            |
 
----
-
-## [logiczne](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
+<br/>
+## [Logiczne](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 
 |Type    |Ord(True)                |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
 |BYTE    |1                        |1            |
 
----
-
-## [wyliczeniowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-280003.1.1)
+<br/>
+## [Wyliczeniowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-280003.1.1)
 
 Typ wyliczeniowy w **MP** został zaimplementowany w podstawowej postaci, tzn.:
 
@@ -57,9 +55,7 @@ var
 
 Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla operacji `IF ELSE`.
 
----
-
-## [rzeczywiste](https://www.freepascal.org/docs-html/ref/refsu5.html#x27-300003.1.2)
+## [Rzeczywiste](https://www.freepascal.org/docs-html/ref/refsu5.html#x27-300003.1.2)
 
 |Type             |Range                   |Size in bytes|
 |:----------------|:----------------------:|:-----------:|
@@ -68,11 +64,10 @@ Aktualnie kompilator **MP** nie sprawdzi poprawności typów wyliczeniowych dla 
 |SINGLE (IEEE-754)|1.5E-45 .. 3.4E38       |4            |
 |FLOAT (IEEE-754) |1.5E-45 .. 3.4E38       |4            |
 
-Konwersja typu `FLOAT` `SINGLE` do liczby całkowitej dostępna jest tylko w zakresie `INTEGER`. Typ `INTEGER` nie pozwoli zaprezentować maksymalnej wartości `3.4E38` typu `FLOAT` `SINGLE`.
+<br/>
+Konwersja typu `FLOAT`, `SINGLE` do liczby całkowitej dostępna jest tylko w zakresie `INTEGER`. Typ `INTEGER` nie pozwoli zaprezentować maksymalnej wartości `3.4E38` typu `FLOAT` `SINGLE`.
 
----
-
-## [znakowe](https://www.freepascal.org/docs-html/ref/refsu6.html#x29-320003.2.1)
+## [Znakowe](https://www.freepascal.org/docs-html/ref/refsu6.html#x29-320003.2.1)
 
 |Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
@@ -80,11 +75,14 @@ Konwersja typu `FLOAT` `SINGLE` do liczby całkowitej dostępna jest tylko w zak
 |STRING  |1 .. 255                 |256          |
 |PCHAR   |0 .. 65535               |2            |
 
+<br/>
 Ciąg znaków `STRING` reprezentowany jest jako tablica o możliwym maksymalnym rozmiarze `[0..255]`. Pierwszym bajtem takiej tablicy `[0]` jest długość ciągu z zakresu `0..255`. Od bajtu `[1..]` zaczyna się właściwy ciąg znaków.
 
 Ciąg znaków `PCHAR` reprezentowany jest przez wskaźnik do typu `CHAR`. Znakiem końca ciągu `PCHAR` jest znak `#0`.
 
-Dopuszczalne jest użycie dodatkowych znaków po końcowym apostrofie, takich jak `*`, `~`. Znak `*` oznacza ciąg w inwersie, tylda `~` ciąg w kodach **ANTIC-a**.
+Dopuszczalne jest użycie dodatkowych znaków po końcowym apostrofie, takich jak `*`, `~`.
+
+Znak `*` oznacza ciąg w inwersie, tylda `~` ciąg w kodach **ANTIC-a**.
 
 Innym sposobem modyfikacji wyprowadzanych znaków jest użycie systemowej zmiennej `TextAttr`, każdy znak wyprowadzany na ekran jest zwiększany o wartość `TextAttr` (domyślnie = 0).
 
@@ -94,14 +92,13 @@ b: string = 'Spectrum'~;      // ciąg znaków w kodach ANTIC-a
 c: char = 'X'~*;              // znak w inwersie, kodach ANTIC-a
 ```
 
----
-
-## [wskaźniki](https://www.freepascal.org/docs-html/ref/refse15.html)
+## [Wskaźnikowe](https://www.freepascal.org/docs-html/ref/refse15.html)
 
 |Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
 |POINTER |0 .. 65535               |2            |
 
+<br/>
 Wskaźniki w **MP** mogą być typowane i bez określonego typu, np.:
 
 ```delphi
@@ -117,9 +114,8 @@ Jeśli tego nie zrobimy to w przypadku uruchomienia takiego programu na **PC** s
 
 Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje. Zmniejszenie wskaźnika przez `DEC` zmniejszy go o rozmiar typu na jaki wskazuje. Jeśli typ jest nieokreślony, wówczas domyślną wartością zwiększania/zmniejszanie będzie `1`.
 
----
 
-## [tablice](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
+## [Tablicowe](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
 
 Tablice w **MP** są tylko statyczne, jednowymiarowe lub dwuwymiarowe z początkowym indeksem równym `0`, np.:
 
@@ -130,7 +126,7 @@ var tb2: array [0..15, 0..31] of Boolean;
 
 W przypadku początkowego indeksu innego niż zero zostanie wygenerowany błąd **Error: Array lower bound is not zero**.
 
-W pamięci tablica reprezentowana jest przez wskaźnik `POINTER`, wskaźnik jest adresem tablicy w pamięci `WORD`. Najszybszą metodą odwołania się do tablicy z poziomu assemblera jest zastosowanie przedrostka `ADR.`, np.:
+W pamięci tablica reprezentowana jest przez wskaźnik `POINTER`, wskaźnik jest adresem tablicy w pamięci `WORD`. Najszybszą metodą odwołania się do tablicy nie przekraczającej `256` bajtów z poziomu assemblera jest zastosowanie przedrostka `ADR.`, np.:
 
     asm
     { lda adr.tb,y   ; bezpośrednie odwołanie do tablicy TB
@@ -183,9 +179,8 @@ Gdy liczba bajtów zajmowanych przez tablicę przekracza 256 bajtów generowany 
     sta bp+1
     lda (bp),y
 
----
 
-## [rekordy](https://www.freepascal.org/docs-html/ref/refsu15.html#x39-550003.3.2)
+## [Rekordowe](https://www.freepascal.org/docs-html/ref/refsu15.html#x39-550003.3.2)
 
 W pamięci rekord reprezentowany jest przez wskaźnik `POINTER`.
 
@@ -208,9 +203,8 @@ Dostęp do pól rekordu z poziomu asm:
     ldy #px.x-DATAORIGIN
     lda (bp2),y
 
----
 
-## [obiekty](https://www.freepascal.org/docs-html/ref/refse28.html#x60-780005.1)
+## [Obiektowe](https://www.freepascal.org/docs-html/ref/refse28.html#x60-780005.1)
 
 Obiekty to rekordy z dodatkowymi metodami. W pamięci obiekt reprezentowany jest przez wskaźnik `POINTER`.
 
@@ -228,9 +222,7 @@ type
     end;
 ```
 
----
-
-## [pliki](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
+## [Plikowe](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
 
 Typ `FILE` reprezentuje uchwyt do pliku oraz definiuje rozmiar rekordu.
 

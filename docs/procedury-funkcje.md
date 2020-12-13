@@ -1,14 +1,14 @@
 #
 
-## Procedury
+## [Procedury](https://www.freepascal.org/docs-html/ref/refch14.html#x173-19500014)
 
 **MP** pozwala na przekazanie do procedury maksymalnie **8** parametrów. Są dostępne trzy sposoby przekazywania parametrów: przez wartość, stałą `CONST` i zmienną `VAR`. Możliwe jest użycie modyfikatora `OVERLOAD` w celu przeciążenia procedur.
 
-Dostępne modyfikatory procedur: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`.
+Dostępne modyfikatory procedur: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`, `PASCAL`.
 
 Możliwa jest rekurencja procedur, pod warunkiem że parametry procedury będą przekazywane przez wartość, będą typu prostego - porządkowego. Typ rekordowy, wskaźnikowy nie będzie właściwie alokowany w pamięci.
 
-## Funkcje
+## [Funkcje](https://www.freepascal.org/docs-html/ref/refch14.html#x173-19500014)
 
 **MP** pozwala na przekazanie do funkcji maksymalnie **8** parametrów. Są dostępne trzy sposoby przekazywania parametrów - przez wartość, stałą `CONST` i zmienną `VAR`. Wynik funkcji zwracamy przypisując go do nazwy funkcji lub korzystając z automatycznie deklarowanej zmiennej `RESULT`, np.:
 
@@ -24,7 +24,7 @@ begin
 end;
 ```
 
-Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT`, *interrupt* nie jest zalecane dla funkcji.
+Dostępne modyfikatory funkcji: `OVERLOAD` `ASSEMBLER` `FORWARD` `REGISTER` `INTERRUPT` `PASCAL`, *INTERRUPT* nie jest zalecane dla funkcji.
 
 Możliwa jest rekurencja funkcji, pod warunkiem, że parametry funkcji będą przekazywane przez wartość, będą typu prostego - porządkowego. Typ rekordowy, wskaźnikowy nie będzie właściwie alokowany w pamięci.
 
@@ -88,7 +88,7 @@ end;
 
 ### `register`
 
-Użycie modyfikatora `REGISTER` spowoduje, że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX` `ECX` `EAX`.
+Użycie modyfikatora `REGISTER` spowoduje, że trzy pierwsze parametry formalne **procedury/funkcji** będą umieszczone na stronie zerowej, w 32-bitowych rejestrach programowych, odpowiednio `EDX`, `ECX`, `EAX`.
 
     procedure nazwa (a,b,c: cardinal); register;
     // a = edx
@@ -97,7 +97,10 @@ Użycie modyfikatora `REGISTER` spowoduje, że trzy pierwsze parametry formalne 
 
 ### `interrupt`
 
-**Procedury/Funkcje** oznaczone przez `INTERRUPT` kompilator będzie kończył rozkazem `RTI` (standardowo `RTS`). Niezależnie czy w programie wystąpi wywołanie takiej **procedury/funkcji** kompilator zawsze wygeneruje dla niej kod. Zaleca się używanie bloku **ASM** w przypadku takich **procedur/funkcji**, w innym przypadku stos programowy Mad Pascala zostanie zniszczony, co może doprowadzić do niestabilnego działania programu, łącznie z zawieszeniem się komputera. Na wejściu **procedury/funkcji** oznaczonej przez `INTERRUPT` programista musi zadbać o zachowanie rejestrów **CPU** `A` `X` `Y`, na wyjściu o przywrócenie stanu takich rejestrów, kompilator ogranicza się tylko do wstawienia końcowego rozkazu `RTI`.
+**Procedury/Funkcje** oznaczone przez `INTERRUPT` kompilator będzie kończył rozkazem `RTI` (standardowo `RTS`).
+Niezależnie czy w programie wystąpi wywołanie takiej **procedury/funkcji** kompilator zawsze wygeneruje dla niej kod
+Zaleca się używanie bloku **ASM** w przypadku takich **procedur/funkcji**, w innym przypadku stos programowy **MP** może ulec zniszczeniu, co może doprowadzić do niestabilnego działania programu, łącznie z zawieszeniem się komputera.
+Na wejściu **procedury/funkcji** oznaczonej przez `INTERRUPT` programista musi zadbać o zachowanie rejestrów **CPU** `A` `X` `Y`, na wyjściu o przywrócenie stanu takich rejestrów, kompilator ogranicza się tylko do wstawienia końcowego rozkazu `RTI`.
 
 ```delphi
 procedure dli; interrupt;
@@ -112,3 +115,7 @@ asm
 };
 end;             // rozkaz RTI zostanie wstawiony automatycznie
 ```
+
+### `pascal`
+
+Użycie modyfikatora `PASCAL` spowoduje, że **procedura/funkcja** będzie traktowana jako rekurencyjna. Standardowo kompilator automatycznie wykrywa rekurencję, ale mogą zdarzyć się sytuacje dla których będzie to niemożliwe.

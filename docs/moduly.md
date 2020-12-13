@@ -1,5 +1,7 @@
 #
 
+## [UNIT](https://www.freepascal.org/docs-html/ref/refse111.html#x224-24600016.2)
+
 Moduły `UNIT` w **MP** składają się z sekcji `INTERFACE` **wymagana**, `IMPLEMENTATION` **wymagana**, `INITIALIZATION` *opcjonalna*.
 
 ```delphi
