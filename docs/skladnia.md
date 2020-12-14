@@ -36,15 +36,17 @@ string             then                to                 type              unit
 until              uses                var                while             xor
 ```
 
-
- `INTERRUPT`
-
 ### stałe
 
 ```delphi
 pi
 true
 false
+nil
+eol
+nan
+infinity
+neginfinity
 ```
 
 ## Wyrażenia
@@ -197,7 +199,7 @@ W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, p
 
 ### [$I, $INCLUDE](https://www.freepascal.org/docs-html/prog/progsu41.html)
 
-### `%DATE%`
+#### `%DATE%`
 
 ```delphi
 {$INCLUDE %DATE%}
@@ -206,9 +208,7 @@ W blokach `PROCEDURE`, `FUNCTION` dyrektywa `IOCHECK` jest zasięgu lokalnego, p
 
 Parametr `%DATE%` pozwala dołączyć tekst z aktualną datą kompilacji.
 
----
-
-### `%TIME%`
+#### `%TIME%`
 
 ```delphi
 {$INCLUDE %TIME%}
@@ -217,9 +217,7 @@ Parametr `%DATE%` pozwala dołączyć tekst z aktualną datą kompilacji.
 
 Parametr `%TIME%` pozwala dołączyć tekst z aktualnym czasem kompilacji.
 
----
-
-### `FILENAME`
+#### `FILENAME`
 
 ```delphi
 {$INCLUDE filename}
@@ -259,16 +257,14 @@ Wygenerowanie komunikatu z błędem `ERROR`.
 
 ### [$DEFINE](https://www.freepascal.org/docs-html/prog/progsu11.html#x18-170001.2.11)
 
-### `BASICOFF`
+#### `BASICOFF`
 
 ```delphi
 {$DEFINE BASICOFF}
 ```
 Powoduje utworzenie dodatkowego bloku programu realizującego wyłączenie BASIC-a.
 
----
-
-### `ROMOFF`
+#### `ROMOFF`
 
 ```delphi
 {$DEFINE ROMOFF}

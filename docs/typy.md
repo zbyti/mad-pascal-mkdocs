@@ -1,6 +1,6 @@
 #
 
-## [Porządkowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
+## [Podstawowe](https://www.freepascal.org/docs-html/ref/refsu4.html#x26-250003.1.1)
 
 |Type    |Range                    |Size in bytes|
 |:-------|:-----------------------:|:-----------:|
@@ -115,7 +115,7 @@ Jeśli tego nie zrobimy to w przypadku uruchomienia takiego programu na **PC** s
 Zwiększanie wskaźnika przez `INC` zwiększy go o rozmiar typu na jaki wskazuje. Zmniejszenie wskaźnika przez `DEC` zmniejszy go o rozmiar typu na jaki wskazuje. Jeśli typ jest nieokreślony, wówczas domyślną wartością zwiększania/zmniejszanie będzie `1`.
 
 
-## [Tablicowe](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
+## [Tablice statyczne](https://www.freepascal.org/docs-html/ref/refsu14.html#x38-500003.3.1)
 
 Tablice w **MP** są tylko statyczne, jednowymiarowe lub dwuwymiarowe z początkowym indeksem równym `0`, np.:
 
@@ -180,7 +180,7 @@ Gdy liczba bajtów zajmowanych przez tablicę przekracza 256 bajtów generowany 
     lda (bp),y
 
 
-## [Rekordowe](https://www.freepascal.org/docs-html/ref/refsu15.html#x39-550003.3.2)
+## [Rekordy](https://www.freepascal.org/docs-html/ref/refsu15.html#x39-550003.3.2)
 
 W pamięci rekord reprezentowany jest przez wskaźnik `POINTER`.
 
