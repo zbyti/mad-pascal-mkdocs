@@ -128,8 +128,10 @@ XOR logical xor
 
 Zapis dyrektyw kompilatora ma postać:
 
-    {$dyrektywa parametry}
-    {$lista_dyrektyw_przełącznikowych}
+```delphi
+{$dyrektywa parametry}
+{$lista_dyrektyw_przełącznikowych}
+```
 
 Dyrektywa stanowi komentarz, w którym pierwszy znak $ odróżnia zwykły komentarz, od dyrektywy kompilatora.
 
@@ -316,7 +318,7 @@ Plik modułu **Chaos Music Composer-a**, plik zostanie poddany relokacji pod wsk
 
 Player dla modułu **RMT**, jako `RCFILE` podajemy plik `*.FEAT` oraz dodatkowo `PAR0` tryb playera `0..3`.
 
-```
+```none
     0 => compile RMTplayer for 4 tracks mono
     1 => compile RMTplayer for 8 tracks stereo
     2 => compile RMTplayer for 4 tracks stereo L1 R2 R3 L4
@@ -337,7 +339,7 @@ Plik **Windows Bitmap** (8 BitsPerPixel) ładowany do pamięci **VBXE** pod wska
 
 Przykład:
 
-```
+```none
 bmp1  RCDATA   'pic.mic'
 msx   MPT      'porazka.mpt'
 play  RMTPLAY  'modul.feat' 1
