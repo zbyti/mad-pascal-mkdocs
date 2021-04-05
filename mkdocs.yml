@@ -14,11 +14,13 @@ nav:
     - Wprowadzenie: wprowadzenie.md
     - Sposób użycia: sposob-uzycia.md
     - Składnia: skladnia.md
+    - Wstawki assemblera: asmblock.md
     - Stałe: stale.md
     - Typy: typy.md
     - Instrukcje: instrukcje.md
     - Procedury, funkcje, modyfikatory: procedury-funkcje.md
     - Moduły: moduly.md
     - Biblioteki podstawowe: biblioteki-podstawowe.md
+    - Porady: tricks.md
     - Przykłady: przyklady.md
     - Projekty: projekty.md
