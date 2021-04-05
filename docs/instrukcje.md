@@ -32,6 +32,12 @@ Kompilator dba o to aby nie wystąpiła pętla bez końca, dlatego można bez ob
 
     for i:=0 to 255 do writeln(i);    // dla zmiennej I typu BYTE
 
+Po zakończeniu działania pętli `FOR` jej licznik będzie miał wartość **+1** większą niż wskazuje zakres jaki podaliśmy, czyli dla:
+
+    for i:=0 to 10 do;
+
+Wartość zmiennej `I` jaką odczytamy to `I = 11`, w przypadku `FPC` będzie to `I = 10`.
+
 ### [while do](https://www.freepascal.org/docs-html/ref/refsu60.html#x169-19100013.2.7)
 
     while { warunek } do { instrukcja do wykonania }

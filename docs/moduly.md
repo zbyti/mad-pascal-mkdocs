@@ -36,3 +36,30 @@ end;
 
 end.
 ```
+
+## [USES](https://wiki.freepascal.org/Uses)
+
+Do deklaracji wybranego modułu służy instrukcja `USES` np.:
+
+    uses crt, sysutils, atari;
+
+Moduły są odczytywane od końca listy `USES` (od prawej do lewej strony), dla w/w przykładu najpierw domyślnie `SYSTEM` następnie `ATARI` `SYSUTILS` `CRT`
+
+Kolejność modułów na liście `USES` może mieć znaczenie w przypadku używania procedur/funkcji o tych samych nazwach, kolejne moduły przykrywają poprzednie np.:
+
+    uses graph, vbxe;
+
+W obu modułach `GRAPH` i `VBXE` występuje procedura `SetColor` oraz `Line`, dla w/w przykładu odwołania do tych procedur będą realizowane przez moduł `GRAPH`
+
+W przypadku
+
+    uses vbxe, graph;
+
+odwołania do procedur będą realizowane przez moduł VBXE.
+
+Możemy też bezpośrednio wywołać procedurę/funkcję z konkretnego modułu, np.:
+
+    vbxe.Line
+    graph.Line
+    vbxe.SetColor
+    graph.SetColor

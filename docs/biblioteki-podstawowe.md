@@ -1,10 +1,8 @@
 #
 
-W katalogu `LIB` **Mad-Pascala** znajdują się potrzebne do kompilacji podstawowe moduły `UNIT`, takie jak `SYSTEM` `CRT` `GRAPH` `SYSUTILS` `MATH` `DOS`. W programie wybierane są przez instrukcję `USES`, np.:
+W katalogu `LIB` **Mad-Pascala** znajdują się potrzebne do kompilacji podstawowe moduły `UNIT`, takie jak `SYSTEM` `CRT` `GRAPH` `SYSUTILS` `MATH` `DOS`.
 
-    uses crt, sysutils;
-
-Moduł `SYSTEM` jest domyślnie dopisywany do listy `USES` i kompilowany jako pierwszy.
+Moduł `SYSTEM` jest kompilowany zawsze domyślnie jako pierwszy.
 
 ## [SYSTEM](http://mads.atari8.info/library/doc/system.html)
 

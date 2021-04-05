@@ -159,6 +159,14 @@ const
 
 Z poziomu assemblera dostęp do zdefiniowanych etykiet `$DEFINE` możliwy jest przez `MAIN.@DEFINES.label`
 
+### [$CODEALIGN PROC = value](https://www.freepascal.org/docs-html/prog/progsu9.html)
+
+Dyrektywa `$CODEALIGN PROC` pozwala wyrównać generowany kod wynikowy do `VALUE` bajtów strony pamięci. Przed każdym blokiem `PROCEDURE`, `FUNCTION` wstawiany jest kod `.ALIGN VALUE`, aby wyłączyć wyrównywanie należy ustawić `{$CODEALIGN PROC = 0}`
+
+### [$CODEALIGN LOOP = value](https://www.freepascal.org/docs-html/prog/progsu9.html)
+
+Dyrektywa `$CODEALIGN LOOP` pozwala wyrównać generowany kod wynikowy do `VALUE` bajtów strony pamięci. Przed każdą instrukcją iteracyjną `FOR`, `WHILE`, `REPEAT` wstawiany jest kod `.ALIGN VALUE`, aby wyłączyć wyrównywanie należy ustawić `{$CODEALIGN LOOP = 0}`
+
 ### [$F, $FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
 
 ```delphi
