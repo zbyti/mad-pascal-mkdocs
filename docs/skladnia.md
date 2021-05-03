@@ -272,7 +272,16 @@ Wygenerowanie komunikatu z błędem `ERROR`.
 ```delphi
 {$DEFINE BASICOFF}
 ```
-Powoduje utworzenie dodatkowego bloku programu realizującego wyłączenie BASIC-a.
+Powoduje utworzenie dodatkowego bloku programu, realizującego wyłączenie BASIC-a.
+
+    !!! UWAGA !!!
+
+    W przypadku umieszczenia programu ANTIC-a Display List pod ROM-em każde naciśnięcie
+    klawisza będzie powodować wywołanie przerwania IRQ obsługującego klawiaturę.
+
+    Program ANTIC-a będzie zakłócany poprzez przełączanie ROM - RAM, w przypadku gdy
+    korzystamy z przerwania Display Listy (DLI) może dojść do uszkodzenia stosu
+    i wyłożenia się systemu.
 
 #### `ROMOFF`
 
