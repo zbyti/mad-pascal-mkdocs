@@ -129,9 +129,9 @@ W przypadku początkowego indeksu innego niż zero zostanie wygenerowany błąd 
 W pamięci tablica reprezentowana jest przez wskaźnik `POINTER`, wskaźnik jest adresem tablicy w pamięci `WORD`. Najszybszą metodą odwołania się do tablicy nie przekraczającej `256` bajtów z poziomu assemblera jest zastosowanie przedrostka `ADR.`, np.:
 
     asm
-    { lda adr.tb,y   ; bezpośrednie odwołanie do tablicy TB
-      lda tb         ; odwołanie do wskaźnika tablicy TB
-    };
+     lda adr.tb,y   ; bezpośrednie odwołanie do tablicy TB
+     lda tb         ; odwołanie do wskaźnika tablicy TB
+    end;
 
 Kompilator generuje kod dla tablic zależnie od ich deklaracji:
 
@@ -222,7 +222,7 @@ type
     end;
 ```
 
-## [Plikowe](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
+## [Plikowe binarne](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
 
 Typ `FILE` reprezentuje uchwyt do pliku oraz definiuje rozmiar rekordu.
 
@@ -236,7 +236,7 @@ var
   f: file of ftype;      // rekord 256 bajtów (ftype = 64 * 4)
 ```
 
-W pamięci **XE/XL** uchwyt `FILE `reprezentowany jest przez wskaźnik `POINTER` do tablicy o strukturze (rozmiar 12 bajtów):
+W pamięci **XE/XL** uchwyt `FILE` reprezentowany jest przez wskaźnik `POINTER` do tablicy o strukturze (rozmiar 12 bajtów):
 
 ```
 .struct s@file
@@ -252,3 +252,29 @@ numread  .word      ; pointer to variable, length of loaded data
 
 Do procedur, funkcji typ `FILE` może być przekazywany tylko jako zmienna.
 
+
+## [Plikowe tekstowe](https://www.freepascal.org/docs-html/ref/refsu17.html#x41-590003.3.4)
+
+Typ `TEXT` reprezentuje uchwyt do pliku tekstowego.
+
+```delphi
+var
+  t: text;
+  f: textfile;
+```
+
+W pamięci **XE/XL** uchwyt `TEXT`reprezentowany jest przez wskaźnik `POINTER` do tablicy o strukturze (rozmiar 12 bajtów):
+
+```
+.struct s@file
+pfname   .word      ; pointer to string with filename
+record   .word      ; record size
+chanel   .byte      ; channel *$10
+eof      .byte      ; EOF status
+buffer   .word      ; load/write buffer
+nrecord  .word      ; number of records for load/write
+numread  .word      ; pointer to variable, length of loaded data
+.ends
+```
+
+Do procedur, funkcji typ `TEXT` może być przekazywany tylko jako zmienna.

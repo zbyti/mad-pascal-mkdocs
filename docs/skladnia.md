@@ -161,11 +161,11 @@ Z poziomu assemblera dostęp do zdefiniowanych etykiet `$DEFINE` możliwy jest p
 
 ### [$CODEALIGN PROC = value](https://www.freepascal.org/docs-html/prog/progsu9.html)
 
-Dyrektywa `$CODEALIGN PROC` pozwala wyrównać generowany kod wynikowy do `VALUE` bajtów strony pamięci. Przed każdym blokiem `PROCEDURE`, `FUNCTION` wstawiany jest kod `.ALIGN VALUE`, aby wyłączyć wyrównywanie należy ustawić `{$CODEALIGN PROC = 0}`
+Dyrektywa `$CODEALIGN PROC` pozwala wyrównać generowany kod wynikowy do `VALUE` bajtów strony pamięci. Przed każdym blokiem `PROCEDURE`, `FUNCTION` wstawiany jest kod `.ALIGN VALUE`. Aby wyłączyć wyrównywanie należy ustawić `{$CODEALIGN PROC = 0}`
 
 ### [$CODEALIGN LOOP = value](https://www.freepascal.org/docs-html/prog/progsu9.html)
 
-Dyrektywa `$CODEALIGN LOOP` pozwala wyrównać generowany kod wynikowy do `VALUE` bajtów strony pamięci. Przed każdą instrukcją iteracyjną `FOR`, `WHILE`, `REPEAT` wstawiany jest kod `.ALIGN VALUE`, aby wyłączyć wyrównywanie należy ustawić `{$CODEALIGN LOOP = 0}`
+Dyrektywa `$CODEALIGN LOOP` pozwala wyrównać generowany kod wynikowy do `VALUE` bajtów strony pamięci. Przed każdą instrukcją iteracyjną `FOR`, `WHILE`, `REPEAT` wstawiany jest kod `.ALIGN VALUE`. Aby wyłączyć wyrównywanie należy ustawić `{$CODEALIGN LOOP = 0}`
 
 ### [$F, $FASTMUL](https://codebase64.org/doku.php?id=base:seriously_fast_multiplication)
 
@@ -274,15 +274,6 @@ Wygenerowanie komunikatu z błędem `ERROR`.
 ```
 Powoduje utworzenie dodatkowego bloku programu, realizującego wyłączenie BASIC-a.
 
-    !!! UWAGA !!!
-
-    W przypadku umieszczenia programu ANTIC-a Display List pod ROM-em każde naciśnięcie
-    klawisza będzie powodować wywołanie przerwania IRQ obsługującego klawiaturę.
-
-    Program ANTIC-a będzie zakłócany poprzez przełączanie ROM - RAM, w przypadku gdy
-    korzystamy z przerwania Display Listy (DLI) może dojść do uszkodzenia stosu
-    i wyłożenia się systemu.
-
 #### `ROMOFF`
 
 ```delphi
@@ -291,6 +282,15 @@ Powoduje utworzenie dodatkowego bloku programu, realizującego wyłączenie BASI
 Zyskujemy dostęp do pamięci *pod ROM-em*, `$C000..$CFFF`, `$D800..$FFFF`.
 
 Zestaw znaków z **ROM** `$E000..$E3FF` zostaje przepisany pod ten sam adres w **RAM**, zostaje zainstalowany handler przerwań `NMI`, `IRQ`. System operacyjny działa normalnie, można z poziomu **ASM** wywoływać procedury w nim zawarte poprzez makro `m@call`.
+
+    !!! UWAGA !!!
+
+    W przypadku umieszczenia programu ANTIC-a Display List pod ROM-em każde naciśnięcie
+    klawisza będzie powodować wywołanie przerwania IRQ obsługującego klawiaturę.
+
+    Program ANTIC-a będzie zakłócany poprzez przełączanie ROM - RAM, w przypadku gdy
+    korzystamy z przerwania Display Listy (DLI) może dojść do uszkodzenia stosu
+    i wyłożenia się systemu.
 
 ### [$R, $RESOURCE](https://www.freepascal.org/docs-html/prog/progsu67.html#x74-730001.2.67)
 
