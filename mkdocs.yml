@@ -15,8 +15,9 @@ nav:
     - Sposób użycia: sposob-uzycia.md
     - Składnia: skladnia.md
     - Wstawki assemblera: asmblock.md
-    - Stałe: stale.md
     - Typy: typy.md
+    - Stałe: stale.md
+    - Zmienne: zmienne.md
     - Instrukcje: instrukcje.md
     - Procedury, funkcje, modyfikatory: procedury-funkcje.md
     - Moduły: moduly.md
